@@ -14,7 +14,7 @@ import           Language.Javascript.JSaddle ((!), (#), jsg)
 import           Miso hiding (width_, height_)
 import           Miso.String
 import           Miso.Svg.Property hiding (id_)
-import           Miso.Svg.Element hiding (text_)
+import           Miso.Svg.Element hiding (a_)
 import qualified Miso.Svg.Element as SVG
 import qualified Miso.Html.Element as HTML
 -----------------------------------------------------------------------------
@@ -36,7 +36,7 @@ main = run $ startComponent app
 #endif
 -----------------------------------------------------------------------------
 app :: App Bool Int
-app = component False $ \_ ->
+app = component False noop $ \_ ->
   div_
   []
   [ alert_
@@ -53,7 +53,7 @@ app = component False $ \_ ->
   ]
 -----------------------------------------------------------------------------
 alert_ :: View action
-alert_ = component_ [] $ component () $ \() ->
+alert_ = div_ [ key_ @MisoString "alert" ] +> component () noop $ \() ->
   div_
   [ class_ "alert"
   ]
@@ -87,9 +87,8 @@ data AlertDialog
   | CloseDialog
 -----------------------------------------------------------------------------
 alertDialog_
-  :: Eq model
-  => View action
-alertDialog_ = component_ [] vcomp { update = update_ }
+  :: View action
+alertDialog_ = div_ [ key_ @MisoString "alert-dialog" ] +> vcomp
   where
     update_ (ShowModal domRef) = io_ $ do
       dialogRef <- domRef ! ("nextSibling" :: MisoString)
@@ -101,7 +100,7 @@ alertDialog_ = component_ [] vcomp { update = update_ }
         $ ["alert-dialog" :: MisoString]
       void $ dialog # ("close" :: MisoString) $ ()
 
-    vcomp = component () $ \() ->
+    vcomp = component () update_ $ \() ->
       div_
       [
       ]
@@ -128,11 +127,10 @@ alertDialog_ = component_ [] vcomp { update = update_ }
               , p_
                 [ id_ "alert-dialog-description"
                 ]
-                [ text_
-                  [ "This action cannot be undone. "
-                  , "This will permanently delete your"
-                  , "account and remove your data from our servers."
-                  ]
+                [ text $
+                    "This action cannot be undone. " <>
+                    "This will permanently delete your" <>
+                    "account and remove your data from our servers."
                 ]
               ]
             , footer_ []
@@ -323,7 +321,7 @@ combobox_ = div_
         ]
     ]
 
-tooltip_ :: View parent action
+tooltip_ :: View action
 tooltip_ =
   button_
   [ class_ "btn-outline"
@@ -332,7 +330,7 @@ tooltip_ =
   [ "Default"
   ]
 
-textarea :: View parent action
+textarea :: View action
 textarea =
   textarea_
   [ class_ "textarea"
