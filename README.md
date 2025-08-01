@@ -1,7 +1,7 @@
 :ramen: 🎨 miso-ui
 ====================
 
-`miso-ui` is a component library that uses [Basecoat](https://basecoatui.com/) to deliver [ShadCN](https://ui.shadcn.com) styling, that uses [Tailwind CSS](https://tailwindcss.com/) under the hood.
+`miso-ui` is a component library that uses [Basecoat](https://basecoatui.com/) to deliver [ShadCN](https://ui.shadcn.com) styling. It uses [Tailwind CSS](https://tailwindcss.com/) utility classes under the hood.
 
 View live [here](https://miso-ui.haskell-miso.org)
 
