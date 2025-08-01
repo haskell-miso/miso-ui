@@ -1,11 +1,9 @@
-🍔 miso-sampler 
+:ramen: 🎨 miso-ui
 ====================
 
-A simple example of using [miso](https://github.com/dmjio/miso) w/ nix integration. This project contains a sample miso application with scripts to develop against vanilla GHC and to compile to Web Assembly.
+`miso-ui` is a component library that uses [Basecoat](https://basecoatui.com/) to deliver [ShadCN](https://ui.shadcn.com) styling, that uses [Tailwind CSS](https://tailwindcss.com/) under the hood.
 
-> [!TIP] 
-> This requires installing [nix](https://nixos.org) with [Nix Flakes](https://wiki.nixos.org/wiki/Flakes) enabled.
-> Although not required, we recommend using [miso's binary cache](https://github.com/dmjio/miso?tab=readme-ov-file#binary-cache).
+View live [here](https://miso-ui.haskell-miso.org)
 
 ### Development
 
