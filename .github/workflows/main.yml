@@ -4,6 +4,7 @@ name: Build and deploy
 on:
   push:
     branches: main
+  pull_request:
 
 permissions:
   contents: read
@@ -30,6 +31,7 @@ jobs:
           path: ./public
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     environment:
