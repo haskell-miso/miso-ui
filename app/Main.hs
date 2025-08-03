@@ -52,7 +52,7 @@ app = component False noop $ \_ ->
   , popover
   ]
 -----------------------------------------------------------------------------
-alert_ :: View action
+alert_ :: View model action
 alert_ = div_ [ key_ @MisoString "alert" ] +> component () noop $ \() ->
   div_
   [ class_ "alert"
@@ -87,7 +87,7 @@ data AlertDialog
   | CloseDialog
 -----------------------------------------------------------------------------
 alertDialog_
-  :: View action
+  :: View model action
 alertDialog_ = div_ [ key_ @MisoString "alert-dialog" ] +> vcomp
   where
     update_ (ShowModal domRef) = io_ $ do
@@ -147,7 +147,7 @@ alertDialog_ = div_ [ key_ @MisoString "alert-dialog" ] +> vcomp
           ]
         ]
 -----------------------------------------------------------------------------
-avatar_ :: View action
+avatar_ :: View model action
 avatar_ = 
   img_ 
     [ class_ "size-8 shrink-0 object-cover rounded-full" 
@@ -155,13 +155,13 @@ avatar_ =
     , src_ "https://github.com/hunvreus.png" 
     ] 
 -----------------------------------------------------------------------------
-badge_ :: View action
+badge_ :: View model action
 badge_ = span_ [ class_ "badge" ][ "Badge" ]
 -----------------------------------------------------------------------------
-button__ :: View action
+button__ :: View model action
 button__ = button_ [ class_ "btn" ] [ "Button" ]
 -----------------------------------------------------------------------------
-card_ :: View action
+card_ :: View model action
 card_ =
   div_
   [ class_ "card w-full" ]
@@ -215,7 +215,7 @@ card_ =
     ]
   ]
 -----------------------------------------------------------------------------
-checkbox_ :: View action
+checkbox_ :: View model action
 checkbox_ =
   label_
   [ class_ "label gap-3" ]
@@ -226,7 +226,7 @@ checkbox_ =
   , "Accept terms and conditions" 
   ] 
 -----------------------------------------------------------------------------
-combobox_ :: View action
+combobox_ :: View model action
 combobox_ = div_
     [ id_ "select-909078"
     , class_ "select"
@@ -321,7 +321,7 @@ combobox_ = div_
         ]
     ]
 
-tooltip_ :: View action
+tooltip_ :: View model action
 tooltip_ =
   button_
   [ class_ "btn-outline"
@@ -330,7 +330,7 @@ tooltip_ =
   [ "Default"
   ]
 
-textarea :: View action
+textarea :: View model action
 textarea =
   textarea_
   [ class_ "textarea"
@@ -338,7 +338,7 @@ textarea =
   ]
   []
 
-table :: View action
+table :: View model action
 table = div_
     [ class_ "overflow-x-auto" ]
     [ table_
@@ -421,7 +421,7 @@ table = div_
         ]
     ]
 
-switch_ :: View action
+switch_ :: View model action
 switch_ = label_
   [ class_ "label" ]
   [ input_
@@ -433,7 +433,7 @@ switch_ = label_
   , "Airplane Mode"
   ]
 
-select :: View action
+select :: View model action
 select = select_
   [ class_ "select w-[180px]" ]
   [ optgroup_
@@ -447,7 +447,7 @@ select = select_
       ]
   ]
 
-radioGroup :: View action
+radioGroup :: View model action
 radioGroup = fieldset_
     [ class_ "grid gap-3" ]
     [ label_
@@ -483,7 +483,7 @@ radioGroup = fieldset_
         ]
     ]
 
-popover :: View action
+popover :: View model action
 popover = div_
     [ id_ "demo-popover"
     , class_ "popover"
