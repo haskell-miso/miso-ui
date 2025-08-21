@@ -9,12 +9,11 @@
 module Main where
 -----------------------------------------------------------------------------
 import           Control.Monad
-import           Language.Javascript.JSaddle ((!), (#), jsg)
+import           Language.Javascript.JSaddle ((#), jsg)
 -----------------------------------------------------------------------------
 import           Miso hiding (width_, height_)
-import           Miso.String
 import           Miso.Svg.Property hiding (id_)
-import           Miso.Svg.Element hiding (a_)
+import           Miso.Svg.Element (circle_)
 import qualified Miso.Svg.Element as SVG
 import qualified Miso.Html.Element as HTML
 -----------------------------------------------------------------------------
@@ -26,10 +25,10 @@ main :: IO ()
 main = run $ startComponent app
 #ifndef WASM
   { styles =
-    [ Href "https://cdn.jsdelivr.net/npm/basecoat-css@0.2.8/dist/basecoat.cdn.min.css"
+    [ Href "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.2/dist/basecoat.cdn.min.css"
     ]
   , scripts =
-      [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.2.8/dist/js/all.min.js"
+      [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.2/dist/js/all.min.js"
       , Src "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
       ]
   }
@@ -91,7 +90,7 @@ alertDialog_
 alertDialog_ = div_ [ key_ @MisoString "alert-dialog" ] +> vcomp
   where
     update_ (ShowModal domRef) = io_ $ do
-      dialogRef <- domRef ! ("nextSibling" :: MisoString)
+      dialogRef <- nextSibling domRef
       void $ dialogRef # ("showModal" :: MisoString) $ ()
 
     update_ CloseDialog = io_ $ do
