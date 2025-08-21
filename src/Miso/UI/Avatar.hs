@@ -19,5 +19,11 @@ import           Miso
 -- import           Miso.Lens
 -----------------------------------------------------------------------------
 avatar_ :: Component parent model action
-avatar_ = undefined
+avatar_ = component undefined noop (const view_)
 -----------------------------------------------------------------------------
+view_ :: View model action
+view_ = img_
+    [ src_ "https://github.com/hunvreus.png"
+    , alt_ "@hunvreus"
+    , class_ "size-8 shrink-0 object-cover rounded-full"
+    ]
