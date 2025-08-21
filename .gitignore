@@ -2,3 +2,5 @@
 dist*
 result
 public
+/TAGS
+/cabal.project.local
