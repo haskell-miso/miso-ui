@@ -13,7 +13,7 @@ import           Control.Category ((<<<))
 import           Prelude hiding ((.))
 -----------------------------------------------------------------------------
 import           Miso
-import qualified Miso.Html.Element as H
+import qualified Miso.Html as H
 import qualified Miso.Html.Property as P
 -----------------------------------------------------------------------------
 import           Miso.Lens
@@ -63,17 +63,17 @@ someAlertDialog = lens _someAlertDialog $ \r x -> r { _someAlertDialog = x }
 -----------------------------------------------------------------------------
 app :: App Model Action
 app = component emptyModel update_ $ \_ ->
-  div_
+  H.div_
   []
-  [ button_
-    [ className "btn"
-    , onClick Toggle
+  [ H.button_
+    [ P.className "btn"
+    , H.onClick Toggle
     ]
     [ "toggle alert icon"
     ]
-  , div_ [ key_ @MisoString "alert" ] +>
+  , H.div_ [ key_ @MisoString "alert" ] +>
       UI.alert_ (someAlert --> this)
-  , div_ [ key_ @MisoString "alert-dialog" ] +>
+  , H.div_ [ key_ @MisoString "alert-dialog" ] +>
       UI.alertDialog_ (someAlertDialog --> this)
   -- , avatar_
   -- , badge_
