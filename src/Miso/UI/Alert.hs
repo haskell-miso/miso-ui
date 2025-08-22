@@ -87,17 +87,16 @@ successIcon = S.svg_
   , SP.fill_ "none"
   , SP.stroke_ "currentColor"
   , SP.strokeWidth_ "2"
-  , SP.strokeLinecap_ "round"
+  , SP.strokeLinecap_ "round" 
   , SP.strokeLinejoin_ "round"
   ]
   [ S.circle_
     [ SP.cx_ "12"
     , SP.cy_ "12"
-    , SP.r_ "10"
+    , SP.r_ "S"
     ]
-    [ S.path_
-      [ SP.d_ "m9 12 2 2 4-4"
-      ] []
+  , S.path_
+    [ SP.d_ "m9 12 2 2 4-4"
     ]
   ]
 -----------------------------------------------------------------------------
@@ -118,18 +117,18 @@ destructiveIcon =
       [ SP.r_ "10"
       , SP.cy_ "12"
       , SP.cx_ "12"
-      ] []
+      ]
     , S.line_
       [ SP.y2_ "12"
       , SP.y1_ "8"
       , SP.x2_ "12"
       , SP.x1_ "12"
-      ] []
+      ]
     , S.line_
       [ SP.y2_ "16"
       , SP.y1_ "16"
       , SP.x2_ "12.01"
       , SP.x1_ "12"
-      ] []
+      ]
     ]
 -----------------------------------------------------------------------------

@@ -13,6 +13,9 @@ import           Control.Category ((<<<))
 import           Prelude hiding ((.))
 -----------------------------------------------------------------------------
 import           Miso
+import qualified Miso.Html.Element as H
+import qualified Miso.Html.Property as P
+-----------------------------------------------------------------------------
 import           Miso.Lens
 import           Miso.Lens.TH
 -----------------------------------------------------------------------------

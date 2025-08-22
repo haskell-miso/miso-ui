@@ -11,94 +11,92 @@ module Miso.UI.Table
     table_
   ) where
 -----------------------------------------------------------------------------
-import           Miso hiding (table_)
--- import qualified Miso.Svg as S
--- import qualified Miso.Svg.Property as SP
+import           Miso
 import qualified Miso.Html.Element as H
--- import qualified Miso.Html.Property as P
--- import           Miso.Lens
+import qualified Miso.Html.Property as P
 -----------------------------------------------------------------------------
 table_ :: Component parent model action
 table_ = component undefined noop (const view_)
 -----------------------------------------------------------------------------
 view_ :: View model action
-view_ = div_
-    [ class_ "overflow-x-auto" ]
+view_ =
+  H.div_
+    [ P.class_ "overflow-x-auto" ]
     [ H.table_
-        [ class_ "table" ]
-        [ caption_ [][ "A list of your recent invoices." ]
-        , thead_ []
-            [ tr_ []
-                [ th_ [][ "Invoice" ]
-                , th_ [][ "Status" ]
-                , th_ [][ "Method" ]
-                , th_ [][ "Amount" ]
+        [ P.class_ "table" ]
+        [ H.caption_ [] [ "A list of your recent invoices." ]
+        , H.thead_ []
+            [ H.tr_ []
+                [ H.th_ [][ "Invoice" ]
+                , H.th_ [][ "Status" ]
+                , H.th_ [][ "Method" ]
+                , H.th_ [][ "Amount" ]
                 ]
             ]
-        , tbody_ []
-            [ tr_ []
-                [ td_
-                    [ class_ "font-medium" ][ "INV001" ]
-                , td_ [][ "Paid" ]
-                , td_ [][ "Credit Card" ]
-                , td_
-                    [ class_ "text-right" ][ "$250.00" ]
+        , H.tbody_ []
+            [ H.tr_ []
+                [ H.td_
+                    [ P.class_ "font-medium" ][ "INV001" ]
+                , H.td_ [][ "Paid" ]
+                , H.td_ [][ "Credit Card" ]
+                , H.td_
+                    [ P.class_ "text-right" ][ "$250.00" ]
                 ]
-            , tr_ []
-                [ td_
-                    [ class_ "font-medium" ][ "INV002" ]
-                , td_ [][ "Pending" ]
-                , td_ [][ "PayPal" ]
-                , td_
-                    [ class_ "text-right" ][ "$150.00" ]
+            , H.tr_ []
+                [ H.td_
+                    [ P.class_ "font-medium" ][ "INV002" ]
+                , H.td_ [][ "Pending" ]
+                , H.td_ [][ "PayPal" ]
+                , H.td_
+                    [ P.class_ "text-right" ][ "$150.00" ]
                 ]
-            , tr_ []
-                [ td_
-                    [ class_ "font-medium" ][ "INV003" ]
-                , td_ [][ "Unpaid" ]
-                , td_ [][ "Bank Transfer" ]
-                , td_
-                    [ class_ "text-right" ][ "$350.00" ]
+            , H.tr_ []
+                [ H.td_
+                    [ P.class_ "font-medium" ][ "INV003" ]
+                , H.td_ [][ "Unpaid" ]
+                , H.td_ [][ "Bank Transfer" ]
+                , H.td_
+                    [ P.class_ "text-right" ][ "$350.00" ]
                 ]
-            , tr_ []
-                [ td_
-                    [ class_ "font-medium" ][ "INV004" ]
-                , td_ [][ "Paid" ]
-                , td_ [][ "Paypal" ]
-                , td_
-                    [ class_ "text-right" ][ "$450.00" ]
+            , H.tr_ []
+                [ H.td_
+                    [ P.class_ "font-medium" ][ "INV004" ]
+                , H.td_ [][ "Paid" ]
+                , H.td_ [][ "Paypal" ]
+                , H.td_
+                    [ P.class_ "text-right" ][ "$450.00" ]
                 ]
-            , tr_ []
-                [ td_
-                    [ class_ "font-medium" ][ "INV005" ]
-                , td_ [][ "Paid" ]
-                , td_ [][ "Credit Card" ]
-                , td_
-                    [ class_ "text-right" ][ "$550.00" ]
+            , H.tr_ []
+                [ H.td_
+                    [ P.class_ "font-medium" ][ "INV005" ]
+                , H.td_ [][ "Paid" ]
+                , H.td_ [][ "Credit Card" ]
+                , H.td_
+                    [ P.class_ "text-right" ][ "$550.00" ]
                 ]
-            , tr_ []
-                [ td_
-                    [ class_ "font-medium" ][ "INV006" ]
-                , td_ [][ "Pending" ]
-                , td_ [][ "Bank Transfer" ]
-                , td_
-                    [ class_ "text-right" ][ "$200.00" ]
+            , H.tr_ []
+                [ H.td_
+                    [ P.class_ "font-medium" ][ "INV006" ]
+                , H.td_ [][ "Pending" ]
+                , H.td_ [][ "Bank Transfer" ]
+                , H.td_
+                    [ P.class_ "text-right" ][ "$200.00" ]
                 ]
-            , tr_ []
-                [ td_
-                    [ class_ "font-medium" ][ "INV007" ]
-                , td_ [][ "Unpaid" ]
-                , td_ [][ "Credit Card" ]
-                , td_
-                    [ class_ "text-right" ][ "$300.00" ]
+            , H.tr_ []
+                [ H.td_
+                    [ P.class_ "font-medium" ][ "INV007" ]
+                , H.td_ [][ "Unpaid" ]
+                , H.td_ [][ "Credit Card" ]
+                , H.td_
+                    [ P.class_ "text-right" ][ "$300.00" ]
                 ]
             ]
-        , tfoot_ []
-            [ tr_ []
-                [ td_
-                    [ colspan_ "3" ][ "Total" ]
-                , td_
-                    [ class_ "text-right" ][ "$2,500.00" ]
+        , H.tfoot_ []
+            [ H.tr_ []
+                [ H.td_
+                    [ P.colspan_ "3" ][ "Total" ]
+                , H.td_
+                    [ P.class_ "text-right" ][ "$2,500.00" ]
                 ]
             ]
         ]

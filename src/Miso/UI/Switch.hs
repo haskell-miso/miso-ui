@@ -12,23 +12,21 @@ module Miso.UI.Switch
   ) where
 -----------------------------------------------------------------------------
 import           Miso
--- import qualified Miso.Svg as S
--- import qualified Miso.Svg.Property as SP
--- import qualified Miso.Html.Element as H
--- import qualified Miso.Html.Property as P
--- import           Miso.Lens
+import qualified Miso.Html.Element as H
+import qualified Miso.Html.Property as P
 -----------------------------------------------------------------------------
 switch_ :: Component parent model action
 switch_ = component undefined noop (const view_)
 -----------------------------------------------------------------------------
 view_ :: View model action
-view_ = label_
-  [ class_ "label" ]
-  [ input_
-    [ type_ "checkbox"
-    , name_ "switch"
-    , role_ "switch"
-    , class_ "input"
+view_ =
+  H.label_
+  [ P.class_ "label" ]
+  [ H.input_
+    [ P.type_ "checkbox"
+    , P.name_ "switch"
+    , P.role_ "switch"
+    , P.class_ "input"
     ]
   , "Airplane Mode"
   ]

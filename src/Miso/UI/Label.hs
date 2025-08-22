@@ -11,7 +11,7 @@ module Miso.UI.Label
     label_
   ) where
 -----------------------------------------------------------------------------
-import           Miso.Types
+import           Miso
 -- import qualified Miso.Svg as S
 -- import qualified Miso.Svg.Property as SP
 -- import qualified Miso.Html.Element as H

@@ -12,22 +12,19 @@ module Miso.UI.Checkbox
   ) where
 -----------------------------------------------------------------------------
 import           Miso
--- import qualified Miso.Svg as S
--- import qualified Miso.Svg.Property as SP
--- import qualified Miso.Html.Element as H
--- import qualified Miso.Html.Property as P
--- import           Miso.Lens
+import qualified Miso.Html.Element as H
+import qualified Miso.Html.Property as P
 -----------------------------------------------------------------------------
 checkbox_ :: Component parent model action
 checkbox_ = component undefined noop (const view_)
 -----------------------------------------------------------------------------
 view_ :: View model action
 view_ =
-  label_
-  [ class_ "label gap-3" ]
-  [ input_ 
-    [ type_ "checkbox" 
-    , class_ "input" 
+  H.label_
+  [ P.class_ "label gap-3" ]
+  [ H.input_ 
+    [ P.type_ "checkbox" 
+    , P.class_ "input" 
     ] 
   , "Accept terms and conditions" 
   ] 

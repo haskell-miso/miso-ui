@@ -11,12 +11,9 @@ module Miso.UI.Textarea
     textarea_
   ) where
 -----------------------------------------------------------------------------
-import           Miso hiding (textarea_)
--- import qualified Miso.Svg as S
--- import qualified Miso.Svg.Property as SP
+import           Miso
 import qualified Miso.Html.Element as H
 import qualified Miso.Html.Property as P
--- import           Miso.Lens
 -----------------------------------------------------------------------------
 textarea_ :: Component parent model action
 textarea_ = component undefined noop (const view_)

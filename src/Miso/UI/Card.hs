@@ -12,64 +12,62 @@ module Miso.UI.Card
   ) where
 -----------------------------------------------------------------------------
 import           Miso
--- import qualified Miso.Svg as S
--- import qualified Miso.Svg.Property as SP
+import           Miso.Html
 import qualified Miso.Html.Element as H
--- import qualified Miso.Html.Property as P
--- import           Miso.Lens
+import qualified Miso.Html.Property as P
 -----------------------------------------------------------------------------
 card_ :: Component parent model action
 card_ = component undefined noop (const view_)
 -----------------------------------------------------------------------------
 view_ :: View model action
 view_ =
-  div_
-  [ class_ "card w-full" ]
-  [ header_ []
-    [ h2_ [][ "Login to your account" ]
-    , p_ [][ "Enter your details below to login to your account" ]
+  H.div_
+  [ P.class_ "card w-full" ]
+  [ H.header_ []
+    [ H.h2_ [][ "Login to your account" ]
+    , H.p_ [][ "Enter your details below to login to your account" ]
     ]
-  , section_ []
+  , H.section_ []
     [ H.form
-      [ class_ "form grid gap-6"
+      [ P.class_ "form grid gap-6"
       ]
-      [ div_
-        [ class_ "grid gap-2" ]
-        [ label_ [ for_ "demo-card-form-email" ][ "Email" ]
+      [ H.div_
+        [ P.class_ "grid gap-2" ]
+        [ H.label_ [ P.for_ "demo-card-form-email" ][ "Email" ]
         , input_
-          [ type_ "email"
-          , id_ "demo-card-form-email"
+          [ P.type_ "email"
+          , P.id_ "demo-card-form-email"
           ]
         ]
-      , div_ [ class_ "grid gap-2" ]
-        [ div_ [ class_ "flex items-center gap-2" ]
-          [ label_ [ for_ "demo-card-form-password" ][ "Password" ]
-          , a_
-            [ href_ "#"
-            , class_ "ml-auto inline-block text-sm underline-offset-4 hover:underline"
+      , H.div_ [ P.class_ "grid gap-2" ]
+        [ H.div_ [ P.class_ "flex items-center gap-2" ]
+          [ H.label_ [ P.for_ "demo-card-form-password" ][ "Password" ]
+          , H.a_
+            [ P.href_ "#"
+            , P.class_ "ml-auto inline-block text-sm underline-offset-4 hover:underline"
             ] [ "Forgot your password?" ]
           ]
-        , input_
-          [ type_ "password"
-          , id_ "demo-card-form-password"
+        , H.input_
+          [ P.type_ "password"
+          , P.id_ "demo-card-form-password"
           ]
         ]
       ]
     ]
-  , footer_ [ class_ "flex flex-col items-center gap-2" ]
-    [ button_
-      [ type_ "button"
-      , class_ "btn w-full"
+  , H.footer_ [ P.class_ "flex flex-col items-center gap-2" ]
+    [ H.button_
+      [ P.type_ "button"
+      , P.class_ "btn w-full"
       ] [ "Login" ]
-    , button_
-      [ type_ "button"
-      , class_ "btn-outline w-full"
+    , H.button_
+      [ P.type_ "button"
+      , P.class_ "btn-outline w-full"
       ] [ "Login with Google" ]
-    , p_ [ class_ "mt-4 text-center text-sm" ]
+    , H.p_ [ P.class_ "mt-4 text-center text-sm" ]
       [ "Don't have an account?"
-      , a_
-        [ href_ "#"
-        , class_ "underline-offset-4 hover:underline"
+      , H.a_
+        [ P.href_ "#"
+        , P.class_ "underline-offset-4 hover:underline"
         ] [ "Sign up" ]
       ]
     ]

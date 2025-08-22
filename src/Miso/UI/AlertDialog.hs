@@ -20,7 +20,10 @@ module Miso.UI.AlertDialog
 import           Control.Monad
 import           Language.Javascript.JSaddle ((#), jsg)
 -----------------------------------------------------------------------------
-import           Miso hiding (alert)
+import           Miso
+import qualified Miso.Html.Element as H
+import qualified Miso.Html.Event as E
+import qualified Miso.Html.Property as P
 -----------------------------------------------------------------------------
 data AlertDialog
   = AlertDialog
@@ -54,31 +57,31 @@ alertDialogComponent = vcomp
       void $ dialog # ("close" :: MisoString) $ ()
 
     vcomp = component emptyAlertDialog update_ $ \_ ->
-      div_
+      H.div_
       [
       ]
-      [ button_
-        [ type_ "button"
-        , class_ "btn-outline"
-        , onClickWith ShowModal
+      [ H.button_
+        [ P.type_ "button"
+        , P.class_ "btn-outline"
+        , E.onClickWith ShowModal
         ]
         [ "Open alert dialog"
         ]
-      , dialog_ 
-          [ id_ "alert-dialog" 
-          , class_ "dialog" 
-          , aria_ "labelledby" "alert-dialog-title" 
-          , aria_ "describedby" "alert-dialog-description" 
+      , H.dialog_ 
+          [ P.id_ "alert-dialog" 
+          , P.class_ "dialog" 
+          , P.aria_ "labelledby" "alert-dialog-title" 
+          , P.aria_ "describedby" "alert-dialog-description" 
           ] 
-          [ article_ []
-            [ header_ []
-              [ h2_
-                [ id_ "alert-dialog-title"
+          [ H.article_ []
+            [ H.header_ []
+              [ H.h2_
+                [ P.id_ "alert-dialog-title"
                 ]
                 [ "Are you absolutely sure?"
                 ]
-              , p_
-                [ id_ "alert-dialog-description"
+              , H.p_
+                [ P.id_ "alert-dialog-description"
                 ]
                 [ text $
                     "This action cannot be undone. " <>
@@ -86,14 +89,14 @@ alertDialogComponent = vcomp
                     "account and remove your data from our servers."
                 ]
               ]
-            , footer_ []
-              [ button_ 
-                [ class_ "btn-outline" 
-                , onClick CloseDialog
+            , H.footer_ []
+              [ H.button_ 
+                [ P.class_ "btn-outline" 
+                , E.onClick CloseDialog
                 ] [ "Cancel" ]
-              , button_ 
-                [ class_ "btn-primary" 
-                , onClick CloseDialog
+              , H.button_ 
+                [ P.class_ "btn-primary" 
+                , E.onClick CloseDialog
                 ] [ "Continue" ]
               ] 
             ]

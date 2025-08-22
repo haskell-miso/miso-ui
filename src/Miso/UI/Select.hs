@@ -11,27 +11,24 @@ module Miso.UI.Select
     select_
   ) where
 -----------------------------------------------------------------------------
-import           Miso hiding (select_)
--- import qualified Miso.Svg as S
--- import qualified Miso.Svg.Property as SP
+import           Miso
 import qualified Miso.Html.Element as H
--- import qualified Miso.Html.Property as P
--- import           Miso.Lens
+import qualified Miso.Html.Property as P
 -----------------------------------------------------------------------------
 select_ :: Component parent model action
 select_ = component undefined noop (const view_)
 -----------------------------------------------------------------------------
 view_ :: View model action
 view_ = H.select_
-  [ class_ "select w-[180px]" ]
-  [ optgroup_
-      [ textProp "label" "Fruits"
+  [ P.class_ "select w-[180px]" ]
+  [ H.optgroup_
+      [ P.label_ "Fruits"
       ]
-      [ option_ []  [ "Apple" ]
-      , option_ []  [ "Banana" ]
-      , option_ []  [ "Blueberry" ]
-      , option_ []  [ "Grapes" ]
-      , option_ []  [ "Pineapple" ]
+      [ H.option_ []  [ "Apple" ]
+      , H.option_ []  [ "Banana" ]
+      , H.option_ []  [ "Blueberry" ]
+      , H.option_ []  [ "Grapes" ]
+      , H.option_ []  [ "Pineapple" ]
       ]
   ]
 

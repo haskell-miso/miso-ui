@@ -11,16 +11,16 @@ module Miso.UI.Button
     button_
   ) where
 -----------------------------------------------------------------------------
-import           Miso hiding (button_)
+import           Miso
 -- import qualified Miso.Svg as S
 -- import qualified Miso.Svg.Property as SP
 import qualified Miso.Html.Element as H
--- import qualified Miso.Html.Property as P
+import qualified Miso.Html.Property as P
 -- import           Miso.Lens
 -----------------------------------------------------------------------------
 button_ :: Component parent model action
 button_ = component undefined noop (const view_)
 -----------------------------------------------------------------------------
 view_ :: View model action
-view_ = H.button_ [ class_ "btn" ] [ "Button" ]
+view_ = H.button_ [ P.class_ "btn" ] [ "Button" ]
 -----------------------------------------------------------------------------

@@ -12,6 +12,7 @@ module Miso.UI.Sidebar
   ) where
 -----------------------------------------------------------------------------
 import           Miso.Types
+-- import           Miso.Html
 -- import qualified Miso.Svg as S
 -- import qualified Miso.Svg.Property as SP
 -- import qualified Miso.Html.Element as H

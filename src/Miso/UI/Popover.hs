@@ -12,90 +12,88 @@ module Miso.UI.Popover
   ) where
 -----------------------------------------------------------------------------
 import           Miso
--- import qualified Miso.Svg as S
--- import qualified Miso.Svg.Property as SP
--- import qualified Miso.Html.Element as H
--- import qualified Miso.Html.Property as P
--- import           Miso.Lens
+import qualified Miso.Html.Element as H
+import qualified Miso.Html.Property as P
 -----------------------------------------------------------------------------
 popover_ :: Component parent model action
 popover_ = component undefined noop (const view_)
 -----------------------------------------------------------------------------
 view_ :: View model action
-view_ = div_
-    [ id_ "demo-popover"
-    , class_ "popover"
+view_ =
+  H.div_
+    [ P.id_ "demo-popover"
+    , P.class_ "popover"
     ]
-    [ button_
-        [ id_ "demo-popover-trigger"
-        , type_ "button"
-        , textProp "aria-expanded" "false"
-        , textProp "aria-controls" "demo-popover-popover"
-        , class_ "btn-outline"
+    [ H.button_
+        [ P.id_ "demo-popover-trigger"
+        , P.type_ "button"
+        , P.aria_ "expanded" "false"
+        , P.aria_ "controls" "demo-popover-popover"
+        , P.class_ "btn-outline"
         ][ "Open popover" ]
-    , div_
-        [ id_ "demo-popover-popover"
+    , H.div_
+        [ P.id_ "demo-popover-popover"
         , textProp "data-popover" ""
         , textProp "aria-hidden" "true"
-        , class_ "w-80"
+        , P.class_ "w-80"
         ]
-        [ div_
-            [ class_ "grid gap-4" ]
-            [ header_
-                [ class_ "grid gap-1.5" ]
-                [ h4_
-                    [ class_ "leading-none font-medium" ][ "Dimensions" ]
-                , p_
-                    [ class_ "text-muted-foreground text-sm" ][ "Set the dimensions for the layer." ]
+        [ H.div_
+            [ P.class_ "grid gap-4" ]
+            [ H.header_
+                [ P.class_ "grid gap-1.5" ]
+                [ H.h4_
+                    [ P.class_ "leading-none font-medium" ][ "Dimensions" ]
+                , H.p_
+                    [ P.class_ "text-muted-foreground text-sm" ][ "Set the dimensions for the layer." ]
                 ]
-            , form
-                [ class_ "form grid gap-2" ]
-                [ div_
-                    [ class_ "grid grid-cols-3 items-center gap-4" ]
-                    [ label_
-                        [ for_ "demo-popover-width" ][ "Width" ]
-                    , input_
-                        [ type_ "text"
-                        , id_ "demo-popover-width"
-                        , value_ "100%"
-                        , class_ "col-span-2 h-8"
+            , H.form
+                [ P.class_ "form grid gap-2" ]
+                [ H.div_
+                    [ P.class_ "grid grid-cols-3 items-center gap-4" ]
+                    [ H.label_
+                        [ P.for_ "demo-popover-width" ][ "Width" ]
+                    , H.input_
+                        [ P.type_ "text"
+                        , P.id_ "demo-popover-width"
+                        , P.value_ "100%"
+                        , P.class_ "col-span-2 h-8"
                         , textProp "autofocus" ""
                         ]
                     , ">"
                     ]
-                , div_
-                    [ class_ "grid grid-cols-3 items-center gap-4" ]
-                    [ label_
-                        [ for_ "demo-popover-max-width" ][ "Max. width" ]
-                    , input_
-                        [ type_ "text"
-                        , id_ "demo-popover-max-width"
-                        , value_ "300px"
-                        , class_ "col-span-2 h-8"
+                , H.div_
+                    [ P.class_ "grid grid-cols-3 items-center gap-4" ]
+                    [ H.label_
+                        [ P.for_ "demo-popover-max-width" ][ "Max. width" ]
+                    , H.input_
+                        [ P.type_ "text"
+                        , P.id_ "demo-popover-max-width"
+                        , P.value_ "300px"
+                        , P.class_ "col-span-2 h-8"
                         ]
                     , ">"
                     ]
-                , div_
-                    [ class_ "grid grid-cols-3 items-center gap-4" ]
-                    [ label_
-                        [ for_ "demo-popover-height" ][ "Height" ]
-                    , input_
-                        [ type_ "text"
-                        , id_ "demo-popover-height"
-                        , value_ "25px"
-                        , class_ "col-span-2 h-8"
+                , H.div_
+                    [ P.class_ "grid grid-cols-3 items-center gap-4" ]
+                    [ H.label_
+                        [ P.for_ "demo-popover-height" ][ "Height" ]
+                    , H.input_
+                        [ P.type_ "text"
+                        , P.id_ "demo-popover-height"
+                        , P.value_ "25px"
+                        , P.class_ "col-span-2 h-8"
                         ]
                     , ">"
                     ]
-                , div_
-                    [ class_ "grid grid-cols-3 items-center gap-4" ]
-                    [ label_
-                        [ for_ "demo-popover-max-height" ][ "Max. height" ]
-                    , input_
-                        [ type_ "text"
-                        , id_ "demo-popover-max-height"
-                        , value_ "none"
-                        , class_ "col-span-2 h-8"
+                , H.div_
+                    [ P.class_ "grid grid-cols-3 items-center gap-4" ]
+                    [ H.label_
+                        [ P.for_ "demo-popover-max-height" ][ "Max. height" ]
+                    , H.input_
+                        [ P.type_ "text"
+                        , P.id_ "demo-popover-max-height"
+                        , P.value_ "none"
+                        , P.class_ "col-span-2 h-8"
                         ]
                     , ">"
                     ]

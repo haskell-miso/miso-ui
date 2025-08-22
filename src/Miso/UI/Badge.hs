@@ -12,15 +12,12 @@ module Miso.UI.Badge
   ) where
 -----------------------------------------------------------------------------
 import           Miso
--- import qualified Miso.Svg as S
--- import qualified Miso.Svg.Property as SP
--- import qualified Miso.Html.Element as H
--- import qualified Miso.Html.Property as P
--- import           Miso.Lens
+import qualified Miso.Html.Element as H
+import qualified Miso.Html.Property as P
 -----------------------------------------------------------------------------
 badge_ :: Component parent model action
 badge_ = component undefined noop (const view_)
 -----------------------------------------------------------------------------
 view_ :: View model action
-view_ = span_ [ class_ "badge" ][ "Badge" ]
+view_ = H.span_ [ P.class_ "badge" ][ "Badge" ]
 -----------------------------------------------------------------------------

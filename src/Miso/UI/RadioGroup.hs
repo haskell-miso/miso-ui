@@ -12,46 +12,44 @@ module Miso.UI.RadioGroup
   ) where
 -----------------------------------------------------------------------------
 import           Miso
--- import qualified Miso.Svg as S
--- import qualified Miso.Svg.Property as SP
--- import qualified Miso.Html.Element as H
--- import qualified Miso.Html.Property as P
--- import           Miso.Lens
+import qualified Miso.Html.Element as H
+import qualified Miso.Html.Property as P
 -----------------------------------------------------------------------------
 radioGroup_ :: Component parent model action
 radioGroup_ = component undefined noop (const view_)
 -----------------------------------------------------------------------------
 view_ :: View model action
-view_ = fieldset_
-    [ class_ "grid gap-3" ]
-    [ label_
-        [ class_ "label" ]
-        [ input_
-            [ type_ "radio"
-            , name_ "radio-group"
-            , value_ "default"
-            , class_ "input"
+view_ =
+  H.fieldset_
+    [ P.class_ "grid gap-3" ]
+    [ H.label_
+        [ P.class_ "label" ]
+        [ H.input_
+            [ P.type_ "radio"
+            , P.name_ "radio-group"
+            , P.value_ "default"
+            , P.class_ "input"
             ]
         , "Default"
         ]
-    , label_
-        [ class_ "label" ]
-        [ input_
-            [ type_ "radio"
-            , name_ "radio-group"
-            , value_ "comfortable"
-            , class_ "input"
-            , checked_ True
+    , H.label_
+        [ P.class_ "label" ]
+        [ H.input_
+            [ P.type_ "radio"
+            , P.name_ "radio-group"
+            , P.value_ "comfortable"
+            , P.class_ "input"
+            , P.checked_ True
             ]
         , "Comfortable"
         ]
-    , label_
-        [ class_ "label" ]
-        [ input_
-            [ type_ "radio"
-            , name_ "radio-group"
-            , value_ "compact"
-            , class_ "input"
+    , H.label_
+        [ P.class_ "label" ]
+        [ H.input_
+            [ P.type_ "radio"
+            , P.name_ "radio-group"
+            , P.value_ "compact"
+            , P.class_ "input"
             ]
         , "Compact"
         ]
