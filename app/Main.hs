@@ -271,17 +271,17 @@ mainContent =
             [ header_
                 [class_ "flex flex-col gap-4"]
                 [ div_
-                    [class_ "flex flex-col gap-2"]
+                  [class_ "flex flex-col gap-2"]
                     [ h1_
-                        [ class_
-                            "text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl"
-                        ]
-                        ["Haskell miso 🍜 meets ShadCN"]
-                    , p_
-                        [class_ "sm:text-lg text-muted-foreground"]
-                        [ "A miso Components library built with Tailwind, ShadCN and Basecoat CSS."
-                        ]
-                    ]
+                      [ class_
+                         "text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl"
+                      ]
+                      ["miso-ui  🍜"]
+                   , p_
+                     [class_ "sm:text-lg text-muted-foreground"]
+                     [ "A miso component library built with Tailwind, ShadCN and Basecoat CSS."
+                   ]
+                ]
                 , div_
                     [ class_
                         "flex w-full items-center justify-start gap-2 pt-2"
