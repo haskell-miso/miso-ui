@@ -10,10 +10,10 @@
 -----------------------------------------------------------------------------
 module Main where
 -----------------------------------------------------------------------------
+import           Language.Javascript.JSaddle
 import           Control.Category ((<<<))
 import           Prelude hiding ((.))
 -----------------------------------------------------------------------------
-import           Miso
 import           Miso.Html hiding (data_)
 import qualified Miso.Html as H
 import           Miso.Html.Property hiding (title_)
@@ -21,6 +21,7 @@ import           Miso.Svg.Element hiding (title_)
 import qualified Miso.Svg.Element as S
 import           Miso.Svg.Property hiding (id_, height_, width_, target_)
 -----------------------------------------------------------------------------
+import           Miso
 import           Miso.Lens
 import           Miso.Lens.TH
 -----------------------------------------------------------------------------
@@ -37,17 +38,34 @@ main :: IO ()
 main = run $ startComponent app
 #ifndef WASM
   { styles =
-    [ Href "/assets/styles.css"
-    ]
+      [ Href "/assets/styles.css"
+      ]
   , scripts =
-      [ Src "https://basecoatui.com/assets/js/basecoat.js"
-      , Src "https://basecoatui.com/assets/js/command.js"
-      , Src "https://basecoatui.com/assets/js/dropdown-menu.js"
-      , Src "https://basecoatui.com/assets/js/popover.js"
-      , Src "https://basecoatui.com/assets/js/select.js"
-      , Src "https://basecoatui.com/assets/js/sidebar.js"
-      , Src "https://basecoatui.com/assets/js/tabs.js"
-      , Src "https://basecoatui.com/assets/js/toast.js"
+      [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.3/dist/js/all.min.js"
+      , Script
+        """
+        (() => {
+          try {
+            const stored = localStorage.getItem('themeMode');
+            if (stored ? stored === 'dark'
+                       : matchMedia('(prefers-color-scheme: dark)').matches) {
+              document.documentElement.classList.add('dark');
+            }
+          } catch (_) {}
+
+          const apply = dark => {
+            document.documentElement.classList.toggle('dark', dark);
+            try { localStorage.setItem('themeMode', dark ? 'dark' : 'light'); } catch (_) {}
+          };
+
+          document.addEventListener('basecoat:theme', (event) => {
+            const mode = event.detail?.mode;
+            apply(mode === 'dark' ? true
+                 : mode === 'light' ? false
+                 : !document.documentElement.classList.contains('dark'));
+          });
+        })();
+        """
       ]
   }
 #endif
@@ -58,7 +76,7 @@ data Model
   , _someAlertDialog :: UI.AlertDialog
   } deriving Eq
 -----------------------------------------------------------------------------
-data Action = Toggle
+data Action = ToggleDarkMode
 -----------------------------------------------------------------------------
 emptyModel :: Model
 emptyModel =
@@ -73,7 +91,21 @@ someAlertDialog :: Lens Model UI.AlertDialog
 someAlertDialog = lens _someAlertDialog $ \r x -> r { _someAlertDialog = x }
 -----------------------------------------------------------------------------
 app :: App Model Action
-app = component emptyModel noop homeView
+app = component emptyModel update_ homeView
+  where
+    update_ = \case
+      ToggleDarkMode -> do
+        io_ (consoleLog "foo")
+        io_ toggleDarkMode
+-----------------------------------------------------------------------------
+toggleDarkMode :: JSM ()
+toggleDarkMode = do
+  doc <- jsg ("document" :: MisoString)
+  event <-
+    new (jsg ("CustomEvent" :: MisoString))
+      ["basecoat:theme" :: MisoString]
+  _ <- (doc # ("dispatchEvent" :: MisoString)) event
+  pure ()
 -----------------------------------------------------------------------------
 homeView :: p -> View Model Action
 homeView _ =
@@ -137,6 +169,7 @@ mainContent =
                 , data_ "tooltip" "Toggle dark mode"
                 , aria_ "label" "Toggle dark mode"
                 , type_ "button"
+                , onClick ToggleDarkMode
                 ]
                 [ span_
                     [class_ "hidden dark:block"]
