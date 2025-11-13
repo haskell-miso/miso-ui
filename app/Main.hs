@@ -42,8 +42,8 @@ main = run $ startComponent app
       [ Href "/assets/styles.css"
       ]
   , scripts =
-      [ -- Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.3/dist/js/all.min.js"
-        Src "https://basecoatui.com/assets/js/sidebar.js"
+      [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.3/dist/js/all.min.js"
+      , Src "https://basecoatui.com/assets/js/sidebar.js"
       , Script
         """
         (() => {
@@ -99,7 +99,7 @@ app = component emptyModel update_ homeView
       ToggleSidebar ->
         io_ $ do
           let event :: MisoString
-              event = "document.dispatchEvent(new CustomEvent(\'basecoat:sidebar\'))"
+              event = "document.dispatchEvent(new CustomEvent('basecoat:sidebar'))"
           void (eval event)
           consoleLog "clicked sidebar"
       ToggleDarkMode ->
