@@ -221,7 +221,7 @@ mainContent =
                         [ class_
                             "text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl"
                         ]
-                        ["Haskell miso meets ShadCN"]
+                        ["Haskell miso 🍜 meets ShadCN"]
                     , p_
                         [class_ "sm:text-lg text-muted-foreground"]
                         [ "A miso Components library built with Tailwind, ShadCN and Basecoat CSS."
