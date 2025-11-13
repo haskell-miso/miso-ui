@@ -1426,7 +1426,7 @@ asideView = aside_
                         []
                         [ a_
                             [ target_ "_blank"
-                            , href_ "https://github.com/hunvreus/basecoat"
+                            , href_ "https://github.com/dmjio/miso-ui"
                             ]
                             [ svg_
                                 [ xmlns_ "http://www.w3.org/2000/svg"
@@ -1829,7 +1829,7 @@ asideView = aside_
                             [ a_
                                 [ target_ "_blank"
                                 , class_ "btn-sm"
-                                , href_ "https://github.com/dmjio/hunvreus"
+                                , href_ "https://github.com/dmjio/miso"
                                 ]
                                 ["Sponsor me on GitHub"]
                             , a_
