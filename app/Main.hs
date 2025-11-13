@@ -172,8 +172,8 @@ mainContent =
                 , class_ "select h-8 leading-none"
                 , onChange ChangeTheme
                 ]
-                [ option_ [textProp "value" ""] ["Default"]
-                , option_ [value_ "claude"] ["Claude"]
+                [ option_ [value_ ""] ["Default"]
+                , option_ [value_ "claude", selected_ True ] ["Claude"]
                 , option_ [value_ "doom-64"] ["Doom 64"]
                 , option_ [value_ "supabase"] ["Supabase"]
                 ]
