@@ -1835,15 +1835,15 @@ asideView = aside_
                                     [ target_ "_blank"
                                     , href_ "https://github.com/dmjio"
                                     ]
-                                    ["Ronan"]
-                                , "and I made this (and"
+                                    ["@dmjio"]
+                                , " and I'm using the Basecoat CSS framework from "
                                 , a_
                                     [ target_ "_target"
-                                    , href_ "https://pagescms.org"
+                                    , href_ "https://github.com/hunvreus"
                                     , class_ "underline underline-offset-4"
                                     ]
-                                    ["other things"]
-                                , "). If you find it useful, please consider sponsoring me on GitHub or following me on X."
+                                    ["@hunvreus"]
+                                , "). If you find it useful, please consider sponsoring or following @hunvreus"
                                 ]
                             ]
                         , footer_
@@ -1851,15 +1851,15 @@ asideView = aside_
                             [ a_
                                 [ target_ "_blank"
                                 , class_ "btn-sm"
-                                , href_ "https://github.com/dmjio/miso"
+                                , href_ "https://github.com/hunvreus"
                                 ]
-                                ["Sponsor me on GitHub"]
+                                ["Sponsor @hunvreus on GitHub"]
                             , a_
                                 [ target_ "_blank"
                                 , class_ "btn-sm-outline"
-                                , href_ "https://x.com/dmj_io"
+                                , href_ "https://x.com/hunvreus"
                                 ]
-                                ["Follow me on X"]
+                                ["Follow @hunvreus on X"]
                             ]
                         ]
                     ]
