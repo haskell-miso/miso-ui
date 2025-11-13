@@ -221,10 +221,10 @@ mainContent =
                         [ class_
                             "text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl"
                         ]
-                        ["All of the shadcn/ui magic, none of the React"]
+                        ["Haskell miso meets ShadCN"]
                     , p_
                         [class_ "sm:text-lg text-muted-foreground"]
-                        [ "A components library built with Tailwind CSS that works with any web stack."
+                        [ "A miso Components library built with Tailwind, ShadCN and Basecoat CSS."
                         ]
                     ]
                 , div_
