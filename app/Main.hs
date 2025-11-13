@@ -17,7 +17,7 @@ import           Prelude hiding ((.))
 -----------------------------------------------------------------------------
 import           Miso.Html hiding (data_)
 import qualified Miso.Html as H
-import           Miso.Html.Property hiding (title_)
+import           Miso.Html.Property hiding (title_, label_)
 import           Miso.Svg.Element hiding (title_)
 import qualified Miso.Svg.Element as S
 import           Miso.Svg.Property hiding (id_, height_, width_, target_)
@@ -694,104 +694,80 @@ mainContent =
                             ]
                         ]
                     , div_
-                        [class_ "card"]
-                        [ header_
-                            []
-                            [ h2_ [] ["Cookie Settings"]
-                            , p_ [] ["Manage your cookie settings here."]
+                    [class_ "card"]
+                    [ header_
+                        []
+                        [ h2_ [] ["Cookie Settings"]
+                        , p_ [] ["Manage your cookie settings here."]
+                        ]
+                    , section_
+                        [class_ "text-sm grid gap-6"]
+                        [ label_
+                            [ class_ "flex items-center justify-between gap-2"
                             ]
-                        , section_
-                            [class_ "text-sm grid gap-6"]
                             [ div_
                                 [class_ "flex flex-col gap-0.5"]
                                 [ div_
                                     [class_ "font-medium"]
-                                    [ H.label_
-                                        [ class_ "flex items-center justify-between gap-2"
-                                        ]
-                                        ["Strictly Necessary"]
-                                    ]
+                                    ["Strictly Necessary"]
                                 , div_
                                     [class_ "text-muted-foreground"]
-                                    [ H.label_
-                                        [ class_ "flex items-center justify-between gap-2"
-                                        ]
-                                        [ "These cookies are essential in order to use the website and use its features."
-                                        ]
+                                    [ "These cookies are essential in order to use the website and use its features."
                                     ]
                                 ]
-                            , H.label_
-                                [ class_ "flex items-center justify-between gap-2"
-                                ]
-                                [ input_
-                                    [ checked_ True
-                                    , class_ "input"
-                                    , role_ "switch"
-                                    , type_ "checkbox"
-                                    ]
-                                ]
-                            , div_
-                                [class_ "flex flex-col gap-0.5"]
-                                [ div_
-                                    [class_ "font-medium"]
-                                    [ H.label_
-                                        [ class_ "flex items-center justify-between gap-2"
-                                        ]
-                                        ["Functional Cookies"]
-                                    ]
-                                , div_
-                                    [class_ "text-muted-foreground"]
-                                    [ H.label_
-                                        [ class_ "flex items-center justify-between gap-2"
-                                        ]
-                                        [ "These cookies allow the website to provide personalized functionality."
-                                        ]
-                                    ]
-                                ]
-                            , H.label_
-                                [ class_ "flex items-center justify-between gap-2"
-                                ]
-                                [ input_
-                                    [ class_ "input"
-                                    , role_ "switch"
-                                    , type_ "checkbox"
-                                    ]
-                                ]
-                            , div_
-                                [class_ "flex flex-col gap-0.5"]
-                                [ div_
-                                    [class_ "font-medium"]
-                                    [ H.label_
-                                        [ class_ "flex items-center justify-between gap-2"
-                                        ]
-                                        ["Performance Cookies"]
-                                    ]
-                                , div_
-                                    [class_ "text-muted-foreground"]
-                                    [ H.label_
-                                        [ class_ "flex items-center justify-between gap-2"
-                                        ]
-                                        [ "These cookies help to improve the performance of the website."
-                                        ]
-                                    ]
-                                ]
-                            , H.label_
-                                [ class_ "flex items-center justify-between gap-2"
-                                ]
-                                [ input_
-                                    [ class_ "input"
-                                    , role_ "switch"
-                                    , type_ "checkbox"
-                                    ]
+                            , input_
+                                [ checked_ True
+                                , class_ "input"
+                                , role_ "switch"
+                                , type_ "checkbox"
                                 ]
                             ]
-                        , footer_
-                            []
-                            [ button_
-                                [class_ "btn-outline w-full", type_ "button"]
-                                ["Save preferences"]
+                        , label_
+                            [ class_ "flex items-center justify-between gap-2"
+                            ]
+                            [ div_
+                                [class_ "flex flex-col gap-0.5"]
+                                [ div_
+                                    [class_ "font-medium"]
+                                    ["Functional Cookies"]
+                                , div_
+                                    [class_ "text-muted-foreground"]
+                                    [ "These cookies allow the website to provide personalized functionality."
+                                    ]
+                                ]
+                            , input_
+                                [ class_ "input"
+                                , role_ "switch"
+                                , type_ "checkbox"
+                                ]
+                            ]
+                        , label_
+                            [ class_ "flex items-center justify-between gap-2"
+                            ]
+                            [ div_
+                                [class_ "flex flex-col gap-0.5"]
+                                [ div_
+                                    [class_ "font-medium"]
+                                    ["Performance Cookies"]
+                                , div_
+                                    [class_ "text-muted-foreground"]
+                                    [ "These cookies help to improve the performance of the website."
+                                    ]
+                                ]
+                            , input_
+                                [ class_ "input"
+                                , role_ "switch"
+                                , type_ "checkbox"
+                                ]
                             ]
                         ]
+                    , footer_
+                        []
+                        [ button_
+                            [class_ "btn-outline w-full", type_ "button"]
+                            ["Save preferences"]
+                        ]
+                    ]
                     , div_
                         [class_ "card"]
                         [ header_
@@ -1830,7 +1806,7 @@ asideView = aside_
                                 ["I hope you like miso-ui ..."]
                             , p_
                                 [class_ "text-muted-foreground text-sm"]
-                                [ "My name is"
+                                [ " My name is "
                                 , a_
                                     [ target_ "_blank"
                                     , href_ "https://github.com/dmjio"
@@ -1843,7 +1819,7 @@ asideView = aside_
                                     , class_ "underline underline-offset-4"
                                     ]
                                     ["@hunvreus"]
-                                , "). If you find it useful, please consider sponsoring or following @hunvreus"
+                                , ". If you find it useful, please consider sponsoring or following @hunvreus. "
                                 ]
                             ]
                         , footer_
@@ -1851,7 +1827,7 @@ asideView = aside_
                             [ a_
                                 [ target_ "_blank"
                                 , class_ "btn-sm"
-                                , href_ "https://github.com/hunvreus"
+                                , href_ "https://github.com/sponsors/hunvreus"
                                 ]
                                 ["Sponsor @hunvreus on GitHub"]
                             , a_
