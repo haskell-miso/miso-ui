@@ -42,7 +42,8 @@ main = run $ startComponent app
       [ Href "/assets/styles.css"
       ]
   , scripts =
-      [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.3/dist/js/all.min.js"
+      [ -- Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.3/dist/js/all.min.js"
+        Src "https://basecoatui.com/assets/js/sidebar.js"
       , Script
         """
         (() => {
@@ -77,7 +78,7 @@ data Model
   , _someAlertDialog :: UI.AlertDialog
   } deriving Eq
 -----------------------------------------------------------------------------
-data Action = ToggleDarkMode | ChangeTheme MisoString
+data Action = ToggleDarkMode | ChangeTheme MisoString | ToggleSidebar
 -----------------------------------------------------------------------------
 emptyModel :: Model
 emptyModel =
@@ -95,6 +96,12 @@ app :: App Model Action
 app = component emptyModel update_ homeView
   where
     update_ = \case
+      ToggleSidebar ->
+        io_ $ do
+          let event :: MisoString
+              event = "document.dispatchEvent(new CustomEvent(\'basecoat:sidebar\'))"
+          void (eval event)
+          consoleLog "clicked sidebar"
       ToggleDarkMode ->
         io_ toggleDarkMode
       ChangeTheme theme  -> do
@@ -145,6 +152,7 @@ mainContent =
                 , data_ "tooltip" "Toggle sidebar"
                 , aria_ "label" "Toggle sidebar"
                 , type_ "button"
+                , onClick ToggleSidebar
                 ]
                 [ svg_
                     [ strokeLinejoin_ "round"
@@ -1265,7 +1273,7 @@ asideView :: View Model Action
 asideView = aside_
     [ aria_ "hidden" "false"
     , data_ "side" "left"
-    , class_ "sidebar "
+    , class_ "sidebar"
     , id_ "sidebar"
     ]
     [ nav_
