@@ -10,6 +10,7 @@
 -----------------------------------------------------------------------------
 module Main where
 -----------------------------------------------------------------------------
+import           Control.Monad
 import           Language.Javascript.JSaddle
 import           Control.Category ((<<<))
 import           Prelude hiding ((.))
@@ -76,7 +77,7 @@ data Model
   , _someAlertDialog :: UI.AlertDialog
   } deriving Eq
 -----------------------------------------------------------------------------
-data Action = ToggleDarkMode
+data Action = ToggleDarkMode | ChangeTheme MisoString
 -----------------------------------------------------------------------------
 emptyModel :: Model
 emptyModel =
@@ -94,9 +95,21 @@ app :: App Model Action
 app = component emptyModel update_ homeView
   where
     update_ = \case
-      ToggleDarkMode -> do
-        io_ (consoleLog "foo")
+      ToggleDarkMode ->
         io_ toggleDarkMode
+      ChangeTheme theme  -> do
+        io_ $ do
+          void $ eval ("""
+            document.documentElement.classList.forEach(c => {
+              if (c.startsWith('theme-')) {
+                 document.documentElement.classList.remove(c);
+              }
+            });
+          """ :: MisoString)
+          void $ jsg ("document" :: MisoString)
+             ! ("documentElement" :: MisoString)
+             ! ("classList" :: MisoString)
+             # ("add" :: MisoString) $ ["theme-" <> theme]
 -----------------------------------------------------------------------------
 toggleDarkMode :: JSM ()
 toggleDarkMode = do
@@ -157,6 +170,7 @@ mainContent =
             , select_
                 [ id_ "theme-select"
                 , class_ "select h-8 leading-none"
+                , onChange ChangeTheme
                 ]
                 [ option_ [textProp "value" ""] ["Default"]
                 , option_ [value_ "claude"] ["Claude"]
