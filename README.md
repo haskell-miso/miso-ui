@@ -1,9 +1,14 @@
 :ramen: 🎨 miso-ui
 ====================
 
-`miso-ui` is a component library that uses [Basecoat](https://basecoatui.com/) to deliver [ShadCN](https://ui.shadcn.com) styling. It uses [Tailwind CSS](https://tailwindcss.com/) utility classes under the hood.
+`miso-ui` is a component library that uses [Basecoat](https://basecoatui.com/) to deliver [ShadCN](https://ui.shadcn.com) styling. It uses [Tailwind CSS](https://tailwindcss.com/) utility classes under the hood. 
 
-View live [here](https://miso-ui.haskell-miso.org)
+<a href="https://miso-ui.haskell-miso.org">
+  <img width="1037" height="657" alt="Screenshot 2025-11-13 at 2 09 42 AM" src="https://github.com/user-attachments/assets/d002781d-edec-4bc2-aef6-43de248a40ff" />
+</a>
+
+View live [here](https://miso-ui.haskell-miso.org).
+
 
 ### Development
 
@@ -26,7 +31,7 @@ $ nix develop .#wasm --command bash -c "make"
 To host the built application you can call `serve`
 
 ```bash
-$ nix develop .#wasm --command bash -c "serve"
+$ nix develop --command bash -c "make serve"
 ```
 
 This comes with a GitHub action that builds and auto hosts the example.
