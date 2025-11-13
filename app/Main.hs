@@ -1424,7 +1424,7 @@ asideView = aside_
                         []
                         [ a_
                             [ target_ "_blank"
-                            , href_ "https://github.com/dmjio/miso-ui"
+                            , href_ "https://github.com/haskell-miso/miso-ui"
                             ]
                             [ svg_
                                 [ xmlns_ "http://www.w3.org/2000/svg"
@@ -1444,7 +1444,7 @@ asideView = aside_
                         []
                         [ a_
                             [ target_ "_blank"
-                            , href_ "https://basecoatui.com/chat"
+                            , href_ "https://discord.com/invite/QVDtfYNSxq"
                             ]
                             [ svg_
                                 [ xmlns_ "http://www.w3.org/2000/svg"
