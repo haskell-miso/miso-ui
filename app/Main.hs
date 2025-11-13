@@ -37,58 +37,17 @@ main :: IO ()
 main = run $ startComponent app
 #ifndef WASM
   { styles =
-    [ Href "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.3/dist/basecoat.cdn.min.css"
+    [ Href "/assets/styles.css"
     ]
   , scripts =
-      [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.3/dist/js/all.min.js"
-      , Src "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.4"
-      , Script """
-             (() => {
-                 try {
-                   const stored = localStorage.getItem('themeMode');
-                   if (stored ? stored === 'dark'
-                              : matchMedia('(prefers-color-scheme: dark)').matches) {
-                     document.documentElement.classList.add('dark');
-                   }
-                 } catch (_) {}
-
-                 const apply = dark => {
-                   document.documentElement.classList.toggle('dark', dark);
-                   try { localStorage.setItem('themeMode', dark ? 'dark' : 'light'); } catch (_) {}
-                 };
-
-               })();
-        """
-      , Script """
-          (function() {
-            try {
-              const storedTheme = localStorage.getItem('themeVariant');
-              if (storedTheme) document.documentElement.classList.add(`theme-${storedTheme}`);
-            } catch (event) {
-              console.error('Could not apply theme variant from localStorage', event);
-            }
-          })();
-        """
-      , Script
-          """
-          (() => {
-           const themeSelect = document.getElementById('theme-select');
-           const storedTheme = localStorage.getItem('themeVariant');
-           if (themeSelect && storedTheme) themeSelect.value = storedTheme;
-           themeSelect.addEventListener('change', () => {
-             const newTheme = themeSelect.value;
-             document.documentElement.classList.forEach(c => {
-               if (c.startsWith('theme-')) document.documentElement.classList.remove(c);
-             });
-             if (newTheme) {
-               document.documentElement.classList.add(`theme-${newTheme}`);
-               localStorage.setItem('themeVariant', newTheme);
-             } else {
-               localStorage.removeItem('themeVariant');
-             }
-           });
-         })();
-         """
+      [ Src "https://basecoatui.com/assets/js/basecoat.js"
+      , Src "https://basecoatui.com/assets/js/command.js"
+      , Src "https://basecoatui.com/assets/js/dropdown-menu.js"
+      , Src "https://basecoatui.com/assets/js/popover.js"
+      , Src "https://basecoatui.com/assets/js/select.js"
+      , Src "https://basecoatui.com/assets/js/sidebar.js"
+      , Src "https://basecoatui.com/assets/js/tabs.js"
+      , Src "https://basecoatui.com/assets/js/toast.js"
       ]
   }
 #endif
@@ -838,7 +797,7 @@ mainContent =
                                             ]
                                         , H.label_
                                             [ class_
-                                                "text-sm font-medium leading-none flex flex-col items-center justify-between rounded-md border-2 border-muted p-4 hover:bg-muted peer-checked:border-primary [&amp;&gt;svg]:mb-3 [&amp;&gt;svg]:size-6"
+                                                "text-sm font-medium leading-none flex flex-col items-center justify-between rounded-md border-2 border-muted p-4 hover:bg-muted peer-checked:border-primary [&>svg]:mb-3 [&>svg]:size-6"
                                             , for_ "payment-method-type-card"
                                             ]
                                             [ svg_
@@ -866,7 +825,7 @@ mainContent =
                                             ]
                                         , H.label_
                                             [ class_
-                                                "text-sm font-medium leading-none flex flex-col items-center justify-between rounded-md border-2 border-muted p-4 hover:bg-muted peer-checked:border-primary [&amp;&gt;svg]:mb-3 [&amp;&gt;svg]:size-6"
+                                                "text-sm font-medium leading-none flex flex-col items-center justify-between rounded-md border-2 border-muted p-4 hover:bg-muted peer-checked:border-primary [&>svg]:mb-3 [&>svg]:size-6"
                                             , for_ "payment-method-type-paypal"
                                             ]
                                             [ svg_
