@@ -29,6 +29,7 @@ import           Miso.Router
 import           Miso.Lens
 -----------------------------------------------------------------------------
 import           Introduction (introPage)
+import           Installation (installationPage)
 import           KitchenSink (kitchenSinkPage)
 import           Accordion (accordionPage)
 import           Alert (alertPage)
@@ -79,7 +80,7 @@ data Model
   { _currentPage :: Page
   } deriving Eq
 -----------------------------------------------------------------------------
-data Page = Index | Introduction | Alert | Accordion | Kitchensink
+data Page = Index | Introduction | Installation | Alert | Accordion | Kitchensink
   deriving stock (Show, Eq, Generic)
   deriving anyclass (Router)
 -----------------------------------------------------------------------------
@@ -163,6 +164,8 @@ homeView = \case
      withMainAs mainContent
   Model Introduction ->
      withMainAs introPage
+  Model Installation ->
+     withMainAs installationPage
   Model Kitchensink ->
      withMainAs kitchenSinkPage
   Model Accordion ->
@@ -319,7 +322,7 @@ mainContent =
                         "flex w-full items-center justify-start gap-2 pt-2"
                     ]
                     [ a_
-                        [P.href_ "/installation", class_ "btn"]
+                        [onClick (GoTo Installation), class_ "btn"]
                         ["Get Started"]
                     , a_
                         [ class_ "btn-outline" ]
@@ -1376,7 +1379,7 @@ asideView = aside_
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/installation"
+                            [ onClick (GoTo Installation)
                             ]
                             [ svg_
                                 [ strokeLinejoin_ "round"
