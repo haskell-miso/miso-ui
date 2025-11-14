@@ -29,6 +29,7 @@ import           Miso.Router
 import           Miso.Lens
 -----------------------------------------------------------------------------
 import           Introduction (introPage)
+import           KitchenSink (kitchenSinkPage)
 import           Accordion (accordionPage)
 import           Alert (alertPage)
 -----------------------------------------------------------------------------
@@ -78,7 +79,7 @@ data Model
   { _currentPage :: Page
   } deriving Eq
 -----------------------------------------------------------------------------
-data Page = Index | Introduction | Alert | Accordion
+data Page = Index | Introduction | Alert | Accordion | Kitchensink
   deriving stock (Show, Eq, Generic)
   deriving anyclass (Router)
 -----------------------------------------------------------------------------
@@ -162,6 +163,8 @@ homeView = \case
      withMainAs mainContent
   Model Introduction ->
      withMainAs introPage
+  Model Kitchensink ->
+     withMainAs kitchenSinkPage
   Model Accordion ->
      withMainAs accordionPage
   Model Alert ->
@@ -1403,7 +1406,7 @@ asideView = aside_
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/kitchen-sink"
+                            [ onClick (GoTo Kitchensink)
                             ]
                             [ svg_
                                 [ strokeLinejoin_ "round"
