@@ -29,6 +29,7 @@ import           Miso.Router
 import           Miso.Lens
 -----------------------------------------------------------------------------
 import           Introduction (introPage)
+import           Accordion (accordionPage)
 import           Alert (alertPage)
 -----------------------------------------------------------------------------
 #ifdef WASM
@@ -77,7 +78,7 @@ data Model
   { _currentPage :: Page
   } deriving Eq
 -----------------------------------------------------------------------------
-data Page = Index | Introduction | Alert
+data Page = Index | Introduction | Alert | Accordion
   deriving stock (Show, Eq, Generic)
   deriving anyclass (Router)
 -----------------------------------------------------------------------------
@@ -161,6 +162,8 @@ homeView = \case
      withMainAs mainContent
   Model Introduction ->
      withMainAs introPage
+  Model Accordion ->
+     withMainAs accordionPage
   Model Alert ->
      withMainAs alertPage
 
@@ -1499,7 +1502,7 @@ asideView = aside_
                     [ li_
                         []
                         [ a_
-                            [ P.href_ "/components/accordion"
+                            [ onClick (GoTo Accordion)
                             ]
                             [span_ [] ["Accordion"]]
                         ]
