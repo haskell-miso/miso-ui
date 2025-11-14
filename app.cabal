@@ -34,6 +34,7 @@ executable app
     app, app/pages
   other-modules:
     Introduction
+    KitchenSink
     Accordion
     Alert
   default-language:
