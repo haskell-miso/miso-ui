@@ -29,6 +29,7 @@ import           Miso.Router
 import           Miso.Lens
 -----------------------------------------------------------------------------
 import           Introduction (introPage)
+import           Alert (alertPage)
 -----------------------------------------------------------------------------
 #ifdef WASM
 foreign export javascript "hs_start" main :: IO ()
@@ -76,7 +77,7 @@ data Model
   { _currentPage :: Page
   } deriving Eq
 -----------------------------------------------------------------------------
-data Page = Index | Introduction
+data Page = Index | Introduction | Alert
   deriving stock (Show, Eq, Generic)
   deriving anyclass (Router)
 -----------------------------------------------------------------------------
@@ -160,6 +161,8 @@ homeView = \case
      withMainAs mainContent
   Model Introduction ->
      withMainAs introPage
+  Model Alert ->
+     withMainAs alertPage
 
 topSection :: View Model Action
 topSection =
@@ -1503,7 +1506,7 @@ asideView = aside_
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/alert"
+                            [ onClick (GoTo Alert)
                             ]
                             [span_ [] ["Alert"]]
                         ]

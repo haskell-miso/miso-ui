@@ -34,6 +34,7 @@ executable app
     app, app/pages
   other-modules:
     Introduction
+    Alert
   default-language:
     Haskell2010
 
