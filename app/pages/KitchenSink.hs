@@ -1713,6 +1713,7 @@ kitchenSinkPage =
                                         , width_ "500"
                                         , loading_ "lazy"
                                         , alt_ "Photo by Drew Beamer"
+                                        , src_ "https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80&w=1080&q=75"
                                         ]
                                     ]
                                 , footer_
