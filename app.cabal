@@ -31,7 +31,9 @@ executable app
   build-depends:
     base < 5, miso, miso-ui, jsaddle
   hs-source-dirs:
-    app
+    app, app/pages
+  other-modules:
+    Introduction
   default-language:
     Haskell2010
 

@@ -7,29 +7,28 @@
 {-# LANGUAGE TypeApplications   #-}
 {-# LANGUAGE MultilineStrings   #-}
 {-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE DerivingStrategies #-}
 -----------------------------------------------------------------------------
 module Main where
 -----------------------------------------------------------------------------
 import           Control.Monad
+import           GHC.Generics
 import           Language.Javascript.JSaddle
-import           Control.Category ((<<<))
 import           Prelude hiding ((.))
 -----------------------------------------------------------------------------
 import           Miso.Html hiding (data_)
 import qualified Miso.Html as H
-import           Miso.Html.Property hiding (title_, label_)
+import qualified Miso.Html.Property as P
+import           Miso.Html.Property hiding (title_, label_, href_)
 import           Miso.Svg.Element hiding (title_)
 import qualified Miso.Svg.Element as S
 import           Miso.Svg.Property hiding (id_, height_, width_, target_)
 -----------------------------------------------------------------------------
 import           Miso
+import           Miso.Router
 import           Miso.Lens
-import           Miso.Lens.TH
 -----------------------------------------------------------------------------
-import qualified Miso.UI as UI
-import           Miso.UI (Alert(..))
------------------------------------------------------------------------------
-$(makeLenses ''Alert)
+import           Introduction (introPage)
 -----------------------------------------------------------------------------
 #ifdef WASM
 foreign export javascript "hs_start" main :: IO ()
@@ -74,28 +73,42 @@ main = run $ startComponent app
 -----------------------------------------------------------------------------
 data Model
   = Model
-  { _someAlert :: UI.Alert
-  , _someAlertDialog :: UI.AlertDialog
+  { _currentPage :: Page
   } deriving Eq
 -----------------------------------------------------------------------------
-data Action = ToggleDarkMode | ChangeTheme MisoString | ToggleSidebar
+data Page = Index | Introduction
+  deriving stock (Show, Eq, Generic)
+  deriving anyclass (Router)
+-----------------------------------------------------------------------------
+data Action
+  = ToggleDarkMode
+  | ChangeTheme MisoString
+  | ToggleSidebar
+  | GetURI URI
+  | GoTo Page
 -----------------------------------------------------------------------------
 emptyModel :: Model
-emptyModel =
-  Model
-    (UI.alertDestructive "Failure" "you did it wrong")
-    UI.emptyAlertDialog
+emptyModel = Model Index
 -----------------------------------------------------------------------------
-someAlert :: Lens Model UI.Alert
-someAlert = lens _someAlert $ \r x -> r { _someAlert = x }
------------------------------------------------------------------------------
-someAlertDialog :: Lens Model UI.AlertDialog
-someAlertDialog = lens _someAlertDialog $ \r x -> r { _someAlertDialog = x }
+currentPage :: Lens Model Page
+currentPage = lens _currentPage $ \r x -> r { _currentPage = x }
 -----------------------------------------------------------------------------
 app :: App Model Action
-app = component emptyModel update_ homeView
-  where
+app = (component emptyModel update_ homeView)
+  { subs = [ uriSub GetURI ]
+  } where
     update_ = \case
+      GoTo newPage -> do
+        io_ $ pushURI (toURI newPage)
+        currentPage .= newPage
+      GetURI uri ->
+        case route uri of
+          Right newPage ->
+            currentPage .= newPage
+          Left err ->
+            io_ $ do
+              consoleError "Failure to route"
+              consoleLog $ ms (show err)
       ToggleSidebar ->
         io_ $ do
           let event :: MisoString
@@ -127,22 +140,30 @@ toggleDarkMode = do
   _ <- (doc # ("dispatchEvent" :: MisoString)) event
   pure ()
 -----------------------------------------------------------------------------
-homeView :: p -> View Model Action
-homeView _ =
-  div_ []
+withMainAs :: View Model Action -> View Model Action
+withMainAs content = div_ []
   [ asideView
-  , mainContent
-  ]
------------------------------------------------------------------------------
-mainContent :: View Model Action
-mainContent =
-  main_
-    [id_ "content"]
-    [ header_
+  , main_
+    [ id_ "content" ]
+    [ topSection
+    , header_
         [ class_
             "bg-background sticky inset-x-0 top-0 isolate flex shrink-0 items-center gap-2 border-b z-10"
-        ]
-        [ div_
+        ] []
+    , content
+    ]
+  ]
+-----------------------------------------------------------------------------
+homeView :: Model -> View Model Action
+homeView = \case
+  Model Index ->
+     withMainAs mainContent
+  Model Introduction ->
+     withMainAs introPage
+
+topSection :: View Model Action
+topSection =
+  div_
             [ class_ "flex h-14 w-full items-center gap-2 px-4"
             ]
             [ button_
@@ -242,7 +263,7 @@ mainContent =
                 , rel_ "noopener noreferrer"
                 , target_ "_blank"
                 , class_ "btn-icon size-8"
-                , href_ "https://github.com/haskell-miso/miso-ui"
+                , P.href_ "https://github.com/haskell-miso/miso-ui"
                 ]
                 [ svg_
                     [ strokeLinejoin_ "round"
@@ -263,8 +284,10 @@ mainContent =
                     ]
                 ]
             ]
-        ]
-    , div_
+-----------------------------------------------------------------------------
+mainContent :: View Model Action
+mainContent =
+      div_
         [class_ "p-4 md:p-6 xl:p-12"]
         [ div_
             [class_ "max-w-screen-lg mx-auto"]
@@ -287,10 +310,10 @@ mainContent =
                         "flex w-full items-center justify-start gap-2 pt-2"
                     ]
                     [ a_
-                        [href_ "/installation", class_ "btn"]
+                        [P.href_ "/installation", class_ "btn"]
                         ["Get Started"]
                     , a_
-                        [href_ "/introduction", class_ "btn-outline"]
+                        [ class_ "btn-outline" ]
                         ["Learn more"]
                     ]
                 ]
@@ -1147,7 +1170,7 @@ mainContent =
                                         , a_
                                             [ class_
                                                 "ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                                            , href_ "#"
+                                            , P.href_ "#"
                                             ]
                                             ["Forgot your password?"]
                                         ]
@@ -1243,7 +1266,6 @@ mainContent =
                 ]
             ]
         ]
-    ]
 -----------------------------------------------------------------------------
 asideView :: View Model Action
 asideView = aside_
@@ -1258,7 +1280,7 @@ asideView = aside_
             []
             [ a_
                 [ class_ "btn-ghost p-2 h-12 w-full justify-start"
-                , href_ "/"
+                , P.href_ "/"
                 ]
                 [ div_
                     [ class_
@@ -1322,7 +1344,7 @@ asideView = aside_
                     [ li_
                         []
                         [ a_
-                            [ href_ "/introduction"
+                            [ onClick (GoTo Introduction)
                             ]
                             [ svg_
                                 [ strokeLinejoin_ "round"
@@ -1345,7 +1367,7 @@ asideView = aside_
                     , li_
                         []
                         [ a_
-                            [ href_ "/installation"
+                            [ P.href_ "/installation"
                             ]
                             [ svg_
                                 [ strokeLinejoin_ "round"
@@ -1375,7 +1397,7 @@ asideView = aside_
                     , li_
                         []
                         [ a_
-                            [ href_ "/kitchen-sink"
+                            [ P.href_ "/kitchen-sink"
                             ]
                             [ svg_
                                 [ strokeLinejoin_ "round"
@@ -1424,7 +1446,7 @@ asideView = aside_
                         []
                         [ a_
                             [ target_ "_blank"
-                            , href_ "https://github.com/haskell-miso/miso-ui"
+                            , P.href_ "https://github.com/haskell-miso/miso-ui"
                             ]
                             [ svg_
                                 [ xmlns_ "http://www.w3.org/2000/svg"
@@ -1444,7 +1466,7 @@ asideView = aside_
                         []
                         [ a_
                             [ target_ "_blank"
-                            , href_ "https://discord.com/invite/QVDtfYNSxq"
+                            , P.href_ "https://discord.com/invite/QVDtfYNSxq"
                             ]
                             [ svg_
                                 [ xmlns_ "http://www.w3.org/2000/svg"
@@ -1474,49 +1496,49 @@ asideView = aside_
                     [ li_
                         []
                         [ a_
-                            [ href_ "/components/accordion"
+                            [ P.href_ "/components/accordion"
                             ]
                             [span_ [] ["Accordion"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/alert"
+                            [ P.href_ "/components/alert"
                             ]
                             [span_ [] ["Alert"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/alert-dialog"
+                            [ P.href_ "/components/alert-dialog"
                             ]
                             [span_ [] ["Alert Dialog"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/avatar"
+                            [ P.href_ "/components/avatar"
                             ]
                             [span_ [] ["Avatar"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/badge"
+                            [ P.href_ "/components/badge"
                             ]
                             [span_ [] ["Badge"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/breadcrumb"
+                            [ P.href_ "/components/breadcrumb"
                             ]
                             [span_ [] ["Breadcrumb"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/button"
+                            [ P.href_ "/components/button"
                             ]
                             [span_ [] ["Button"]]
                         ]
@@ -1524,21 +1546,21 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , href_ "/components/button-group"
+                            , P.href_ "/components/button-group"
                             ]
                             [span_ [] ["Button Group"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/card"
+                            [ P.href_ "/components/card"
                             ]
                             [span_ [] ["Card"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/checkbox"
+                            [ P.href_ "/components/checkbox"
                             ]
                             [span_ [] ["Checkbox"]]
                         ]
@@ -1546,28 +1568,28 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , href_ "/components/command"
+                            , P.href_ "/components/command"
                             ]
                             [span_ [] ["Command"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/combobox"
+                            [ P.href_ "/components/combobox"
                             ]
                             [span_ [] ["Combobox"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/dialog"
+                            [ P.href_ "/components/dialog"
                             ]
                             [span_ [] ["Dialog"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/dropdown-menu"
+                            [ P.href_ "/components/dropdown-menu"
                             ]
                             [span_ [] ["Dropdown Menu"]]
                         ]
@@ -1575,7 +1597,7 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , href_ "/components/empty"
+                            , P.href_ "/components/empty"
                             ]
                             [span_ [] ["Empty"]]
                         ]
@@ -1583,21 +1605,21 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , href_ "/components/field"
+                            , P.href_ "/components/field"
                             ]
                             [span_ [] ["Field"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/form"
+                            [ P.href_ "/components/form"
                             ]
                             [span_ [] ["Form"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/input"
+                            [ P.href_ "/components/input"
                             ]
                             [span_ [] ["Input"]]
                         ]
@@ -1605,7 +1627,7 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , href_ "/components/input-group"
+                            , P.href_ "/components/input-group"
                             ]
                             [span_ [] ["Input Group"]]
                         ]
@@ -1613,7 +1635,7 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , href_ "/components/item"
+                            , P.href_ "/components/item"
                             ]
                             [span_ [] ["Item"]]
                         ]
@@ -1621,28 +1643,28 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , href_ "/components/kbd"
+                            , P.href_ "/components/kbd"
                             ]
                             [span_ [] ["Kbd"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/label"
+                            [ P.href_ "/components/label"
                             ]
                             [span_ [] ["Label"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/pagination"
+                            [ P.href_ "/components/pagination"
                             ]
                             [span_ [] ["Pagination"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/popover"
+                            [ P.href_ "/components/popover"
                             ]
                             [span_ [] ["Popover"]]
                         ]
@@ -1650,42 +1672,42 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , href_ "/components/progress"
+                            , P.href_ "/components/progress"
                             ]
                             [span_ [] ["Progress"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/radio-group"
+                            [ P.href_ "/components/radio-group"
                             ]
                             [span_ [] ["Radio Group"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/select"
+                            [ P.href_ "/components/select"
                             ]
                             [span_ [] ["Select"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/sidebar"
+                            [ P.href_ "/components/sidebar"
                             ]
                             [span_ [] ["Sidebar"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/skeleton"
+                            [ P.href_ "/components/skeleton"
                             ]
                             [span_ [] ["Skeleton"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/slider"
+                            [ P.href_ "/components/slider"
                             ]
                             [span_ [] ["Slider"]]
                         ]
@@ -1693,56 +1715,56 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , href_ "/components/spinner"
+                            , P.href_ "/components/spinner"
                             ]
                             [span_ [] ["Spinner"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/switch"
+                            [ P.href_ "/components/switch"
                             ]
                             [span_ [] ["Switch"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/table"
+                            [ P.href_ "/components/table"
                             ]
                             [span_ [] ["Table"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/tabs"
+                            [ P.href_ "/components/tabs"
                             ]
                             [span_ [] ["Tabs"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/textarea"
+                            [ P.href_ "/components/textarea"
                             ]
                             [span_ [] ["Textarea"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/theme-switcher"
+                            [ P.href_ "/components/theme-switcher"
                             ]
                             [span_ [] ["Theme Switcher"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/toast"
+                            [ P.href_ "/components/toast"
                             ]
                             [span_ [] ["Toast"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ href_ "/components/tooltip"
+                            [ P.href_ "/components/tooltip"
                             ]
                             [span_ [] ["Tooltip"]]
                         ]
@@ -1809,13 +1831,13 @@ asideView = aside_
                                 [ " My name is "
                                 , a_
                                     [ target_ "_blank"
-                                    , href_ "https://github.com/dmjio"
+                                    , P.href_ "https://github.com/dmjio"
                                     ]
                                     ["@dmjio"]
                                 , " and I'm using the Basecoat CSS framework from "
                                 , a_
                                     [ target_ "_target"
-                                    , href_ "https://github.com/hunvreus"
+                                    , P.href_ "https://github.com/hunvreus"
                                     , class_ "underline underline-offset-4"
                                     ]
                                     ["@hunvreus"]
@@ -1827,13 +1849,13 @@ asideView = aside_
                             [ a_
                                 [ target_ "_blank"
                                 , class_ "btn-sm"
-                                , href_ "https://github.com/sponsors/hunvreus"
+                                , P.href_ "https://github.com/sponsors/hunvreus"
                                 ]
                                 ["Sponsor @hunvreus on GitHub"]
                             , a_
                                 [ target_ "_blank"
                                 , class_ "btn-sm-outline"
-                                , href_ "https://x.com/hunvreus"
+                                , P.href_ "https://x.com/hunvreus"
                                 ]
                                 ["Follow @hunvreus on X"]
                             ]
@@ -1843,8 +1865,4 @@ asideView = aside_
             ]
         ]
     ]
-----------------------------------------------------------------------------
-infixr 5 >>>
-(>>>) :: Lens a b -> Lens b c -> Lens a c
-(>>>) = flip (<<<)
 ----------------------------------------------------------------------------
