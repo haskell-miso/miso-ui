@@ -45,8 +45,8 @@ main = run $ startComponent app
       [ Href "/assets/styles.css"
       ]
   , scripts =
-      [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.3/dist/js/all.min.js"
-      , Src "https://basecoatui.com/assets/js/sidebar.js"
+      [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.5/dist/js/basecoat.min.js"
+      , Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.5/dist/js/sidebar.min.js"
       , Script
         """
         (() => {
