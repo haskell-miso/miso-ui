@@ -27,6 +27,7 @@ import           Miso.Svg.Property hiding (id_, height_, width_, target_)
 import           Miso
 import           Miso.Router
 import           Miso.Lens
+import qualified Miso.CSS as CSS
 -----------------------------------------------------------------------------
 import           Introduction (introPage)
 import           Installation (installationPage)
@@ -1357,6 +1358,7 @@ asideView = aside_
                         []
                         [ a_
                             [ onClick (GoTo Introduction)
+                            , CSS.style_ [ CSS.cursor "pointer" ]
                             ]
                             [ svg_
                                 [ strokeLinejoin_ "round"
@@ -1380,6 +1382,7 @@ asideView = aside_
                         []
                         [ a_
                             [ onClick (GoTo Installation)
+                            , CSS.style_ [ CSS.cursor "pointer" ]
                             ]
                             [ svg_
                                 [ strokeLinejoin_ "round"
@@ -1410,6 +1413,7 @@ asideView = aside_
                         []
                         [ a_
                             [ onClick (GoTo Kitchensink)
+                            , CSS.style_ [ CSS.cursor "pointer" ]
                             ]
                             [ svg_
                                 [ strokeLinejoin_ "round"
@@ -1509,6 +1513,7 @@ asideView = aside_
                         []
                         [ a_
                             [ onClick (GoTo Accordion)
+                            , CSS.style_ [ CSS.cursor "pointer" ]
                             ]
                             [span_ [] ["Accordion"]]
                         ]
@@ -1516,6 +1521,7 @@ asideView = aside_
                         []
                         [ a_
                             [ onClick (GoTo Alert)
+                            , CSS.style_ [ CSS.cursor "pointer" ]
                             ]
                             [span_ [] ["Alert"]]
                         ]
