@@ -312,7 +312,7 @@ mainContent =
                       [ class_
                          "text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl"
                       ]
-                      ["miso-ui  🍜"]
+                      ["🍜 miso-ui"]
                    , p_
                      [class_ "sm:text-lg text-muted-foreground"]
                      [ "A miso component library built with Tailwind, ShadCN and Basecoat CSS."
@@ -1299,36 +1299,7 @@ asideView = aside_
                     [ class_
                         "bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg"
                     ]
-                    [ svg_
-                        [ class_ "h-4 w-4"
-                        , viewBox_ "0 0 256 256"
-                        , xmlns_ "http://www.w3.org/2000/svg"
-                        ]
-                        [ rect_
-                            [fill_ "none", height_ "256", width_ "256"]
-                        , line_
-                            [ strokeWidth_ "32"
-                            , strokeLinejoin_ "round"
-                            , strokeLinecap_ "round"
-                            , stroke_ "currentColor"
-                            , fill_ "none"
-                            , y2_ "208"
-                            , x2_ "128"
-                            , y1_ "128"
-                            , x1_ "208"
-                            ]
-                        , line_
-                            [ strokeWidth_ "32"
-                            , strokeLinejoin_ "round"
-                            , strokeLinecap_ "round"
-                            , stroke_ "currentColor"
-                            , fill_ "none"
-                            , y2_ "192"
-                            , x2_ "40"
-                            , y1_ "40"
-                            , x1_ "192"
-                            ]
-                        ]
+                    [ "🍜"
                     ]
                 , div_
                     [ class_
