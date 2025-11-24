@@ -19,7 +19,7 @@ import           Prelude hiding ((.))
 import           Miso.Html hiding (data_)
 import qualified Miso.Html as H
 import qualified Miso.Html.Property as P
-import           Miso.Html.Property hiding (title_, label_, href_)
+import           Miso.Html.Property hiding (title_, label_, href_, form_)
 import           Miso.Svg.Element hiding (title_)
 import qualified Miso.Svg.Element as S
 import           Miso.Svg.Property hiding (id_, height_, width_, target_)
@@ -812,7 +812,7 @@ mainContent =
                             ]
                         , section_
                             []
-                            [ H.form
+                            [ H.form_
                                 [class_ "form grid gap-6"]
                                 [ ul_
                                     [class_ "flex gap-4"]
@@ -1164,7 +1164,7 @@ mainContent =
                                         ["Or continue with"]
                                     ]
                                 ]
-                            , form
+                            , form_
                                 [class_ "form grid gap-6"]
                                 [ div_
                                     [class_ "grid gap-2"]
@@ -1206,7 +1206,7 @@ mainContent =
                             ]
                         , section_
                             []
-                            [ form
+                            [ form_
                                 [class_ "form grid gap-6"]
                                 [ div_
                                     [class_ "flex gap-4"]

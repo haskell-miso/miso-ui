@@ -46,7 +46,7 @@ view_ =
                 , H.p_
                     [ P.class_ "text-muted-foreground text-sm" ][ "Set the dimensions for the layer." ]
                 ]
-            , H.form
+            , H.form_
                 [ P.class_ "form grid gap-2" ]
                 [ H.div_
                     [ P.class_ "grid grid-cols-3 items-center gap-4" ]

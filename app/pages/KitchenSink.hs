@@ -5,7 +5,7 @@ import           Miso
 import qualified Miso.CSS as CSS
 import           Miso.Html hiding (data_)
 import qualified Miso.Html.Property as P
-import           Miso.Html.Property hiding (max_, min_, label_)
+import           Miso.Html.Property hiding (max_, min_, label_, form_)
 import           Miso.Svg.Element
 import           Miso.Svg.Property hiding (id_, height_, width_, path_)
 
@@ -1598,7 +1598,7 @@ kitchenSinkPage =
                                     ]
                                 , section_
                                     []
-                                    [ form
+                                    [ form_
                                         [class_ "form grid gap-6"]
                                         [ div_
                                             [class_ "grid gap-2"]
@@ -2379,7 +2379,7 @@ kitchenSinkPage =
                                         ]
                                     , section_
                                         []
-                                        [ form
+                                        [ form_
                                             [class_ "form grid gap-4"]
                                             [ div_
                                                 [class_ "grid gap-3"]
@@ -3481,7 +3481,7 @@ kitchenSinkPage =
                         [h2_ [class_ "text-sm font-medium"] ["Form"]]
                     , div_
                         [class_ "p-4"]
-                        [ form
+                        [ form_
                             [class_ "form grid w-full max-w-sm gap-6"]
                             [ div_
                                 [class_ "grid gap-2"]
@@ -4116,7 +4116,7 @@ kitchenSinkPage =
                                             [class_ "text-muted-foreground text-sm"]
                                             ["Set the dimensions for the layer."]
                                         ]
-                                    , form
+                                    , form_
                                         [class_ "form grid gap-2"]
                                         [ div_
                                             [class_ "grid grid-cols-3 items-center gap-4"]
@@ -5479,7 +5479,7 @@ kitchenSinkPage =
                                             ]
                                         , section_
                                             []
-                                            [ form
+                                            [ form_
                                                 [class_ "form grid gap-6"]
                                                 [ div_
                                                     [class_ "grid gap-3"]
@@ -5531,7 +5531,7 @@ kitchenSinkPage =
                                             ]
                                         , section_
                                             []
-                                            [ form
+                                            [ form_
                                                 [class_ "form grid gap-6"]
                                                 [ div_
                                                     [class_ "grid gap-3"]

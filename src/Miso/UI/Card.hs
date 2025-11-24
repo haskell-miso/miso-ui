@@ -28,7 +28,7 @@ view_ =
     , H.p_ [][ "Enter your details below to login to your account" ]
     ]
   , H.section_ []
-    [ H.form
+    [ H.form_
       [ P.class_ "form grid gap-6"
       ]
       [ H.div_
