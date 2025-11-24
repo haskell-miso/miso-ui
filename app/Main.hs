@@ -1522,35 +1522,35 @@ asideView = aside_
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/alert-dialog"
+                            [ -- P.href_ "/components/alert-dialog"
                             ]
                             [span_ [] ["Alert Dialog"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/avatar"
+                            [ -- P.href_ "/components/avatar"
                             ]
                             [span_ [] ["Avatar"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/badge"
+                            [-- P.href_ "/components/badge"
                             ]
                             [span_ [] ["Badge"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/breadcrumb"
+                            [ --P.href_ "/components/breadcrumb"
                             ]
                             [span_ [] ["Breadcrumb"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/button"
+                            [-- P.href_ "/components/button"
                             ]
                             [span_ [] ["Button"]]
                         ]
@@ -1558,21 +1558,21 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , P.href_ "/components/button-group"
+                            -- , P.href_ "/components/button-group"
                             ]
                             [span_ [] ["Button Group"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/card"
+                            [-- P.href_ "/components/card"
                             ]
                             [span_ [] ["Card"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/checkbox"
+                            [-- P.href_ "/components/checkbox"
                             ]
                             [span_ [] ["Checkbox"]]
                         ]
@@ -1580,28 +1580,28 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , P.href_ "/components/command"
+                            --, P.href_ "/components/command"
                             ]
                             [span_ [] ["Command"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/combobox"
+                            [ --P.href_ "/components/combobox"
                             ]
                             [span_ [] ["Combobox"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/dialog"
+                            [ --P.href_ "/components/dialog"
                             ]
                             [span_ [] ["Dialog"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/dropdown-menu"
+                            [ --P.href_ "/components/dropdown-menu"
                             ]
                             [span_ [] ["Dropdown Menu"]]
                         ]
@@ -1609,7 +1609,7 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , P.href_ "/components/empty"
+                            --, P.href_ "/components/empty"
                             ]
                             [span_ [] ["Empty"]]
                         ]
@@ -1617,21 +1617,21 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , P.href_ "/components/field"
+                            --, P.href_ "/components/field"
                             ]
                             [span_ [] ["Field"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/form"
+                            [ --P.href_ "/components/form"
                             ]
                             [span_ [] ["Form"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/input"
+                            [ --P.href_ "/components/input"
                             ]
                             [span_ [] ["Input"]]
                         ]
@@ -1639,7 +1639,7 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , P.href_ "/components/input-group"
+                            --, P.href_ "/components/input-group"
                             ]
                             [span_ [] ["Input Group"]]
                         ]
@@ -1647,7 +1647,7 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , P.href_ "/components/item"
+                            --, P.href_ "/components/item"
                             ]
                             [span_ [] ["Item"]]
                         ]
@@ -1655,28 +1655,28 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , P.href_ "/components/kbd"
+                            --, P.href_ "/components/kbd"
                             ]
                             [span_ [] ["Kbd"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/label"
+                            [-- P.href_ "/components/label"
                             ]
                             [span_ [] ["Label"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/pagination"
+                            [ --P.href_ "/components/pagination"
                             ]
                             [span_ [] ["Pagination"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/popover"
+                            [ --P.href_ "/components/popover"
                             ]
                             [span_ [] ["Popover"]]
                         ]
@@ -1684,42 +1684,42 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , P.href_ "/components/progress"
+                            --, P.href_ "/components/progress"
                             ]
                             [span_ [] ["Progress"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/radio-group"
+                            [ --P.href_ "/components/radio-group"
                             ]
                             [span_ [] ["Radio Group"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/select"
+                            [ --P.href_ "/components/select"
                             ]
                             [span_ [] ["Select"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/sidebar"
+                            [-- P.href_ "/components/sidebar"
                             ]
                             [span_ [] ["Sidebar"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/skeleton"
+                            [ --P.href_ "/components/skeleton"
                             ]
                             [span_ [] ["Skeleton"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/slider"
+                            [ --P.href_ "/components/slider"
                             ]
                             [span_ [] ["Slider"]]
                         ]
@@ -1727,56 +1727,56 @@ asideView = aside_
                         []
                         [ a_
                             [ data_ "new-link" "true"
-                            , P.href_ "/components/spinner"
+                            --, P.href_ "/components/spinner"
                             ]
                             [span_ [] ["Spinner"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/switch"
+                            [-- P.href_ "/components/switch"
                             ]
                             [span_ [] ["Switch"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/table"
+                            [ --P.href_ "/components/table"
                             ]
                             [span_ [] ["Table"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/tabs"
+                            [-- P.href_ "/components/tabs"
                             ]
                             [span_ [] ["Tabs"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/textarea"
+                            [ --P.href_ "/components/textarea"
                             ]
                             [span_ [] ["Textarea"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/theme-switcher"
+                            [ --P.href_ "/components/theme-switcher"
                             ]
                             [span_ [] ["Theme Switcher"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/toast"
+                            [ --P.href_ "/components/toast"
                             ]
                             [span_ [] ["Toast"]]
                         ]
                     , li_
                         []
                         [ a_
-                            [ P.href_ "/components/tooltip"
+                            [ --P.href_ "/components/tooltip"
                             ]
                             [span_ [] ["Tooltip"]]
                         ]
