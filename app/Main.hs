@@ -35,10 +35,10 @@ foreign export javascript "hs_start" main :: IO ()
 #endif
 -----------------------------------------------------------------------------
 main :: IO ()
-main = run $ startComponent app
+main = run $ startComponent (app { events = defaultEvents <> pointerEvents })
 #ifndef WASM
   { styles =
-      [ Href "/assets/styles.css"
+      [ Href "https://basecoatui.com/assets/styles.css"
       ]
   , scripts =
       [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.5/dist/js/basecoat.min.js"
@@ -76,14 +76,14 @@ data Model
   { _currentPage :: Page
   } deriving Eq
 -----------------------------------------------------------------------------
-data Page = Index -- | Introduction | Installation | Alert | Accordion | Kitchensink
+data Page = Index
   deriving stock (Show, Eq, Generic)
   deriving anyclass (Router)
 -----------------------------------------------------------------------------
 data Action
-  = ToggleDarkMode
+  = ToggleDarkMode PointerEvent
   | ChangeTheme MisoString
-  | ToggleSidebar
+  | ToggleSidebar PointerEvent
   | GetURI URI
   | GoTo Page
 -----------------------------------------------------------------------------
@@ -109,13 +109,11 @@ app = (component emptyModel update_ homeView)
             io_ $ do
               consoleError "Failure to route"
               consoleLog $ ms (show err)
-      ToggleSidebar ->
+      ToggleSidebar _ ->
         io_ $ do
-          let event :: MisoString
-              event = "document.dispatchEvent(new CustomEvent('basecoat:sidebar'))"
-          void (eval event)
-          consoleLog "clicked sidebar"
-      ToggleDarkMode ->
+          event <- new (jsg ("CustomEvent" :: MisoString)) $ [ "basecoat:sidebar" :: MisoString ]
+          jsg ("document" :: MisoString) # ("dispatchEvent" :: MisoString) $ [event]
+      ToggleDarkMode _ ->
         io_ toggleDarkMode
       ChangeTheme theme  -> do
         io_ $ do
@@ -140,7 +138,9 @@ toggleDarkMode = do
   _ <- (doc # ("dispatchEvent" :: MisoString)) event
   pure ()
 -----------------------------------------------------------------------------
-withMainAs :: View Model Action -> View Model Action
+withMainAs
+  :: View Model Action
+  -> View Model Action
 withMainAs content = div_ []
   [ asideView
   , main_
@@ -160,8 +160,7 @@ homeView = \case
      withMainAs mainContent
 
 topSection :: View Model Action
-topSection =
-  div_
+topSection = div_
             [ class_ "flex h-14 w-full items-center gap-2 px-4"
             ]
             [ button_
@@ -171,7 +170,7 @@ topSection =
                 , data_ "tooltip" "Toggle sidebar"
                 , aria_ "label" "Toggle sidebar"
                 , type_ "button"
-                , onClick ToggleSidebar
+                , onPointerDown ToggleSidebar
                 ]
                 [ svg_
                     [ strokeLinejoin_ "round"
@@ -256,7 +255,7 @@ topSection =
                 , data_ "tooltip" "Toggle dark mode"
                 , aria_ "label" "Toggle dark mode"
                 , type_ "button"
-                , onClick ToggleDarkMode
+                , onPointerDown ToggleDarkMode
                 ]
                 [ span_
                     [class_ "hidden dark:block"]
@@ -344,7 +343,7 @@ asideView = aside_
             [ a_
                 [ class_ "btn-ghost p-2 h-12 w-full justify-start"
                 -- , P.href_ "#home" -- dmj: this should close side bar too
-                , onClick ToggleSidebar
+                , onPointerDown ToggleSidebar
                 ]
                 [ div_
                     [ class_
@@ -379,13 +378,7 @@ asideView = aside_
                     [ li_
                     []
                     [ a_
-                       [ aria_ "current" "page"
-                       , textProp "class" ""
-                       , textProp "hx-swap" "outerHTML"
-                       , textProp "hx-target" "#content"
-                       , textProp "hx-select" "#content"
-                       , textProp "hx-boost" "true"
-                       , P.href_ "#home"
+                       [ P.href_ "#home"
                        ]
                        [ svg_
                            [ strokeLinejoin_ "round"

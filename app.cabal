@@ -23,9 +23,14 @@ common wasm
     cpp-options:
       -DWASM
 
+common js
+  if arch(javascript)
+    ld-options:
+      -sEXPORTED_RUNTIME_METHODS=HEAP8
+
 executable app
   import:
-    wasm, options
+    wasm, options, js
   main-is:
     Main.hs
   build-depends:
