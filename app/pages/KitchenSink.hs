@@ -1213,7 +1213,7 @@ kitchenSinkPage = div_
                                         ]
                                     ]
                                 , button_
-                                    [textProp "disabled" "", class_ "btn-outline"]
+                                    [disabled_, class_ "btn-outline"]
                                     [ svg_
                                         [ class_ "animate-spin"
                                         , strokeLinejoin_ "round"
@@ -1288,7 +1288,7 @@ kitchenSinkPage = div_
                                         ]
                                     ]
                                 , button_
-                                    [textProp "disabled" "", class_ "btn-sm-outline"]
+                                    [disabled_, class_ "btn-sm-outline"]
                                     [ svg_
                                         [ class_ "animate-spin"
                                         , strokeLinejoin_ "round"
@@ -1383,7 +1383,7 @@ kitchenSinkPage = div_
                                         ]
                                     ]
                                 , button_
-                                    [textProp "disabled" "", class_ "btn-lg-outline"]
+                                    [disabled_, class_ "btn-lg-outline"]
                                     [ svg_
                                         [ class_ "animate-spin"
                                         , strokeLinejoin_ "round"
@@ -1513,7 +1513,7 @@ kitchenSinkPage = div_
                                         ]
                                     ]
                                 , button_
-                                    [ textProp "disabled" ""
+                                    [ disabled_
                                     , class_ "btn-icon-outline"
                                     ]
                                     [ svg_
@@ -1684,6 +1684,10 @@ kitchenSinkPage = div_
                                         [ img_
                                             [ src_ "https://github.com/dmjio.png"
                                             , alt_ "@dmjio"
+                                            ]
+                                        , img_
+                                            [ src_ "https://github.com/hunvreus.png"
+                                            , alt_ "@hunvreus"
                                             ]
                                         , img_
                                             [ src_ "https://github.com/shadcn.png"
@@ -1921,7 +1925,7 @@ kitchenSinkPage = div_
                             , label_
                                 [class_ "label gap-3"]
                                 [ input_
-                                    [ textProp "disabled" ""
+                                    [ disabled_
                                     , class_ "input"
                                     , type_ "checkbox"
                                     ]
@@ -3727,7 +3731,7 @@ kitchenSinkPage = div_
                                             ]
                                         ]
                                     , input_
-                                        [ textProp "disabled" ""
+                                        [ disabled_
                                         , role_ "switch"
                                         , id_ "demo-form-switch-disabled"
                                         , type_ "checkbox"
@@ -3791,7 +3795,7 @@ kitchenSinkPage = div_
                                 ]
                             , input_
                                 [ placeholder_ "Disabled"
-                                , textProp "disabled" ""
+                                , disabled_
                                 , class_ "input"
                                 , type_ "text"
                                 ]
@@ -3915,7 +3919,7 @@ kitchenSinkPage = div_
                                         [class_ "label", for_ "label-demo-disabled"]
                                         ["Disabled"]
                                     , input_
-                                        [ textProp "disabled" ""
+                                        [ disabled_
                                         , placeholder_ "Disabled"
                                         , class_ "peer input"
                                         , id_ "label-demo-disabled"
@@ -4373,7 +4377,7 @@ kitchenSinkPage = div_
                                         [option_ [] ["Pineapple"]]
                                     ]
                                 , select_
-                                    [ textProp "disabled" ""
+                                    [ disabled_
                                     , class_ "select w-[180px]"
                                     ]
                                     [option_ [] ["Disabled"]]
@@ -5831,7 +5835,7 @@ kitchenSinkPage = div_
                                     [class_ "label", for_ "textarea-demo-disabled"]
                                     ["Disabled"]
                                 , textarea_
-                                    [ textProp "disabled" ""
+                                    [ disabled_
                                     , placeholder_ "Type your message here"
                                     , class_ "textarea"
                                     , id_ "textarea-demo-disabled"

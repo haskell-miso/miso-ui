@@ -64,7 +64,7 @@ view_ =
       , P.class_ "btn-outline w-full"
       ] [ "Login with Google" ]
     , H.p_ [ P.class_ "mt-4 text-center text-sm" ]
-      [ "Don't have an account?"
+      [ "Don't have an account? "
       , H.a_
         [ P.href_ "#"
         , P.class_ "underline-offset-4 hover:underline"
