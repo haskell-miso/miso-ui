@@ -144,7 +144,7 @@ withMainAs :: View Model Action -> View Model Action
 withMainAs content = div_ []
   [ asideView
   , main_
-    [ id_ "content" ]
+    [ id_ "home" ]
     [ topSection
     , header_
         [ class_
@@ -376,6 +376,60 @@ asideView = aside_
                 , ul_
                     []
                     [ li_
+                    []
+                    [ a_
+                       [ aria_ "current" "page"
+                       , textProp "class" ""
+                       , textProp "hx-swap" "outerHTML"
+                       , textProp "hx-target" "#content"
+                       , textProp "hx-select" "#content"
+                       , textProp "hx-boost" "true"
+                       , P.href_ "#home"
+                       ]
+                       [ svg_
+                           [ strokeLinejoin_ "round"
+                           , strokeLinecap_ "round"
+                           , strokeWidth_ "2"
+                           , stroke_ "currentColor"
+                           , fill_ "none"
+                           , viewBox_ "0 0 24 24"
+                           , height_ "24"
+                           , width_ "24"
+                           , xmlns_ "http://www.w3.org/2000/svg"
+                           ]
+                           [ rect_
+                               [ rx_ "1"
+                               , y_ "3"
+                               , x_ "3"
+                               , height_ "9"
+                               , width_ "7"
+                               ]
+                           , rect_
+                               [ rx_ "1"
+                               , y_ "3"
+                               , x_ "14"
+                               , height_ "5"
+                               , width_ "7"
+                               ]
+                           , rect_
+                               [ rx_ "1"
+                               , y_ "12"
+                               , x_ "14"
+                               , height_ "9"
+                               , width_ "7"
+                               ]
+                           , rect_
+                               [ rx_ "1"
+                               , y_ "16"
+                               , x_ "3"
+                               , height_ "5"
+                               , width_ "7"
+                               ]
+                           ]
+                       , span_ [] ["Home"]
+                       ]
+                   ],
+                     li_
                         []
                         [ a_
                             [ target_ "_blank"
