@@ -9,6 +9,7 @@ import           Miso.Html.Property hiding (max_, min_, label_, form_)
 import           Miso.Svg.Element
 import           Miso.Svg.Property hiding (id_, height_, width_, path_)
 
+import           Miso.UI.AlertDialog (alertDialogComponent)
 import           Types
 
 focusable_ :: MisoString -> Attribute action
@@ -598,39 +599,8 @@ kitchenSinkPage = div_
                             ]
                         ]
                     , div_
-                        [class_ "p-4"]
-                        [ button_
-                            [class_ "btn-outline", type_ "button"]
-                            ["Open dialog"]
-                        , dialog_
-                            [ aria_
-                                "describedby"
-                                "alert-dialog-demo-description"
-                            , aria_ "labelledby" "alert-dialog-demo-title"
-                            , class_ "dialog "
-                            , id_ "alert-dialog-demo"
-                            ]
-                            [ div_
-                                []
-                                [ header_
-                                    []
-                                    [ h2_
-                                        [id_ "alert-dialog-demo-title"]
-                                        ["Are you absolutely sure?"]
-                                    , p_
-                                        [id_ "alert-dialog-demo-description"]
-                                        [ "This action cannot be undone. This will permanently delete your account and remove your data from our servers."
-                                        ]
-                                    ]
-                                , footer_
-                                    []
-                                    [ button_ [class_ "btn-outline"] ["Cancel"]
-                                    , button_ [class_ "btn-primary"] ["Continue"]
-                                    ]
-                                ]
-                            ]
+                        [class_ "p-4"] +> alertDialogComponent
                         ]
-                    ]
                 , h1_
                     [class_ "text-3xl font-semibold tracking-tight"]
                     ["Avatar"]

@@ -30,9 +30,6 @@ data AlertDialog
   { _alertDialogButton :: MisoString
   } deriving (Eq, Show)
 -----------------------------------------------------------------------------
--- test :: IO ()
--- test = run (startComponent alertDialogComponent)
------------------------------------------------------------------------------
 emptyAlertDialog :: AlertDialog
 emptyAlertDialog = AlertDialog mempty
 -----------------------------------------------------------------------------
@@ -53,13 +50,12 @@ alertDialogComponent = vcomp
     update_ CloseDialog = io_ $ do
       dialog <- jsg @MisoString "document"
         # ("getElementById" :: MisoString)
-        $ ["alert-dialog" :: MisoString]
+        $ ["alert-dialog-demo" :: MisoString]
       void $ dialog # ("close" :: MisoString) $ ()
 
     vcomp = component emptyAlertDialog update_ $ \_ ->
       H.div_
-      [
-      ]
+      []
       [ H.button_
         [ P.type_ "button"
         , P.class_ "btn-outline"
@@ -67,12 +63,12 @@ alertDialogComponent = vcomp
         ]
         [ "Open alert dialog"
         ]
-      , H.dialog_ 
-          [ P.id_ "alert-dialog" 
-          , P.class_ "dialog" 
-          , P.aria_ "labelledby" "alert-dialog-title" 
-          , P.aria_ "describedby" "alert-dialog-description" 
-          ] 
+      , H.dialog_
+          [ P.id_ "alert-dialog-demo"
+          , P.class_ "dialog"
+          , P.aria_ "labelledby" "alert-dialog-title"
+          , P.aria_ "describedby" "alert-dialog-description"
+          ]
           [ H.article_ []
             [ H.header_ []
               [ H.h2_
@@ -90,15 +86,15 @@ alertDialogComponent = vcomp
                 ]
               ]
             , H.footer_ []
-              [ H.button_ 
-                [ P.class_ "btn-outline" 
+              [ H.button_
+                [ P.class_ "btn-outline"
                 , E.onClick CloseDialog
                 ] [ "Cancel" ]
-              , H.button_ 
-                [ P.class_ "btn-primary" 
+              , H.button_
+                [ P.class_ "btn-primary"
                 , E.onClick CloseDialog
                 ] [ "Continue" ]
-              ] 
+              ]
             ]
           ]
         ]
