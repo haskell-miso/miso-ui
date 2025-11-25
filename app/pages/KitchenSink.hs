@@ -5240,7 +5240,7 @@ kitchenSinkPage = div_
                                     ]
                                 , onCreatedWith InitSlider
                                 , onBeforeDestroyedWith DestroySlider
-                                , step_ "50"
+                                , step_ "1"
                                 , value_ "150"
                                 , max_ "200"
                                 , min_ "0"

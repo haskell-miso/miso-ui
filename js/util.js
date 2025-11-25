@@ -1,11 +1,24 @@
 /* slider helpers */
-function updateSlider (slider) {
+function updateSlider(slider) {
   const min = parseFloat(slider.min || 0);
   const max = parseFloat(slider.max || 100);
-  const value = parseFloat(slider.value);
+  const step = parseFloat(slider.step || 1);
+
+  // Get the raw value and adjust it to the nearest valid step
+  const rawValue = parseFloat(slider.value);
+  const steppedValue = Math.round((rawValue - min) / step) * step + min;
+
+  // Ensure the value is within min/max bounds and applies the step
+  const value = Math.max(min, Math.min(max, steppedValue));
+
+  // Update the actual slider value to the stepped value
+  if (value !== rawValue) {
+    slider.value = value;
+  }
+
   const percent = (max === min) ? 0 : ((value - min) / (max - min)) * 100;
   slider.style.setProperty('--slider-value', `${percent}%`);
-};
+}
 
 globalThis.initSlider = function (slider) {
   updateSlider(slider);
