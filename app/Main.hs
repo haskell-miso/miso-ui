@@ -51,7 +51,6 @@ main = run $ withJS $ startComponent (app { events = defaultEvents <> pointerEve
       ]
   , scripts =
       [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.5/dist/js/basecoat.min.js"
-      , Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.5/dist/js/sidebar.min.js"
       , Script
         """
         (() => {
