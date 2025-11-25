@@ -9,10 +9,12 @@ import           Miso.Html.Property hiding (max_, min_, label_, form_)
 import           Miso.Svg.Element
 import           Miso.Svg.Property hiding (id_, height_, width_, path_)
 
+import           Types
+
 focusable_ :: MisoString -> Attribute action
 focusable_ = textProp "focusable"
 
-kitchenSinkPage :: View model action
+kitchenSinkPage :: View model Action
 kitchenSinkPage = div_
     []
     [ div_
@@ -5234,9 +5236,13 @@ kitchenSinkPage = div_
                             [class_ "max-w-sm"]
                             [ input_
                                 [ CSS.style_
-                                    ["--slider-value" =: "44.44444444444444%"]
-                                , value_ "12"
-                                , max_ "27"
+                                    [ "--slider-value" =: "75%"
+                                    ]
+                                , onCreatedWith InitSlider
+                                , onBeforeDestroyedWith DestroySlider
+                                , step_ "50"
+                                , value_ "150"
+                                , max_ "200"
                                 , min_ "0"
                                 , class_ "input w-full"
                                 , type_ "range"

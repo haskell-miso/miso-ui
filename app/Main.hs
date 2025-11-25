@@ -12,7 +12,6 @@
 module Main where
 -----------------------------------------------------------------------------
 import           Control.Monad
-import           GHC.Generics
 import           Language.Javascript.JSaddle
 import           Prelude hiding ((.))
 -----------------------------------------------------------------------------
@@ -29,13 +28,23 @@ import           Miso.Router
 import           Miso.Lens
 -----------------------------------------------------------------------------
 import           KitchenSink (kitchenSinkPage)
+import           Types
 -----------------------------------------------------------------------------
 #ifdef WASM
+import qualified Language.Javascript.JSaddle.Wasm.TH as JSaddle.Wasm.TH
+-----------------------------------------------------------------------------
 foreign export javascript "hs_start" main :: IO ()
 #endif
 -----------------------------------------------------------------------------
+withJS :: JSM a -> JSM ()
+withJS action = void $ do
+#ifdef WASM
+  $(JSaddle.Wasm.TH.evalFile "js/util.js")
+#endif
+  action
+-----------------------------------------------------------------------------
 main :: IO ()
-main = run $ startComponent (app { events = defaultEvents <> pointerEvents })
+main = run $ withJS $ startComponent (app { events = defaultEvents <> pointerEvents })
 #ifndef WASM
   { styles =
       [ Href "https://basecoatui.com/assets/styles.css"
@@ -71,25 +80,6 @@ main = run $ startComponent (app { events = defaultEvents <> pointerEvents })
   }
 #endif
 -----------------------------------------------------------------------------
-data Model
-  = Model
-  { _currentPage :: Page
-  } deriving Eq
------------------------------------------------------------------------------
-data Page = Index
-  deriving stock (Show, Eq, Generic)
-  deriving anyclass (Router)
------------------------------------------------------------------------------
-data Action
-  = ToggleDarkMode PointerEvent
-  | ChangeTheme MisoString
-  | ToggleSidebar PointerEvent
-  | GetURI URI
-  | GoTo Page
------------------------------------------------------------------------------
-emptyModel :: Model
-emptyModel = Model Index
------------------------------------------------------------------------------
 currentPage :: Lens Model Page
 currentPage = lens _currentPage $ \r x -> r { _currentPage = x }
 -----------------------------------------------------------------------------
@@ -98,6 +88,10 @@ app = (component emptyModel update_ homeView)
   { subs = [ uriSub GetURI ]
   } where
     update_ = \case
+      InitSlider domRef ->
+        io_ $ global # ("initSlider" :: MisoString) $ [domRef]
+      DestroySlider domRef ->
+        io_ $ global # ("deinitSlider" :: MisoString) $ [domRef]
       GoTo newPage -> do
         io_ $ pushURI (toURI newPage)
         currentPage .= newPage
