@@ -343,7 +343,8 @@ asideView = aside_
             []
             [ a_
                 [ class_ "btn-ghost p-2 h-12 w-full justify-start"
-                , P.href_ "/"
+                -- , P.href_ "#home" -- dmj: this should close side bar too
+                , onClick ToggleSidebar
                 ]
                 [ div_
                     [ class_
