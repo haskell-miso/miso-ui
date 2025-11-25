@@ -13,9 +13,8 @@ focusable_ :: MisoString -> Attribute action
 focusable_ = textProp "focusable"
 
 kitchenSinkPage :: View model action
-kitchenSinkPage =
- div_
-    [class_ "p-4 md:p-6 xl:p-12"]
+kitchenSinkPage = div_
+    []
     [ div_
         [class_ "flex gap-x-10 justify-center"]
         [ div_
@@ -24,7 +23,7 @@ kitchenSinkPage =
                 [class_ "space-y-2 mb-8"]
                 [ h1_
                     [class_ "text-3xl font-semibold tracking-tight"]
-                    ["Kitchen Sink"]
+                    ["Components"]
                 , p_
                     [class_ "text-muted-foreground"]
                     [ "A collection of all the components available in miso-ui / Basecoat."
@@ -32,7 +31,11 @@ kitchenSinkPage =
                 ]
             , div_
                 [class_ "grid gap-4 flex-1"]
-                [ section_
+                [ hr_ []
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Accordion"]
+                , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "accordion"
                     ]
@@ -46,7 +49,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/accordion"
+                            , href_ "#accordion"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -256,6 +259,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Alert"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "alert"
@@ -270,7 +276,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/alert"
+                            , href_ "#alert"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -548,6 +554,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Alert Dialog"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "alert-dialog"
@@ -564,7 +573,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/alert-dialog"
+                            , href_ "#alert-dialog"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -620,6 +629,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Avatar"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "avatar"
@@ -634,7 +646,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/avatar"
+                            , href_ "#avatar"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -749,6 +761,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Badge"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "badge"
@@ -763,7 +778,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/badge"
+                            , href_ "#badge"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -930,6 +945,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Breadcrumb"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "breadcrumb"
@@ -944,7 +962,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/breadcrumb"
+                            , href_ "#breadcrumb"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -1107,6 +1125,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Button"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "button"
@@ -1121,7 +1142,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/button"
+                            , href_ "#button"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -1546,6 +1567,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Card"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "card"
@@ -1560,7 +1584,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/card"
+                            , href_ "#card"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -1851,6 +1875,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Checkbox"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "checkbox"
@@ -1865,7 +1892,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/checkbox"
+                            , href_ "#checkbox"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -1949,6 +1976,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Combobox"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "combobox"
@@ -1963,7 +1993,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/combobox"
+                            , href_ "#combobox"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -2091,8 +2121,7 @@ kitchenSinkPage =
                                     ]
                                 ]
                             , div_
-                                [ data_ "protonpass-form" ""
-                                , data_ "select-initialized" "true"
+                                [ data_ "select-initialized" "true"
                                 , class_ "select "
                                 , id_ "select-342556"
                                 ]
@@ -2309,6 +2338,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Dialog"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "dialog"
@@ -2323,7 +2355,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/dialog"
+                            , href_ "#dialog"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -2348,8 +2380,7 @@ kitchenSinkPage =
                     , div_
                         [class_ "p-4"]
                         [ div_
-                            [ data_ "protonpass-form" ""
-                            , class_ "flex flex-wrap items-center gap-4"
+                            [ class_ "flex flex-wrap items-center gap-4"
                             ]
                             [ button_
                                 [class_ "btn-outline", type_ "button"]
@@ -2523,6 +2554,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Dropdown Menu"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "dropdown-menu"
@@ -2539,7 +2573,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/dropdown-menu"
+                            , href_ "#dropdown-menu"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -3472,6 +3506,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Form"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-16"
                     , id_ "form"
@@ -3728,6 +3765,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Input"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "input"
@@ -3742,7 +3782,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/input"
+                            , href_ "#input"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -3767,8 +3807,7 @@ kitchenSinkPage =
                     , div_
                         [class_ "p-4"]
                         [ div_
-                            [ data_ "protonpass-form" ""
-                            , class_ "flex flex-col gap-y-4"
+                            [ class_ "flex flex-col gap-y-4"
                             ]
                             [ input_
                                 [ placeholder_ "Text"
@@ -3826,6 +3865,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Label"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "label"
@@ -3840,7 +3882,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/label"
+                            , href_ "#label"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -3867,8 +3909,7 @@ kitchenSinkPage =
                         [ div_
                             [class_ "flex flex-col gap-y-4"]
                             [ div_
-                                [ data_ "protonpass-form" ""
-                                , class_ "grid w-full max-w-sm gap-6"
+                                [ class_ "grid w-full max-w-sm gap-6"
                                 ]
                                 [ div_
                                     [class_ "flex items-center gap-3"]
@@ -3922,6 +3963,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Pagination"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "pagination"
@@ -3936,7 +3980,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/pagination"
+                            , href_ "#pagination"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -4047,6 +4091,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Popover"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "popover"
@@ -4061,7 +4108,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/popover"
+                            , href_ "#popover"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -4086,8 +4133,7 @@ kitchenSinkPage =
                     , div_
                         [class_ "p-4"]
                         [ div_
-                            [ data_ "protonpass-form" ""
-                            , data_ "popover-initialized" "true"
+                            [ data_ "popover-initialized" "true"
                             , class_ "popover "
                             , id_ "demo-popover"
                             ]
@@ -4168,6 +4214,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Radio Group"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "radio-group"
@@ -4184,7 +4233,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/radio-group"
+                            , href_ "#radio-group"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -4289,6 +4338,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Select"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "select"
@@ -4303,7 +4355,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/select"
+                            , href_ "#select"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -5019,6 +5071,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Skeleton"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "skeleton"
@@ -5033,7 +5088,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/skeleton"
+                            , href_ "#skeleton"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -5134,6 +5189,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Slider"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "slider"
@@ -5148,7 +5206,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/slider"
+                            , href_ "#slider"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -5186,6 +5244,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Switch"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "switch"
@@ -5200,7 +5261,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/switch"
+                            , href_ "#switch"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -5273,6 +5334,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Table"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "table"
@@ -5287,7 +5351,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/table"
+                            , href_ "#table"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -5390,6 +5454,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Tabs"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "tabs"
@@ -5404,7 +5471,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/tabs"
+                            , href_ "#tabs"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -5431,8 +5498,7 @@ kitchenSinkPage =
                         [ div_
                             [class_ "flex flex-col gap-6"]
                             [ div_
-                                [ data_ "protonpass-form" ""
-                                , data_ "tabs-initialized" "true"
+                                [ data_ "tabs-initialized" "true"
                                 , id_ "demo-tabs-with-panels"
                                 , class_ "tabs max-w-[300px]"
                                 ]
@@ -5697,6 +5763,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Textarea"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "textarea"
@@ -5711,7 +5780,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/textarea"
+                            , href_ "#textarea"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -5793,6 +5862,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Toast"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "toast"
@@ -5807,7 +5879,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/toast"
+                            , href_ "#toast"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -5871,6 +5943,9 @@ kitchenSinkPage =
                             ]
                         ]
                     ]
+                , h1_
+                    [class_ "text-3xl font-semibold tracking-tight"]
+                    ["Tooltip"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "tooltip"
@@ -5885,7 +5960,7 @@ kitchenSinkPage =
                             , data_ "tooltip" "See documentation"
                             , class_
                                 "text-muted-foreground hover:text-foreground"
-                            , href_ "/components/tooltip"
+                            , href_ "#tooltip"
                             ]
                             [ svg_
                                 [ class_ "size-4"
@@ -5940,51 +6015,6 @@ kitchenSinkPage =
                                 ["Left"]
                             ]
                         ]
-                    ]
-                ]
-            ]
-        , div_
-            [ class_
-                "hidden text-sm xl:block w-full max-w-[200px]"
-            ]
-            [ nav_
-                [ class_
-                    "sticky top-22 space-y-2 [&_ul]:m-0 [&_ul]:list-none [&_ul_ul]:pl-4 [&_li]:mt-0 [&_li]:pt-2 [&_a]:inline-block [&_a]:no-underline [&_a]:transition-colors [&_a]:hover:text-foreground [&_a]:text-muted-foreground"
-                ]
-                [ h4_ [class_ "font-medium"] ["On This Page"]
-                , ul_
-                    []
-                    [ li_ [] [a_ [href_ "#accordion"] ["Accordion"]]
-                    , li_ [] [a_ [href_ "#alert"] ["Alert"]]
-                    , li_
-                        []
-                        [a_ [href_ "#alert-dialog"] ["Alert Dialog"]]
-                    , li_ [] [a_ [href_ "#avatar"] ["Avatar"]]
-                    , li_ [] [a_ [href_ "#badge"] ["Badge"]]
-                    , li_ [] [a_ [href_ "#breadcrumb"] ["Breadcrumb"]]
-                    , li_ [] [a_ [href_ "#button"] ["Button"]]
-                    , li_ [] [a_ [href_ "#card"] ["Card"]]
-                    , li_ [] [a_ [href_ "#checkbox"] ["Checkbox"]]
-                    , li_ [] [a_ [href_ "#combobox"] ["Combobox"]]
-                    , li_ [] [a_ [href_ "#dialog"] ["Dialog"]]
-                    , li_
-                        []
-                        [a_ [href_ "#dropdown-menu"] ["Dropdown Menu"]]
-                    , li_ [] [a_ [href_ "#form"] ["Form"]]
-                    , li_ [] [a_ [href_ "#input"] ["Input"]]
-                    , li_ [] [a_ [href_ "#label"] ["Label"]]
-                    , li_ [] [a_ [href_ "#pagination"] ["Pagination"]]
-                    , li_ [] [a_ [href_ "#popover"] ["Popover"]]
-                    , li_ [] [a_ [href_ "#radio-group"] ["Radio Group"]]
-                    , li_ [] [a_ [href_ "#select"] ["Select"]]
-                    , li_ [] [a_ [href_ "#skeleton"] ["Skeleton"]]
-                    , li_ [] [a_ [href_ "#slider"] ["Slider"]]
-                    , li_ [] [a_ [href_ "#switch"] ["Switch"]]
-                    , li_ [] [a_ [href_ "#table"] ["Table"]]
-                    , li_ [] [a_ [href_ "#tabs"] ["Tabs"]]
-                    , li_ [] [a_ [href_ "#textarea"] ["Textarea"]]
-                    , li_ [] [a_ [href_ "#toast"] ["Toast"]]
-                    , li_ [] [a_ [href_ "#tooltip"] ["Tooltip"]]
                     ]
                 ]
             ]
