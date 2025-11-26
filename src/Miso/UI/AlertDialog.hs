@@ -1,4 +1,4 @@
------------------------------------------------------------------------------
+----------------------------------------------------------------------------
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE ExistentialQuantification  #-}
 {-# LANGUAGE DerivingStrategies         #-}
@@ -9,8 +9,7 @@
 -----------------------------------------------------------------------------
 module Miso.UI.AlertDialog
   ( -- ** Component
-    alertDialog_
-  , alertDialogComponent
+    alertDialogComponent
     -- ** Types
   , AlertDialog (..)
     -- ** Constructors
@@ -32,9 +31,6 @@ data AlertDialog
 -----------------------------------------------------------------------------
 emptyAlertDialog :: AlertDialog
 emptyAlertDialog = AlertDialog mempty
------------------------------------------------------------------------------
-alertDialog_ :: Binding parent AlertDialog -> Component parent AlertDialog Action
-alertDialog_ binding = alertDialogComponent { bindings = pure binding }
 -----------------------------------------------------------------------------
 data Action
   = ShowModal DOMRef
