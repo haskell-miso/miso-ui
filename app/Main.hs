@@ -597,7 +597,7 @@ asideView = aside_
                                     , class_ "underline underline-offset-4"
                                     ]
                                     ["miso-ui"]
-                                , ". If you find it useful, please consider sponsoring its author, "
+                                , ". If you find it useful, please consider sponsoring "
                                 , a_
                                     [ target_ "_blank"
                                     , P.href_ "https://github.com/hunvreus"
