@@ -45,7 +45,7 @@ withJS action = void $ do
   action
 -----------------------------------------------------------------------------
 main :: IO ()
-main = run $ withJS $ startComponent (app { events = defaultEvents <> pointerEvents })
+main = run $ withJS $ startComponent app
 #ifndef WASM
   { styles =
       [ Href "https://basecoatui.com/assets/styles.css"
@@ -58,13 +58,13 @@ main = run $ withJS $ startComponent (app { events = defaultEvents <> pointerEve
           try {
             const stored = localStorage.getItem('themeMode');
             if (stored ? stored === 'dark'
-                       : matchMedia('(prefers-color-scheme: dark)').matches) {
-              document.documentElement.classList.add('dark');
+                       : matchMedia('(prefers-color-scheme: light)').matches) {
+              document.documentElement.classList.add('light');
             }
           } catch (_) {}
 
           const apply = dark => {
-            document.documentElement.classList.toggle('dark', dark);
+            document.documentElement.classList.toggle('light', dark);
             try { localStorage.setItem('themeMode', dark ? 'dark' : 'light'); } catch (_) {}
           };
 
@@ -108,13 +108,13 @@ app = (component emptyModel update_ homeView)
             io_ $ do
               consoleError "Failure to route"
               consoleLog $ ms (show err)
-      ToggleSidebar _ ->
+      ToggleSidebar ->
         io_ $ do
           event <- new (jsg ("CustomEvent" :: MisoString)) $ [ "basecoat:sidebar" :: MisoString ]
           dispatchEvent (Event event)
-      ToggleDarkMode _ ->
+      ToggleDarkMode ->
         io_ toggleDarkMode
-      ChangeTheme theme  -> do
+      ChangeTheme theme -> do
         io_ $ do
           void $ eval ("""
             document.documentElement.classList.forEach(c => {
@@ -170,7 +170,7 @@ topSection = div_
                 , data_ "tooltip" "Toggle sidebar"
                 , aria_ "label" "Toggle sidebar"
                 , type_ "button"
-                , onPointerDown ToggleSidebar
+                , onClick ToggleSidebar
                 ]
                 [ svg_
                     [ strokeLinejoin_ "round"
@@ -255,7 +255,7 @@ topSection = div_
                 , data_ "tooltip" "Toggle dark mode"
                 , aria_ "label" "Toggle dark mode"
                 , type_ "button"
-                , onPointerDown ToggleDarkMode
+                , onClick ToggleDarkMode
                 ]
                 [ span_
                     [class_ "hidden dark:block"]
@@ -321,21 +321,21 @@ mainContent = div_
                       [ "A"
                       , a_
                         [ P.href_ "https://haskell-miso.org" ] [" miso "]
-                      , "component library built with"
+                      , "component library built with "
                       , a_
                         [ P.href_ "https://tailwindcss.com/"
                         , class_ "underline underline-offset-4"
                         ]
-                        [ " Tailwind" ]
-                      , ","
+                        [ "Tailwind" ]
+                      , " , "
                       , a_ [ P.href_ "https://ui.shadcn.com/"
                            , class_ "underline underline-offset-4"
                            ]
-                           [" ShadCN "]
-                      , "and"
+                           ["ShadCN"]
+                      , " and "
                       , a_ [ P.href_ "https://basecoatui.com/"
                            , class_ "underline underline-offset-4"
-                           ] [" Basecoat"]
+                           ] ["Basecoat"]
                       , "."
                    ]
                 ]

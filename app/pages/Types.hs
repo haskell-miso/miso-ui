@@ -11,9 +11,9 @@ import Miso.Router
 import GHC.Generics
 -----------------------------------------------------------------------------
 data Action
-  = ToggleDarkMode PointerEvent
+  = ToggleDarkMode
   | ChangeTheme MisoString
-  | ToggleSidebar PointerEvent
+  | ToggleSidebar
   | GetURI URI
   | InitSlider DOMRef
   | DestroySlider DOMRef
