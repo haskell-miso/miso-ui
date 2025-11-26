@@ -157,7 +157,7 @@ withMainAs content = div_ []
 homeView :: Model -> View Model Action
 homeView = \case
   Model Index ->
-     withMainAs mainContent
+    withMainAs mainContent
 
 topSection :: View Model Action
 topSection = div_
@@ -318,10 +318,12 @@ mainContent = div_
                       ["🍜 miso-ui"]
                     , p_
                       [ class_ "sm:text-lg text-muted-foreground"]
-                      [ "A"
+                      [ "A "
                       , a_
-                        [ P.href_ "https://haskell-miso.org" ] [" miso "]
-                      , "component library built with "
+                        [ P.href_ "https://haskell-miso.org" 
+                        , class_ "underline underline-offset-4"
+                        ] ["miso"]
+                      , " component library built with "
                       , a_
                         [ P.href_ "https://tailwindcss.com/"
                         , class_ "underline underline-offset-4"
