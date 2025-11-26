@@ -992,8 +992,7 @@ kitchenSinkPage = div_
                             , li_
                                 [class_ "inline-flex items-center gap-1.5"]
                                 [ div_
-                                    [ data_ "dropdown-menu-initialized" "true"
-                                    , class_ "dropdown-menu "
+                                    [ class_ "dropdown-menu "
                                     , id_ "demo-breadcrumb-menu"
                                     ]
                                     [ button_
@@ -1999,8 +1998,7 @@ kitchenSinkPage = div_
                         [ div_
                             [class_ "flex flex-wrap items-start gap-4"]
                             [ div_
-                                [ data_ "select-initialized" "true"
-                                , class_ "select "
+                                [ class_ "select "
                                 , id_ "select-242298"
                                 ]
                                 [ button_
@@ -2100,8 +2098,7 @@ kitchenSinkPage = div_
                                     ]
                                 ]
                             , div_
-                                [ data_ "select-initialized" "true"
-                                , class_ "select "
+                                [ class_ "select "
                                 , id_ "select-342556"
                                 ]
                                 [ button_
@@ -2579,8 +2576,7 @@ kitchenSinkPage = div_
                         [ div_
                             [class_ "flex flex-wrap items-start gap-4"]
                             [ div_
-                                [ data_ "dropdown-menu-initialized" "true"
-                                , class_ "dropdown-menu "
+                                [ class_ "dropdown-menu "
                                 , id_ "dropdown-menu-default"
                                 ]
                                 [ button_
@@ -2667,8 +2663,7 @@ kitchenSinkPage = div_
                                     ]
                                 ]
                             , div_
-                                [ data_ "dropdown-menu-initialized" "true"
-                                , class_ "dropdown-menu "
+                                [ class_ "dropdown-menu "
                                 , id_ "dropdown-menu-checkboxes"
                                 ]
                                 [ button_
@@ -2903,8 +2898,7 @@ kitchenSinkPage = div_
                                     ]
                                 ]
                             , div_
-                                [ data_ "dropdown-menu-initialized" "true"
-                                , class_ "dropdown-menu "
+                                [ class_ "dropdown-menu "
                                 , id_ "dropdown-menu-radio-group"
                                 ]
                                 [ button_
@@ -3014,8 +3008,7 @@ kitchenSinkPage = div_
                                     ]
                                 ]
                             , div_
-                                [ data_ "dropdown-menu-initialized" "true"
-                                , class_ "dropdown-menu "
+                                [ class_ "dropdown-menu "
                                 , id_ "dropdown-checkboxes"
                                 ]
                                 [ button_
@@ -3205,8 +3198,7 @@ kitchenSinkPage = div_
                                     ]
                                 ]
                             , div_
-                                [ data_ "dropdown-menu-initialized" "true"
-                                , class_ "dropdown-menu "
+                                [ class_ "dropdown-menu "
                                 , id_ "dropdown-checkboxes"
                                 ]
                                 [ button_
@@ -3369,8 +3361,7 @@ kitchenSinkPage = div_
                                     ]
                                 ]
                             , div_
-                                [ data_ "dropdown-menu-initialized" "true"
-                                , class_ "dropdown-menu "
+                                [ class_ "dropdown-menu "
                                 , id_ "dropdown-checkboxes"
                                 ]
                                 [ button_
@@ -4112,8 +4103,7 @@ kitchenSinkPage = div_
                     , div_
                         [class_ "p-4"]
                         [ div_
-                            [ data_ "popover-initialized" "true"
-                            , class_ "popover "
+                            [ class_ "popover "
                             , id_ "demo-popover"
                             ]
                             [ button_
@@ -4389,8 +4379,7 @@ kitchenSinkPage = div_
                                         "flex flex-wrap items-center gap-2 md:flex-row"
                                     ]
                                     [ div_
-                                        [ data_ "select-initialized" "true"
-                                        , class_ "select "
+                                        [ class_ "select "
                                         , id_ "select-default"
                                         ]
                                         [ button_
@@ -4487,8 +4476,7 @@ kitchenSinkPage = div_
                                             ]
                                         ]
                                     , div_
-                                        [ data_ "select-initialized" "true"
-                                        , class_ "select "
+                                        [ class_ "select "
                                         , id_ "select-scrollbar"
                                         ]
                                         [ button_
@@ -4837,8 +4825,7 @@ kitchenSinkPage = div_
                                             ]
                                         ]
                                     , div_
-                                        [ data_ "select-initialized" "true"
-                                        , class_ "select "
+                                        [ class_ "select "
                                         , id_ "select-disabled"
                                         ]
                                         [ button_
@@ -4893,8 +4880,7 @@ kitchenSinkPage = div_
                                             ]
                                         ]
                                     , div_
-                                        [ data_ "select-initialized" "true"
-                                        , class_ "select "
+                                        [ class_ "select "
                                         , id_ "select-with-icon"
                                         ]
                                         [ button_
@@ -5481,8 +5467,7 @@ kitchenSinkPage = div_
                         [ div_
                             [class_ "flex flex-col gap-6"]
                             [ div_
-                                [ data_ "tabs-initialized" "true"
-                                , id_ "demo-tabs-with-panels"
+                                [ id_ "demo-tabs-with-panels"
                                 , class_ "tabs max-w-[300px]"
                                 ]
                                 [ nav_
@@ -5614,8 +5599,7 @@ kitchenSinkPage = div_
                                     ]
                                 ]
                             , div_
-                                [ data_ "tabs-initialized" "true"
-                                , id_ "demo-tabs-without-panels"
+                                [ id_ "demo-tabs-without-panels"
                                 , class_ "tabs "
                                 ]
                                 [ nav_
@@ -5647,8 +5631,7 @@ kitchenSinkPage = div_
                                     ]
                                 ]
                             , div_
-                                [ data_ "tabs-initialized" "true"
-                                , id_ "demo-tabs-disabled"
+                                [ id_ "demo-tabs-disabled"
                                 , class_ "tabs "
                                 ]
                                 [ nav_
@@ -5677,8 +5660,7 @@ kitchenSinkPage = div_
                                     ]
                                 ]
                             , div_
-                                [ data_ "tabs-initialized" "true"
-                                , id_ "demo-tabs-with-icons"
+                                [ id_ "demo-tabs-with-icons"
                                 , class_ "tabs "
                                 ]
                                 [ nav_

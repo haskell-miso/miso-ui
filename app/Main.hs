@@ -25,22 +25,29 @@ import qualified Miso.Svg.Element as S
 import           Miso.Svg.Property hiding (id_, height_, width_, target_)
 -----------------------------------------------------------------------------
 import           Miso
-import           Miso.Router
 import           Miso.Lens
 -----------------------------------------------------------------------------
 import           KitchenSink (kitchenSinkPage)
 import           Types
 -----------------------------------------------------------------------------
+#ifndef GHCJS_BOTH
 #ifdef WASM
 import qualified Language.Javascript.JSaddle.Wasm.TH as JSaddle.Wasm.TH
 -----------------------------------------------------------------------------
 foreign export javascript "hs_start" main :: IO ()
+#else
+import           Data.FileEmbed (embedStringFile)
+#endif
 #endif
 -----------------------------------------------------------------------------
 withJS :: JSM a -> JSM ()
 withJS action = void $ do
+#ifndef GHCJS_BOTH
 #ifdef WASM
   $(JSaddle.Wasm.TH.evalFile "js/util.js")
+#else
+  _ <- eval ($(embedStringFile "js/util.js") :: MisoString)
+#endif
 #endif
   action
 -----------------------------------------------------------------------------
@@ -84,9 +91,8 @@ currentPage :: Lens Model Page
 currentPage = lens _currentPage $ \r x -> r { _currentPage = x }
 -----------------------------------------------------------------------------
 app :: App Model Action
-app = (component emptyModel update_ homeView)
-  { subs = [ uriSub GetURI ]
-  } where
+app = component emptyModel update_ homeView
+  where
     update_ = \case
       Toaster {..} -> do
         io_ $ do
@@ -97,17 +103,6 @@ app = (component emptyModel update_ homeView)
         io_ $ global # ("initSlider" :: MisoString) $ [domRef]
       DestroySlider domRef ->
         io_ $ global # ("deinitSlider" :: MisoString) $ [domRef]
-      GoTo newPage -> do
-        io_ $ pushURI (toURI newPage)
-        currentPage .= newPage
-      GetURI uri ->
-        case route uri of
-          Right newPage ->
-            currentPage .= newPage
-          Left err ->
-            io_ $ do
-              consoleError "Failure to route"
-              consoleLog $ ms (show err)
       ToggleSidebar ->
         io_ $ do
           event <- new (jsg ("CustomEvent" :: MisoString)) $ [ "basecoat:sidebar" :: MisoString ]
@@ -320,7 +315,7 @@ mainContent = div_
                       [ class_ "sm:text-lg text-muted-foreground"]
                       [ "A "
                       , a_
-                        [ P.href_ "https://haskell-miso.org" 
+                        [ P.href_ "https://haskell-miso.org"
                         , class_ "underline underline-offset-4"
                         ] ["miso"]
                       , " component library built with "
@@ -588,7 +583,7 @@ asideView = aside_
                                     , class_ "underline underline-offset-4"
                                     ]
                                     ["@dmjio"]
-                                , ", and I'm using " 
+                                , ", and I'm using "
                                 , a_
                                     [ target_ "_blank"
                                     , P.href_ "https://basecoatui.com/"
