@@ -5335,7 +5335,7 @@ kitchenSinkPage = div_
                                         ]
                                     ]
                                 , div_
-                                    [ textProp "hidden" ""
+                                    [ hidden_ True
                                     , aria_ "selected" "false"
                                     , tabindex_ "-1"
                                     , aria_ "labelledby" "demo-tabs-with-panels-tab-2"
