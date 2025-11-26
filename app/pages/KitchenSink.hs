@@ -672,7 +672,7 @@ kitchenSinkPage = div_
                                 ]
                             , div_
                                 [ class_
-                                    "flex -space-x-2 [&_img]:ring-background [&_img]:ring-2 [&_img]:grayscale [&_img]:size-8 [&_img]:shrink-0 [&_img]:object-cover [&_img]:rounded-full" 
+                                    "flex -space-x-2 [&_img]:ring-background [&_img]:ring-2 [&_img]:grayscale [&_img]:size-8 [&_img]:shrink-0 [&_img]:object-cover [&_img]:rounded-full"
                                 ]
                                 [ img_
                                     [ src_ "https://github.com/dmjio.png"
@@ -2947,7 +2947,7 @@ kitchenSinkPage = div_
                                                     ]
                                                     [ div_
                                                         [ focusable_ "false"
-                                                        
+
                                                         , aria_ "hidden" "true"
                                                         , class_
                                                             "size-2 rounded-full bg-foreground invisible group-aria-checked:visible"
@@ -2971,7 +2971,7 @@ kitchenSinkPage = div_
                                                     ]
                                                     [ div_
                                                         [ focusable_ "false"
-                                                        
+
                                                         , aria_ "hidden" "true"
                                                         , class_
                                                             "size-2 rounded-full bg-foreground invisible group-aria-checked:visible"
@@ -2995,7 +2995,7 @@ kitchenSinkPage = div_
                                                     ]
                                                     [ div_
                                                         [ focusable_ "false"
-                                                        
+
                                                         , aria_ "hidden" "true"
                                                         , class_
                                                             "size-2 rounded-full bg-foreground invisible group-aria-checked:visible"
@@ -5885,41 +5885,29 @@ kitchenSinkPage = div_
                             ]
                         ]
                     , div_
-                        [class_ "p-4"]
+                        [ class_ "p-4" ]
                         [ div_
-                            [class_ "flex flex-wrap items-center gap-2"]
+                            [ class_ "flex flex-wrap items-center gap-2" ]
                             [ div_
-                                [class_ "flex flex-wrap items-center gap-2"]
+                                [ class_ "flex flex-wrap items-center gap-2" ]
                                 [ button_
-                                    [ textProp "hx-swap" "beforeend"
-                                    , textProp "hx-target" "#toaster"
-                                    , textProp "hx-get" "/fragments/toast/success"
-                                    , textProp "hx-trigger" "click"
-                                    , class_ "btn-outline"
+                                    [ class_ "btn-outline"
+                                    , onClick (Toaster "success" "Success" "A successful toast !" "Dismiss")
                                     ]
                                     ["Success"]
                                 , button_
-                                    [ textProp "hx-swap" "beforeend"
-                                    , textProp "hx-target" "#toaster"
-                                    , textProp "hx-get" "/fragments/toast/error"
-                                    , textProp "hx-trigger" "click"
-                                    , class_ "btn-outline"
+                                    [ class_ "btn-outline"
+                                    , onClick (Toaster "error" "Error" "An error toast :(" "Dismiss")
                                     ]
                                     ["Error"]
                                 , button_
-                                    [ textProp "hx-swap" "beforeend"
-                                    , textProp "hx-target" "#toaster"
-                                    , textProp "hx-get" "/fragments/toast/info"
-                                    , textProp "hx-trigger" "click"
-                                    , class_ "btn-outline"
+                                    [ class_ "btn-outline"
+                                    , onClick (Toaster "info" "Info" "An informational toast =]" "Dismiss")
                                     ]
                                     ["Info"]
                                 , button_
-                                    [ textProp "hx-swap" "beforeend"
-                                    , textProp "hx-target" "#toaster"
-                                    , textProp "hx-get" "/fragments/toast/warning"
-                                    , textProp "hx-trigger" "click"
-                                    , class_ "btn-outline"
+                                    [ class_ "btn-outline"
+                                    , onClick (Toaster "warning" "Warning" "A warning toast :/" "Dismiss")
                                     ]
                                     ["Warning"]
                                 ]
@@ -5927,8 +5915,9 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
-                    ["Tooltip"]
+                    [ class_ "text-3xl font-semibold tracking-tight" ]
+                    [ "Tooltip"
+                    ]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
                     , id_ "tooltip"
@@ -6003,4 +5992,4 @@ kitchenSinkPage = div_
             ]
         ]
     ]
------------------------------------------------------------------------------   
+-----------------------------------------------------------------------------

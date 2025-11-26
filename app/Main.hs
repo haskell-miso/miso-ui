@@ -3,6 +3,7 @@
 {-# LANGUAGE LambdaCase         #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE DeriveAnyClass     #-}
+{-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TemplateHaskell    #-}
 {-# LANGUAGE TypeApplications   #-}
 {-# LANGUAGE MultilineStrings   #-}
@@ -87,6 +88,11 @@ app = (component emptyModel update_ homeView)
   { subs = [ uriSub GetURI ]
   } where
     update_ = \case
+      Toaster {..} -> do
+        io_ $ do
+          msg <- global # ("toastMsg" :: MisoString) $ [category, title, description, label]
+          event <- new (jsg ("CustomEvent" :: MisoString)) $ ("basecoat:toast" :: MisoString, msg)
+          dispatchEvent (Event event)
       InitSlider domRef ->
         io_ $ global # ("initSlider" :: MisoString) $ [domRef]
       DestroySlider domRef ->
@@ -105,7 +111,7 @@ app = (component emptyModel update_ homeView)
       ToggleSidebar _ ->
         io_ $ do
           event <- new (jsg ("CustomEvent" :: MisoString)) $ [ "basecoat:sidebar" :: MisoString ]
-          jsg ("document" :: MisoString) # ("dispatchEvent" :: MisoString) $ [event]
+          dispatchEvent (Event event)
       ToggleDarkMode _ ->
         io_ toggleDarkMode
       ChangeTheme theme  -> do

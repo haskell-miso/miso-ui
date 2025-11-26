@@ -32,3 +32,19 @@ globalThis.deinitSlider = function (slider) {
     updateSlider(event.target)
   });
 }
+
+globalThis.toastMsg = function (category, title, description, label) {
+    return {
+      detail: {
+        config: {
+          category: category,
+          title: title,
+          description: description,
+          cancel: {
+            label: label
+          }
+        }
+      }
+    };
+}
+

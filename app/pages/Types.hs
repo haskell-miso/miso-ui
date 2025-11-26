@@ -17,6 +17,7 @@ data Action
   | GetURI URI
   | InitSlider DOMRef
   | DestroySlider DOMRef
+  | Toaster { category, title, description, label :: MisoString }
   | GoTo Page
 -----------------------------------------------------------------------------
 data Model
