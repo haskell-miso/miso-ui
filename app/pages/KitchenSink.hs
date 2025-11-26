@@ -40,11 +40,12 @@ kitchenSinkPage = div_
                 [class_ "grid gap-4 flex-1"]
                 [ hr_ []
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "accordion"
+                    ]
                     ["Accordion"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "accordion"
                     ]
                     [ header_
                         [ class_
@@ -267,11 +268,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "alert"
+                    ]
                     ["Alert"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "alert"
                     ]
                     [ header_
                         [ class_
@@ -562,11 +564,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "alert-dialog"
+                    ]
                     ["Alert Dialog"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "alert-dialog"
                     ]
                     [ header_
                         [ class_
@@ -606,11 +609,12 @@ kitchenSinkPage = div_
                         [class_ "p-4"] +> alertDialogComponent
                         ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "avatar"
+                    ]
                     ["Avatar"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "avatar"
                     ]
                     [ header_
                         [ class_
@@ -738,11 +742,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "badge"
+                    ]
                     ["Badge"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "badge"
                     ]
                     [ header_
                         [ class_
@@ -922,11 +927,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "breadcrumb"
+                    ]
                     ["Breadcrumb"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "breadcrumb"
                     ]
                     [ header_
                         [ class_
@@ -1101,11 +1107,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "button"
+                    ]
                     ["Button"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "button"
                     ]
                     [ header_
                         [ class_
@@ -1543,11 +1550,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "card"
+                    ]
                     ["Card"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "card"
                     ]
                     [ header_
                         [ class_
@@ -1855,11 +1863,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "checkbox"
+                    ]
                     ["Checkbox"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "checkbox"
                     ]
                     [ header_
                         [ class_
@@ -1956,11 +1965,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "combobox"
+                    ]
                     ["Combobox"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "combobox"
                     ]
                     [ header_
                         [ class_
@@ -2320,11 +2330,12 @@ kitchenSinkPage = div_
                     ["Dialog"]
                 , div_ [] +> dialogComponent
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "dropdown-menu"
+                    ]
                     ["Dropdown Menu"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "dropdown-menu"
                     ]
                     [ header_
                         [ class_
@@ -3525,11 +3536,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "input"
+                    ]
                     ["Input"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "input"
                     ]
                     [ header_
                         [ class_
@@ -3625,11 +3637,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "label"
+                    ]
                     ["Label"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "label"
                     ]
                     [ header_
                         [ class_
@@ -3723,11 +3736,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "pagination"
+                    ]
                     ["Pagination"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "pagination"
                     ]
                     [ header_
                         [ class_
@@ -3851,11 +3865,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "popover"
+                    ]
                     ["Popover"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "popover"
                     ]
                     [ header_
                         [ class_
@@ -3973,11 +3988,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "radio-group"
+                    ]
                     ["Radio Group"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "radio-group"
                     ]
                     [ header_
                         [ class_
@@ -4097,11 +4113,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "select"
+                    ]
                     ["Select"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "select"
                     ]
                     [ header_
                         [ class_
@@ -4826,11 +4843,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "skeleton"
+                    ]
                     ["Skeleton"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "skeleton"
                     ]
                     [ header_
                         [ class_
@@ -4944,11 +4962,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "slider"
+                    ]
                     ["Slider"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "slider"
                     ]
                     [ header_
                         [ class_
@@ -5003,11 +5022,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "switch"
+                    ]
                     ["Switch"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "switch"
                     ]
                     [ header_
                         [ class_
@@ -5093,11 +5113,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "table"
+                    ]
                     ["Table"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "table"
                     ]
                     [ header_
                         [ class_
@@ -5213,11 +5234,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "tabs"
+                    ]
                     ["Tabs"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "tabs"
                     ]
                     [ header_
                         [ class_
@@ -5518,11 +5540,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "textarea"
+                    ]
                     ["Textarea"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "textarea"
                     ]
                     [ header_
                         [ class_
@@ -5617,11 +5640,12 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "toast"
+                    ]
                     ["Toast"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "toast"
                     ]
                     [ header_
                         [ class_
@@ -5686,12 +5710,13 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight" ]
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "tooltip"
+                    ]
                     [ "Tooltip"
                     ]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-14"
-                    , id_ "tooltip"
                     ]
                     [ header_
                         [ class_

@@ -17,11 +17,10 @@ import Miso.Html hiding (data_)
 import Miso.Html.Property hiding (form_, label_)
 import Miso.Svg hiding (view_)
 import Miso.Svg.Property hiding (path_, height_, width_, id_)
-import Miso.Types
 import Miso.Lens
 -----------------------------------------------------------------------------
-import           Control.Monad
-import           Language.Javascript.JSaddle ((#), jsg)
+import Control.Monad
+import Language.Javascript.JSaddle ((#), jsg)
 -----------------------------------------------------------------------------
 data Action
   = ShowDialog MisoString DOMRef
