@@ -589,7 +589,7 @@ asideView = aside_
                                     ]
                                     ["@dmjio"]
                                 , ", and I'm using " 
-                                ,  , a_
+                                , a_
                                     [ target_ "_blank"
                                     , P.href_ "https://basecoatui.com/"
                                     , class_ "underline underline-offset-4"
