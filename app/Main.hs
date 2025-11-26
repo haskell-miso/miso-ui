@@ -588,7 +588,14 @@ asideView = aside_
                                     , class_ "underline underline-offset-4"
                                     ]
                                     ["@dmjio"]
-                                , ", and I'm using the Basecoat CSS framework to build "
+                                , ", and I'm using " 
+                                ,  , a_
+                                    [ target_ "_blank"
+                                    , P.href_ "https://basecoatui.com/"
+                                    , class_ "underline underline-offset-4"
+                                    ]
+                                    ["Basecoat CSS"]
+                                , " to build "
                                 , a_
                                     [ target_ "_blank"
                                     , P.href_ "https://github.com/haskell-miso/miso-ui"
