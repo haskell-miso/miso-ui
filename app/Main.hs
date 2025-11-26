@@ -143,12 +143,13 @@ withMainAs
 withMainAs content = div_ []
   [ asideView
   , main_
-    [ id_ "home" ]
-    [ topSection
-    , header_
+    [ id_ "content" ]
+    [ header_
         [ class_
             "bg-background sticky inset-x-0 top-0 isolate flex shrink-0 items-center gap-2 border-b z-10"
-        ] []
+        ]
+        [ topSection
+        ]
     , content
     ]
   ]
@@ -315,13 +316,31 @@ mainContent = div_
                          "text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl"
                       ]
                       ["🍜 miso-ui"]
-                   , p_
-                     [class_ "sm:text-lg text-muted-foreground"]
-                     [ "A miso component library built with Tailwind, ShadCN and Basecoat CSS."
+                    , p_
+                      [ class_ "sm:text-lg text-muted-foreground"]
+                      [ "A"
+                      , a_
+                        [ P.href_ "https://haskell-miso.org" ] [" miso "]
+                      , "component library built with"
+                      , a_
+                        [ P.href_ "https://tailwindcss.com/"
+                        , class_ "underline underline-offset-4"
+                        ]
+                        [ " Tailwind" ]
+                      , ","
+                      , a_ [ P.href_ "https://ui.shadcn.com/"
+                           , class_ "underline underline-offset-4"
+                           ]
+                           [" ShadCN "]
+                      , "and"
+                      , a_ [ P.href_ "https://basecoatui.com/"
+                           , class_ "underline underline-offset-4"
+                           ] [" Basecoat"]
+                      , "."
                    ]
                 ]
-              ]
-          ]
+            ]
+        ]
        , br_ []
        , hr_ [class_ "mt-20"]
        , br_ []
@@ -330,19 +349,19 @@ mainContent = div_
 -----------------------------------------------------------------------------
 asideView :: View Model Action
 asideView = aside_
-    [ aria_ "hidden" "false"
+    [ aria_ "hidden" "true"
+    , boolProp "inert" True
     , data_ "side" "left"
     , class_ "sidebar"
     , id_ "sidebar"
     ]
     [ nav_
-        [aria_ "label" "Sidebar navigation"]
+        [ aria_ "label" "Sidebar navigation" ]
         [ header_
             []
             [ a_
                 [ class_ "btn-ghost p-2 h-12 w-full justify-start"
-                -- , P.href_ "#home" -- dmj: this should close side bar too
-                , onPointerDown ToggleSidebar
+                , P.href_ "#content"
                 ]
                 [ div_
                     [ class_
@@ -356,7 +375,7 @@ asideView = aside_
                     ]
                     [ span_
                         [class_ "truncate font-medium"]
-                        ["miso-ui"]
+                        ["🍜 miso-ui"]
                     , span_ [class_ "truncate text-xs"] ["v1.0.0"]
                     ]
                 ]
@@ -371,13 +390,13 @@ asideView = aside_
                 ]
                 [ h3_
                     [id_ "group-label-sidebar-content-1"]
-                    ["Connect"]
+                    ["Getting started"]
                 , ul_
                     []
                     [ li_
                     []
                     [ a_
-                       [ P.href_ "#home"
+                       [ P.href_ "#content"
                        ]
                        [ svg_
                            [ strokeLinejoin_ "round"
@@ -473,33 +492,33 @@ asideView = aside_
                     ["Components"]
                 , ul_
                     []
-                    [ li_ [] [a_ [P.href_ "#accordion"] ["Accordion"]]
-                    , li_ [] [a_ [P.href_ "#alert"] ["Alert"]]
-                    , li_ [] [a_ [P.href_ "#alert-dialog"] ["Alert Dialog"]]
-                    , li_ [] [a_ [P.href_ "#avatar"] ["Avatar"]]
-                    , li_ [] [a_ [P.href_ "#badge"] ["Badge"]]
-                    , li_ [] [a_ [P.href_ "#breadcrumb"] ["Breadcrumb"]]
-                    , li_ [] [a_ [P.href_ "#button"] ["Button"]]
-                    , li_ [] [a_ [P.href_ "#card"] ["Card"]]
-                    , li_ [] [a_ [P.href_ "#checkbox"] ["Checkbox"]]
-                    , li_ [] [a_ [P.href_ "#combobox"] ["Combobox"]]
-                    , li_ [] [a_ [P.href_ "#dialog"] ["Dialog"]]
-                    , li_ [] [a_ [P.href_ "#dropdown-menu"] ["Dropdown Menu"]]
-                    , li_ [] [a_ [P.href_ "#form"] ["Form"]]
-                    , li_ [] [a_ [P.href_ "#input"] ["Input"]]
-                    , li_ [] [a_ [P.href_ "#label"] ["Label"]]
-                    , li_ [] [a_ [P.href_ "#pagination"] ["Pagination"]]
-                    , li_ [] [a_ [P.href_ "#popover"] ["Popover"]]
-                    , li_ [] [a_ [P.href_ "#radio-group"] ["Radio Group"]]
-                    , li_ [] [a_ [P.href_ "#select"] ["Select"]]
-                    , li_ [] [a_ [P.href_ "#skeleton"] ["Skeleton"]]
-                    , li_ [] [a_ [P.href_ "#slider"] ["Slider"]]
-                    , li_ [] [a_ [P.href_ "#switch"] ["Switch"]]
-                    , li_ [] [a_ [P.href_ "#table"] ["Table"]]
-                    , li_ [] [a_ [P.href_ "#tabs"] ["Tabs"]]
-                    , li_ [] [a_ [P.href_ "#textarea"] ["Textarea"]]
-                    , li_ [] [a_ [P.href_ "#toast"] ["Toast"]]
-                    , li_ [] [a_ [P.href_ "#tooltip"] ["Tooltip"]]
+                    [ li_ [] [a_ [ P.href_ "#accordion"] ["Accordion"]]
+                    , li_ [] [a_ [ P.href_ "#alert"] ["Alert"]]
+                    , li_ [] [a_ [ P.href_ "#alert-dialog"] ["Alert Dialog"]]
+                    , li_ [] [a_ [ P.href_ "#avatar"] ["Avatar"]]
+                    , li_ [] [a_ [ P.href_ "#badge"] ["Badge"]]
+                    , li_ [] [a_ [ P.href_ "#breadcrumb"] ["Breadcrumb"]]
+                    , li_ [] [a_ [ P.href_ "#button"] ["Button"]]
+                    , li_ [] [a_ [ P.href_ "#card"] ["Card"]]
+                    , li_ [] [a_ [ P.href_ "#checkbox"] ["Checkbox"]]
+                    , li_ [] [a_ [ P.href_ "#combobox"] ["Combobox"]]
+                    , li_ [] [a_ [ P.href_ "#dialog"] ["Dialog"]]
+                    , li_ [] [a_ [ P.href_ "#dropdown-menu"] ["Dropdown Menu"]]
+                    , li_ [] [a_ [ P.href_ "#form"] ["Form"]]
+                    , li_ [] [a_ [ P.href_ "#input"] ["Input"]]
+                    , li_ [] [a_ [ P.href_ "#label"] ["Label"]]
+                    , li_ [] [a_ [ P.href_ "#pagination"] ["Pagination"]]
+                    , li_ [] [a_ [ P.href_ "#popover"] ["Popover"]]
+                    , li_ [] [a_ [ P.href_ "#radio-group"] ["Radio Group"]]
+                    , li_ [] [a_ [ P.href_ "#select"] ["Select"]]
+                    , li_ [] [a_ [ P.href_ "#skeleton"] ["Skeleton"]]
+                    , li_ [] [a_ [ P.href_ "#slider"] ["Slider"]]
+                    , li_ [] [a_ [ P.href_ "#switch"] ["Switch"]]
+                    , li_ [] [a_ [ P.href_ "#table"] ["Table"]]
+                    , li_ [] [a_ [ P.href_ "#tabs"] ["Tabs"]]
+                    , li_ [] [a_ [ P.href_ "#textarea"] ["Textarea"]]
+                    , li_ [] [a_ [ P.href_ "#toast"] ["Toast"]]
+                    , li_ [] [a_ [ P.href_ "#tooltip"] ["Tooltip"]]
                     ]
                 ]
             ]
@@ -557,13 +576,14 @@ asideView = aside_
                             [class_ "grid gap-1.5"]
                             [ h2_
                                 [class_ "font-semibold"]
-                                ["I hope you like miso-ui ..."]
+                                ["🍜 miso-ui"]
                             , p_
                                 [class_ "text-muted-foreground text-sm"]
                                 [ " My name is "
                                 , a_
                                     [ target_ "_blank"
                                     , P.href_ "https://github.com/dmjio"
+                                    , class_ "underline underline-offset-4"
                                     ]
                                     ["@dmjio"]
                                 , ", and I'm using the Basecoat CSS framework from "
@@ -573,7 +593,7 @@ asideView = aside_
                                     , class_ "underline underline-offset-4"
                                     ]
                                     ["@hunvreus"]
-                                , ". If you find it useful, please consider sponsoring or following @hunvreus. "
+                                , ". If you find it useful, please consider sponsoring or following @hunvreus! "
                                 ]
                             ]
                         , footer_
@@ -583,7 +603,7 @@ asideView = aside_
                                 , class_ "btn-sm"
                                 , P.href_ "https://github.com/sponsors/hunvreus"
                                 ]
-                                ["Sponsor @hunvreus on GitHub"]
+                                ["Sponsor @hunvreus"]
                             , a_
                                 [ target_ "_blank"
                                 , class_ "btn-sm-outline"
