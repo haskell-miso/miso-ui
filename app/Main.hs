@@ -581,21 +581,27 @@ asideView = aside_
                                 ["🍜 miso-ui"]
                             , p_
                                 [class_ "text-muted-foreground text-sm"]
-                                [ " My name is "
+                                [ " Hi, I'm "
                                 , a_
                                     [ target_ "_blank"
                                     , P.href_ "https://github.com/dmjio"
                                     , class_ "underline underline-offset-4"
                                     ]
                                     ["@dmjio"]
-                                , ", and I'm using the Basecoat CSS framework from "
+                                , ", and I'm using the Basecoat CSS framework to build "
                                 , a_
-                                    [ target_ "_target"
+                                    [ target_ "_blank"
+                                    , P.href_ "https://github.com/haskell-miso/miso-ui"
+                                    , class_ "underline underline-offset-4"
+                                    ]
+                                    ["miso-ui"]
+                                , ". If you find it useful, please consider sponsoring its author, "
+                                , a_
+                                    [ target_ "_blank"
                                     , P.href_ "https://github.com/hunvreus"
                                     , class_ "underline underline-offset-4"
                                     ]
                                     ["@hunvreus"]
-                                , ". If you find it useful, please consider sponsoring or following @hunvreus! "
                                 ]
                             ]
                         , footer_
