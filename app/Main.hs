@@ -58,7 +58,7 @@ main = run $ withJS $ startComponent app
       [ Href "https://basecoatui.com/assets/styles.css"
       ]
   , scripts =
-      [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.5/dist/js/basecoat.min.js"
+      [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.6/dist/js/basecoat.min.js"
       , Script
         """
         (() => {
@@ -499,6 +499,7 @@ asideView = aside_
                     , li_ [] [a_ [ P.href_ "#card"] ["Card"]]
                     , li_ [] [a_ [ P.href_ "#checkbox"] ["Checkbox"]]
                     , li_ [] [a_ [ P.href_ "#combobox"] ["Combobox"]]
+                    , li_ [] [a_ [ P.href_ "#command-menu"] ["Command Menu"]]
                     , li_ [] [a_ [ P.href_ "#dialog"] ["Dialog"]]
                     , li_ [] [a_ [ P.href_ "#dropdown-menu"] ["Dropdown Menu"]]
                     , li_ [] [a_ [ P.href_ "#form"] ["Form"]]

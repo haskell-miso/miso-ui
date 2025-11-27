@@ -13,6 +13,7 @@ import           Miso.Svg.Property hiding (id_, height_, width_, path_)
 -----------------------------------------------------------------------------
 import           Miso.UI.AlertDialog (alertDialogComponent)
 import           Miso.UI.Dialog (dialogComponent)
+import           Miso.UI.CommandMenu (commandMenu)
 -----------------------------------------------------------------------------
 import           Types
 -----------------------------------------------------------------------------
@@ -2325,6 +2326,12 @@ kitchenSinkPage = div_
                             ]
                         ]
                     ]
+                , h1_
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "command-menu"
+                    ]
+                    ["Command menu"]
+                , commandMenu
                 , h1_
                     [class_ "text-3xl font-semibold tracking-tight"]
                     ["Dialog"]
