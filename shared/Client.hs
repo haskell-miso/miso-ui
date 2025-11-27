@@ -55,7 +55,7 @@ main :: IO ()
 main = run $ withJS $ startComponent app
 #ifndef WASM
   { styles =
-      [ Href "https://basecoatui.com/assets/styles.css"
+      [ Href "/assets/styles.css"
       ]
   , scripts =
       [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.6/dist/js/basecoat.min.js"
