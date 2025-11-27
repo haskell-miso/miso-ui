@@ -40,7 +40,7 @@ kitchenSinkPage = div_
                 [class_ "grid gap-4 flex-1"]
                 [ hr_ []
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "accordion"
                     ]
                     ["Accordion"]
