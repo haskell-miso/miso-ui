@@ -90,6 +90,7 @@ view_ = section_
                 ["Edit Profile"]
             , dialog_
                 [ id_ "demo-dialog-edit-profile"
+                , onClick CloseDialog
                 , class_
                     "dialog w-full sm:max-w-[425px] max-h-[612px]"
                 , aria_
@@ -167,6 +168,7 @@ view_ = section_
                 ["Scrollable Content"]
             , dialog_
                 [ id_ "dialog-example"
+                , onClick CloseDialog
                 , class_
                     "dialog w-full sm:max-w-[425px] max-h-[612px]"
                 , aria_ "labelledby" "dialog-example-title"
