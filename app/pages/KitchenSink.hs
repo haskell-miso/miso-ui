@@ -268,7 +268,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "alert"
                     ]
                     ["Alert"]
@@ -564,7 +564,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "alert-dialog"
                     ]
                     ["Alert Dialog"]
@@ -609,7 +609,7 @@ kitchenSinkPage = div_
                         [class_ "p-4"] +> alertDialogComponent
                         ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "avatar"
                     ]
                     ["Avatar"]
@@ -742,7 +742,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "badge"
                     ]
                     ["Badge"]
@@ -927,7 +927,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "breadcrumb"
                     ]
                     ["Breadcrumb"]
@@ -1107,7 +1107,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "button"
                     ]
                     ["Button"]
@@ -1550,7 +1550,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "card"
                     ]
                     ["Card"]
@@ -1863,7 +1863,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "checkbox"
                     ]
                     ["Checkbox"]
@@ -1965,7 +1965,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "combobox"
                     ]
                     ["Combobox"]
@@ -2326,11 +2326,11 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [class_ "text-3xl font-semibold tracking-tight scroll-mt-14"]
                     ["Dialog"]
                 , div_ [] +> dialogComponent
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "dropdown-menu"
                     ]
                     ["Dropdown Menu"]
@@ -3277,7 +3277,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight"]
+                    [class_ "text-3xl font-semibold tracking-tight scroll-mt-14"]
                     ["Form"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-16"
@@ -3536,7 +3536,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "input"
                     ]
                     ["Input"]
@@ -3637,7 +3637,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "label"
                     ]
                     ["Label"]
@@ -3736,7 +3736,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "pagination"
                     ]
                     ["Pagination"]
@@ -3865,7 +3865,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "popover"
                     ]
                     ["Popover"]
@@ -3988,7 +3988,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "radio-group"
                     ]
                     ["Radio Group"]
@@ -4113,7 +4113,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "select"
                     ]
                     ["Select"]
@@ -4843,7 +4843,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "skeleton"
                     ]
                     ["Skeleton"]
@@ -4962,7 +4962,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "slider"
                     ]
                     ["Slider"]
@@ -5022,7 +5022,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "switch"
                     ]
                     ["Switch"]
@@ -5113,7 +5113,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "table"
                     ]
                     ["Table"]
@@ -5234,7 +5234,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "tabs"
                     ]
                     ["Tabs"]
@@ -5540,7 +5540,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "textarea"
                     ]
                     ["Textarea"]
@@ -5640,7 +5640,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "toast"
                     ]
                     ["Toast"]
@@ -5710,7 +5710,7 @@ kitchenSinkPage = div_
                         ]
                     ]
                 , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight"
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "tooltip"
                     ]
                     [ "Tooltip"
