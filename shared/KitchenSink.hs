@@ -18,6 +18,7 @@ import           Miso.UI.Dialog (dialogComponent)
 import           Miso.UI.Tabs (tabs_, tabList_, tabButton_, tab_)
 import           Miso.UI.Avatar (avatarSample, avatarCodeSample)
 import           Miso.UI.Badge (badgeSample, badgeCodeSample)
+import           Miso.UI.CommandMenu (commandMenu)
 -----------------------------------------------------------------------------
 import           Types
 -----------------------------------------------------------------------------
@@ -1886,6 +1887,14 @@ kitchenSinkPage = div_
                             ]
                         ]
                     ]
+                , br_ []
+                , hr_ [class_ "mt-20"]
+                , h1_
+                    [ class_ "text-3xl font-semibold tracking-tight"
+                    , id_ "command-menu"
+                    ]
+                    ["Command menu"]
+                , commandMenu
                 , br_ []
                 , hr_ [class_ "mt-20"]
                 , h1_

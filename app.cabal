@@ -105,6 +105,7 @@ library
     Miso.UI.Card
     Miso.UI.Checkbox
     Miso.UI.Combobox
+    Miso.UI.CommandMenu
     Miso.UI.Dialog
     Miso.UI.DropDownMenu
     Miso.UI.Form

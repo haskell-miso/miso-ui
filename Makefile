@@ -7,6 +7,8 @@ js: update-js build-js
 update:
 	wasm32-wasi-cabal update
 
+js: update-js build-js
+
 build:
 	wasm32-wasi-cabal build app
 	rm -rf public
