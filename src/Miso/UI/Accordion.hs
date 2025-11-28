@@ -120,38 +120,28 @@ accordionSample =
       [ accordionHeader_ []
         [ "Is it accessible?" ]
       , accordionBody_ []
-        [ "Yes. It adheres to the WAI-ARIA design pattern"
-        ]
+        [ "Yes. It adheres to the WAI-ARIA design pattern." ]
       ]
     , accordionSection_ []
       [ accordionHeader_ []
         [ "Is it styled?" ]
       , accordionBody_ []
-        [ text_
-          [ "Yes. It comes with default styles"
-          , "that matches the other components"
-          , "aesthetic."
-          ]
-        ]
+        [ "Yes. It comes with default styles , that matches the other components aesthetic." ]
       ]
     , accordionSection_ []
       [ accordionHeader_ []
         [ "Is it animated?" ]
       , accordionBody_ []
-        [ text_
-          [ "Yes. It's animated by default,"
-          , "but you can disbale it if you prefer."
-          ]
-        ]
+        [ "Yes. It's animated by default, but you can disable it if you prefer." ]
       ]
     ]
 -----------------------------------------------------------------------------
 accordionCodeSample :: View m a
 accordionCodeSample = text
   """
-  --------------------------------------
+  -----------------------------------------------------------------------------
   module MyAccordion (myAccordion) where
-  --------------------------------------
+  -----------------------------------------------------------------------------
   import Miso
   import Miso.UI.Accordion
     ( accordion_
@@ -159,44 +149,28 @@ accordionCodeSample = text
     , accordionHeader_
     , accordionBody_
     )
-  --------------------------------------
+  -----------------------------------------------------------------------------
   myAccordion :: View model action
   myAccordion = accordion_ []
     [ accordionSection_ []
       [ accordionHeader_ []
         [ "Is it accessible?" ]
       , accordionBody_ []
-        [ text_
-           [ "Yes. It adheres to"
-           , "the WAI-ARIA design"
-           , "pattern."
-           ]
-        ]
+        [ "Yes. It adheres to the WAI-ARIA design pattern." ]
       ]
     , accordionSection_ []
       [ accordionHeader_ []
         [ "Is it styled?" ]
       , accordionBody_ []
-        [ text_
-          [ "Yes. It comes with default"
-          , "styles , that matches the"
-          , "other components"
-          , "aesthetic."
-          ]
-        ]
+        [ "Yes. It comes with default styles , that matches the other components aesthetic." ]
       ]
     , accordionSection_ []
       [ accordionHeader_ []
         [ "Is it animated?" ]
       , accordionBody_ []
-        [ text_
-          [ "Yes. It's animated by"
-            "default, but you can"
-            "disable it if you prefer."
-          ]
-        ]
+        [ "Yes. It's animated by default, but you can disable it if you prefer." ]
       ]
     ]
-  --------------------------------------
+  -----------------------------------------------------------------------------
   """
 -----------------------------------------------------------------------------

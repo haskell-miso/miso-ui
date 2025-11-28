@@ -95,6 +95,8 @@ app :: App Model Action
 app = component emptyModel update_ homeView
   where
     update_ = \case
+      CopyButton domRef ->
+         io_ $ global # ("copyButton" :: MisoString) $ [domRef]
       Toaster {..} -> do
         io_ $ do
           msg <- global # ("toastMsg" :: MisoString) $ [category, title, description, label]

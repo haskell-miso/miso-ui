@@ -48,3 +48,15 @@ globalThis.toastMsg = function (category, title, description, label) {
     };
 }
 
+
+/* copy button for code samples */
+globalThis.copyButton = function (button) {
+    const code = button.parentElement.querySelector('pre code');
+    if (!code) return;
+    navigator.clipboard.writeText(code.textContent || '').then(() => {
+      button.classList.add('copied');
+      setTimeout(() => { button.classList.remove('copied') }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy text: ', err);
+    });
+}

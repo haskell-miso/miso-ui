@@ -91,10 +91,12 @@ kitchenSinkPage = div_
                       , hidden_ True
                       ]
                       [ div_
-                        [ class_ "relative" ]
+                        [ class_ "relative"
+                        ]
                         [ pre_
                           [ class_
-                            "grid text-sm max-h-[650px] overflow-y-auto rounded-xl scrollbar" ]
+                              "grid text-sm max-h-[650px] overflow-y-auto rounded-xl scrollbar"
+                          ]
                           [ code_
                             [ class_ "language-haskell !bg-muted/40 !p-3.5 hljs"
                             , onCreatedWith Highlight
@@ -102,6 +104,7 @@ kitchenSinkPage = div_
                             [ accordionCodeSample
                             ]
                           ]
+                          , copyButton
                         ]
                       ]
                     ]
@@ -5163,7 +5166,7 @@ kitchenSinkPage = div_
                         [ div_
                             [class_ "flex flex-col gap-6"]
                             [ div_
-                                [ id_ "demo-tabs-with-panels"
+                                [ id_ "demo-tabs-with-panels-tabs"
                                 , class_ "tabs max-w-[300px]"
                                 ]
                                 [ nav_
@@ -5174,8 +5177,8 @@ kitchenSinkPage = div_
                                     [ button_
                                         [ tabindex_ "0"
                                         , aria_ "selected" "true"
-                                        , aria_ "controls" "demo-tabs-with-panels-panel-1"
-                                        , id_ "demo-tabs-with-panels-tab-1"
+                                        , aria_ "controls" "demo-tabs-with-panels-panel-tabs-1"
+                                        , id_ "demo-tabs-with-panels-tab-tabs-1"
                                         , role_ "tab"
                                         , type_ "button"
                                         ]
@@ -5183,8 +5186,8 @@ kitchenSinkPage = div_
                                     , button_
                                         [ tabindex_ "0"
                                         , aria_ "selected" "false"
-                                        , aria_ "controls" "demo-tabs-with-panels-panel-2"
-                                        , id_ "demo-tabs-with-panels-tab-2"
+                                        , aria_ "controls" "demo-tabs-with-panels-panel-tabs-2"
+                                        , id_ "demo-tabs-with-panels-tab-tabs-2"
                                         , role_ "tab"
                                         , type_ "button"
                                         ]
@@ -5193,8 +5196,8 @@ kitchenSinkPage = div_
                                 , div_
                                     [ aria_ "selected" "true"
                                     , tabindex_ "-1"
-                                    , aria_ "labelledby" "demo-tabs-with-panels-tab-1"
-                                    , id_ "demo-tabs-with-panels-panel-1"
+                                    , aria_ "labelledby" "demo-tabs-with-panels-tab-tabs-1"
+                                    , id_ "demo-tabs-with-panels-panel-tabs-1"
                                     , role_ "tabpanel"
                                     ]
                                     [ div_
@@ -5245,8 +5248,8 @@ kitchenSinkPage = div_
                                     [ hidden_ True
                                     , aria_ "selected" "false"
                                     , tabindex_ "-1"
-                                    , aria_ "labelledby" "demo-tabs-with-panels-tab-2"
-                                    , id_ "demo-tabs-with-panels-panel-2"
+                                    , aria_ "labelledby" "demo-tabs-with-panels-tab-tabs-2"
+                                    , id_ "demo-tabs-with-panels-panel-tabs-2"
                                     , role_ "tabpanel"
                                     ]
                                     [ div_
@@ -5730,3 +5733,52 @@ uiSection name url content = section_
       content
     ]
   ]
+
+
+copyButton :: View model Action
+copyButton =
+  button_
+    [ class_
+        "btn-icon-ghost size-8 absolute right-2.5 top-2 text-muted-foreground hover:text-foreground group"
+    , onClickWith CopyButton
+    ]
+    [ svg_
+        [ class_ "group-[.copied]:hidden"
+        , strokeLinejoin_ "round"
+        , strokeLinecap_ "round"
+        , strokeWidth_ "2"
+        , stroke_ "currentColor"
+        , fill_ "none"
+        , viewBox_ "0 0 24 24"
+        , height_ "24"
+        , width_ "24"
+        , xmlns_ "http://www.w3.org/2000/svg"
+        ]
+        [ rect_
+            [ ry_ "2"
+            , rx_ "2"
+            , y_ "8"
+            , x_ "8"
+            , height_ "14"
+            , width_ "14"
+            ]
+        , path_
+            [ d_
+                "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+            ]
+        ]
+    , svg_
+        [ class_ "hidden group-[.copied]:block"
+        , strokeLinejoin_ "round"
+        , strokeLinecap_ "round"
+        , strokeWidth_ "2"
+        , stroke_ "currentColor"
+        , fill_ "none"
+        , viewBox_ "0 0 24 24"
+        , height_ "24"
+        , width_ "24"
+        , xmlns_ "http://www.w3.org/2000/svg"
+        ]
+        [ path_ [d_ "M20 6 9 17l-5-5"]
+        ]
+    ]
