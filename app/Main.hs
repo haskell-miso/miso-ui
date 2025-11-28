@@ -22,7 +22,7 @@ import qualified Miso.Html.Property as P
 import           Miso.Html.Property hiding (title_, label_, href_, form_)
 import           Miso.Svg.Element hiding (title_)
 import qualified Miso.Svg.Element as S
-import           Miso.Svg.Property hiding (id_, height_, width_, target_)
+import           Miso.Svg.Property hiding (target_)
 -----------------------------------------------------------------------------
 import           Miso
 import           Miso.Lens
@@ -100,20 +100,17 @@ app = component emptyModel update_ homeView
       Toaster {..} -> do
         io_ $ do
           msg <- global # ("toastMsg" :: MisoString) $ [category, title, description, label]
-          event <- new (jsg ("CustomEvent" :: MisoString)) $ ("basecoat:toast" :: MisoString, msg)
-          dispatchEvent (Event event)
+          dispatchEvent =<< newCustomEvent ("basecoat:toast" :: MisoString, msg)
       InitSlider domRef ->
         io_ $ global # ("initSlider" :: MisoString) $ [domRef]
       DestroySlider domRef ->
         io_ $ global # ("deinitSlider" :: MisoString) $ [domRef]
       ToggleSidebar ->
         io_ $ do
-          event <- new (jsg ("CustomEvent" :: MisoString)) $ [ "basecoat:sidebar" :: MisoString ]
-          dispatchEvent (Event event)
+          dispatchEvent =<< newCustomEvent ("basecoat:sidebar" :: MisoString)
       ToggleDarkMode ->
         io_ toggleDarkMode
       Highlight domRef -> io_ $ void $ do
-        consoleLog "I'm in here highlighting stuff"
         hljs <- global ! ("hljs" :: MisoString)
         hljs # ("highlightElement" :: MisoString) $ [domRef]
       ChangeTheme theme -> do
@@ -131,13 +128,9 @@ app = component emptyModel update_ homeView
              # ("add" :: MisoString) $ ["theme-" <> theme]
 -----------------------------------------------------------------------------
 toggleDarkMode :: JSM ()
-toggleDarkMode = do
-  doc <- jsg ("document" :: MisoString)
-  event <-
-    new (jsg ("CustomEvent" :: MisoString))
-      ["basecoat:theme" :: MisoString]
-  _ <- (doc # ("dispatchEvent" :: MisoString)) event
-  pure ()
+toggleDarkMode =
+  dispatchEvent =<<
+    newCustomEvent ("basecoat:theme" :: MisoString)
 -----------------------------------------------------------------------------
 withMainAs
   :: View Model Action

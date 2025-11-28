@@ -9,7 +9,7 @@ import           Miso.Html hiding (data_)
 import qualified Miso.Html.Property as P
 import           Miso.Html.Property hiding (max_, min_, label_, form_)
 import           Miso.Svg.Element
-import           Miso.Svg.Property hiding (id_, height_, width_, path_)
+import           Miso.Svg.Property hiding (path_)
 -----------------------------------------------------------------------------
 import           Miso.UI.AlertDialog (alertDialogComponent)
 import           Miso.UI.Accordion (accordionSample, accordionCodeSample)

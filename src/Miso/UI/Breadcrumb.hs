@@ -73,8 +73,8 @@ view_ = H.ol_
                     , SP.stroke_ "currentColor"
                     , SP.fill_ "none"
                     , SP.viewBox_ "0 0 24 24"
-                    , SP.height_ "24"
-                    , SP.width_ "24"
+                    , P.height_ "24"
+                    , P.width_ "24"
                     , P.xmlns_ "http://www.w3.org/2000/svg"
                     ]
                     [ S.circle_ [SP.r_ "1", SP.cy_ "12", SP.cx_ "12"]
@@ -118,8 +118,8 @@ view_ = H.ol_
             , SP.stroke_ "currentColor"
             , SP.fill_ "none"
             , SP.viewBox_ "0 0 24 24"
-            , SP.height_ "24"
-            , SP.width_ "24"
+            , P.height_ "24"
+            , P.width_ "24"
             , P.xmlns_ "http://www.w3.org/2000/svg"
             ]
             [S.path_ [SP.d_ "m9 18 6-6-6-6"]]

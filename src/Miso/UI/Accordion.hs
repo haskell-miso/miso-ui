@@ -86,8 +86,8 @@ accordionHeader_ attrs kids = optionalAttrs
       , SP.stroke_ "currentColor"
       , SP.fill_ "none"
       , SP.viewBox_ "0 0 24 24"
-      , SP.height_ "24"
-      , SP.width_ "24"
+      , P.height_ "24"
+      , P.width_ "24"
       , P.xmlns_ "http://www.w3.org/2000/svg"
       ]
     [ S.path_

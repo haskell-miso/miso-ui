@@ -37,7 +37,7 @@ view_ =
     [ H.span_
       [ P.class_ "truncate" ][]
     , svg_
-      [ SP.height_ "24"
+      [ P.height_ "24"
       , SP.viewBox_ "0 0 24 24"
       , SP.fill_ "none"
       , SP.stroke_ "currentColor"
@@ -55,8 +55,8 @@ view_ =
     [ H.header_ []
       [ H.svg_
         [ P.xmlns_ "http://www.w3.org/2000/svg"
-        , SP.width_ "24"
-        , SP.height_ "24"
+        , P.width_ "24"
+        , P.height_ "24"
         , SP.viewBox_ "0 0 24 24"
         , SP.fill_ "none"
         , SP.stroke_ "currentColor"

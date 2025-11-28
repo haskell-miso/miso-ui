@@ -16,7 +16,7 @@ import Miso
 import Miso.Html hiding (data_)
 import Miso.Html.Property hiding (form_, label_)
 import Miso.Svg hiding (view_)
-import Miso.Svg.Property hiding (path_, height_, width_, id_)
+import Miso.Svg.Property hiding (path_)
 import Miso.Lens
 -----------------------------------------------------------------------------
 import Control.Monad

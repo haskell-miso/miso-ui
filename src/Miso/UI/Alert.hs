@@ -81,8 +81,8 @@ alertComponent = component emptyAlert noop $ \model ->
 successIcon :: View model action
 successIcon = S.svg_
   [ P.xmlns_ "http://www.w3.org/2000/svg"
-  , SP.width_ "24"
-  , SP.height_ "24"
+  , P.width_ "24"
+  , P.height_ "24"
   , SP.viewBox_ "0 0 24 24"
   , SP.fill_ "none"
   , SP.stroke_ "currentColor"
@@ -109,8 +109,8 @@ destructiveIcon =
     , SP.stroke_ "currentColor"
     , SP.fill_ "none"
     , SP.viewBox_ "0 0 24 24"
-    , SP.height_ "24"
-    , SP.width_ "24"
+    , P.height_ "24"
+    , P.width_ "24"
     , P.xmlns_ "http://www.w3.org/2000/svg"
     ]
     [ S.circle_
