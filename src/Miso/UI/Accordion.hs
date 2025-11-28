@@ -120,7 +120,7 @@ accordionSample =
       [ accordionHeader_ []
         [ "Is it accessible?" ]
       , accordionBody_ []
-        [ "Yes. It adheres to the WAI-ARIA design pattern "
+        [ "Yes. It adheres to the WAI-ARIA design pattern"
         ]
       ]
     , accordionSection_ []
@@ -128,8 +128,8 @@ accordionSample =
         [ "Is it styled?" ]
       , accordionBody_ []
         [ text_
-          [ "Yes. It comes with default styles "
-          , "that matches the other components "
+          [ "Yes. It comes with default styles"
+          , "that matches the other components"
           , "aesthetic."
           ]
         ]
@@ -139,7 +139,7 @@ accordionSample =
         [ "Is it animated?" ]
       , accordionBody_ []
         [ text_
-          [ "Yes. It's animated by default, "
+          [ "Yes. It's animated by default,"
           , "but you can disbale it if you prefer."
           ]
         ]
@@ -169,7 +169,7 @@ accordionCodeSample = text
         [ text_
            [ "Yes. It adheres to"
            , "the WAI-ARIA design"
-           , "pattern "
+           , "pattern."
            ]
         ]
       ]
