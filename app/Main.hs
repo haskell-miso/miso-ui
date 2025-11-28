@@ -301,7 +301,7 @@ mainContent :: View Model Action
 mainContent = div_
         [ class_ "p-4 md:p-6 xl:p-12" ]
         [ div_
-            [ class_ "max-w-screen-lg mx-auto" ]
+            [ class_ "max-w-screen-lg" ]
             [ header_
                 [class_ "flex flex-col gap-4"]
                 [ div_
