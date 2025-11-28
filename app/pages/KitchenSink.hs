@@ -64,7 +64,7 @@ kitchenSinkPage = div_
                         , aria_ "selected" "true"
                         , tabindex_ "0"
                         ]
-                        [ "Example" ]
+                        [ "Preview" ]
                       , tabButton_
                         [ id_ "demo-tabs-with-panels-tab-2"
                         , aria_ "controls" "demo-tabs-with-panels-panel-2"

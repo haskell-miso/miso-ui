@@ -126,7 +126,7 @@ accordionSample =
       [ accordionHeader_ []
         [ "Is it styled?" ]
       , accordionBody_ []
-        [ "Yes. It comes with default styles , that matches the other components aesthetic." ]
+        [ "Yes. It comes with default styles that match other component aesthetic." ]
       ]
     , accordionSection_ []
       [ accordionHeader_ []
