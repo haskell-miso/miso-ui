@@ -61,11 +61,7 @@ executable app
   hs-source-dirs:
     app, app/pages
   other-modules:
-    Introduction
-    Installation
     KitchenSink
-    Accordion
-    Alert
     Types
   default-language:
     Haskell2010
