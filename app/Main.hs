@@ -56,32 +56,33 @@ main = run $ withJS $ startComponent app
 #ifndef WASM
   { styles =
       [ Href "/assets/styles.css"
+      , Href "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css"
       ]
   , scripts =
-      [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.5/dist/js/basecoat.min.js"
+      [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.6/dist/js/basecoat.min.js"
+      , Src "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"
+      , Src "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/haskell.min.js"
       , Script
         """
-        (() => {
-          try {
-            const stored = localStorage.getItem('themeMode');
-            if (stored ? stored === 'dark'
-                       : matchMedia('(prefers-color-scheme: light)').matches) {
-              document.documentElement.classList.add('light');
-            }
-          } catch (_) {}
-
-          const apply = dark => {
-            document.documentElement.classList.toggle('light', dark);
-            try { localStorage.setItem('themeMode', dark ? 'dark' : 'light'); } catch (_) {}
-          };
-
-          document.addEventListener('basecoat:theme', (event) => {
-            const mode = event.detail?.mode;
-            apply(mode === 'dark' ? true
-                 : mode === 'light' ? false
-                 : !document.documentElement.classList.contains('dark'));
-          });
-        })();
+         (() => {
+           try {
+             const stored = localStorage.getItem('themeMode');
+             if (stored ? stored === 'dark'
+                        : matchMedia('(prefers-color-scheme: dark)').matches) {
+               document.documentElement.classList.add('dark');
+             }
+           } catch (_) {}
+           const apply = dark => {
+             document.documentElement.classList.toggle('dark', dark);
+             try { localStorage.setItem('themeMode', dark ? 'dark' : 'light'); } catch (_) {}
+           };
+           document.addEventListener('basecoat:theme', (event) => {
+             const mode = event.detail?.mode;
+             apply(mode === 'dark' ? true
+                  : mode === 'light' ? false
+                  : !document.documentElement.classList.contains('dark'));
+           });
+         })();
         """
       ]
   }
@@ -109,6 +110,10 @@ app = component emptyModel update_ homeView
           dispatchEvent (Event event)
       ToggleDarkMode ->
         io_ toggleDarkMode
+      Highlight domRef -> io_ $ void $ do
+        consoleLog "I'm in here highlighting stuff"
+        hljs <- global ! ("hljs" :: MisoString)
+        hljs # ("highlightElement" :: MisoString) $ [domRef]
       ChangeTheme theme -> do
         io_ $ do
           void $ eval ("""
@@ -295,7 +300,6 @@ topSection = div_
                     ]
                 ]
         ]
-
 -----------------------------------------------------------------------------
 mainContent :: View Model Action
 mainContent = div_

@@ -12,7 +12,9 @@ import           Miso.Svg.Element
 import           Miso.Svg.Property hiding (id_, height_, width_, path_)
 -----------------------------------------------------------------------------
 import           Miso.UI.AlertDialog (alertDialogComponent)
+import           Miso.UI.Accordion (accordionSample, accordionCodeSample)
 import           Miso.UI.Dialog (dialogComponent)
+import           Miso.UI.Tabs (tabs_, tabList_, tabButton_, tab_)
 -----------------------------------------------------------------------------
 import           Types
 -----------------------------------------------------------------------------
@@ -37,236 +39,73 @@ kitchenSinkPage = div_
                     ]
                 ]
             , div_
-                [class_ "grid gap-4 flex-1"]
+                [ class_ "grid gap-4 flex-1" ]
                 [ hr_ []
                 , h1_
                     [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "accordion"
                     ]
-                    ["Accordion"]
-                , section_
-                    [ class_ "w-full rounded-lg border scroll-mt-14"
+                    [ "Accordion"
                     ]
-                    [ header_
-                        [ class_
-                            "border-b px-4 py-3 flex items-center justify-between"
-                        ]
-                        [ h2_ [class_ "text-sm font-medium"] ["Accordion"]
-                        , a_
-                            [ data_ "side" "left"
-                            , data_ "tooltip" "See documentation"
-                            , class_
-                                "text-muted-foreground hover:text-foreground"
-                            , href_ "#accordion"
-                            ]
-                            [ svg_
-                                [ class_ "size-4"
-                                , strokeLinejoin_ "round"
-                                , strokeLinecap_ "round"
-                                , strokeWidth_ "2"
-                                , stroke_ "currentColor"
-                                , fill_ "none"
-                                , viewBox_ "0 0 24 24"
-                                , height_ "24"
-                                , width_ "24"
-                                , xmlns_ "http://www.w3.org/2000/svg"
-                                ]
-                                [ path_ [d_ "M12 7v14"]
-                                , path_
-                                    [ d_
-                                        "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
-                                    ]
-                                ]
-                            ]
-                        ]
-                    , div_
-                        [class_ "p-4"]
-                        [ div_
-                            [class_ "group grid w-full max-w-xl gap-4"]
-                            [ section_
-                                [class_ "accordion"]
-                                [ details_
-                                    [class_ "group border-b last:border-b-0"]
-                                    [ summary_
-                                        [ class_
-                                            "w-full focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] transition-all outline-none rounded-md"
-                                        ]
-                                        [ h2_
-                                            [ class_
-                                                "flex flex-1 items-start justify-between gap-4 py-4 text-left text-sm font-medium hover:underline "
-                                            ]
-                                            [ "Is it accessible?"
-                                            , svg_
-                                                [ class_
-                                                    "text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200 group-open:rotate-180"
-                                                , strokeLinejoin_ "round"
-                                                , strokeLinecap_ "round"
-                                                , strokeWidth_ "2"
-                                                , stroke_ "currentColor"
-                                                , fill_ "none"
-                                                , viewBox_ "0 0 24 24"
-                                                , height_ "24"
-                                                , width_ "24"
-                                                , xmlns_ "http://www.w3.org/2000/svg"
-                                                ]
-                                                [path_ [d_ "m6 9 6 6 6-6"]]
-                                            ]
-                                        ]
-                                    , section_
-                                        [class_ "pb-4"]
-                                        [ p_
-                                            [class_ "text-sm"]
-                                            [ "Yes. It adheres to the WAI-ARIA design pattern."
-                                            ]
-                                        ]
-                                    ]
-                                , details_
-                                    [class_ "group border-b last:border-b-0"]
-                                    [ summary_
-                                        [ class_
-                                            "w-full focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] transition-all outline-none rounded-md"
-                                        ]
-                                        [ h2_
-                                            [ class_
-                                                "flex flex-1 items-start justify-between gap-4 py-4 text-left text-sm font-medium hover:underline "
-                                            ]
-                                            [ "Is it styled?"
-                                            , svg_
-                                                [ class_
-                                                    "text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200 group-open:rotate-180"
-                                                , strokeLinejoin_ "round"
-                                                , strokeLinecap_ "round"
-                                                , strokeWidth_ "2"
-                                                , stroke_ "currentColor"
-                                                , fill_ "none"
-                                                , viewBox_ "0 0 24 24"
-                                                , height_ "24"
-                                                , width_ "24"
-                                                , xmlns_ "http://www.w3.org/2000/svg"
-                                                ]
-                                                [path_ [d_ "m6 9 6 6 6-6"]]
-                                            ]
-                                        ]
-                                    , section_
-                                        [class_ "pb-4"]
-                                        [ p_
-                                            [class_ "text-sm"]
-                                            [ "Yes. It comes with default styles that matches the other components' aesthetic."
-                                            ]
-                                        ]
-                                    ]
-                                , details_
-                                    [class_ "group border-b last:border-b-0"]
-                                    [ summary_
-                                        [ class_
-                                            "w-full focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] transition-all outline-none rounded-md"
-                                        ]
-                                        [ h2_
-                                            [ class_
-                                                "flex flex-1 items-start justify-between gap-4 py-4 text-left text-sm font-medium hover:underline "
-                                            ]
-                                            [ "Is it animated?"
-                                            , svg_
-                                                [ class_
-                                                    "text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200 group-open:rotate-180"
-                                                , strokeLinejoin_ "round"
-                                                , strokeLinecap_ "round"
-                                                , strokeWidth_ "2"
-                                                , stroke_ "currentColor"
-                                                , fill_ "none"
-                                                , viewBox_ "0 0 24 24"
-                                                , height_ "24"
-                                                , width_ "24"
-                                                , xmlns_ "http://www.w3.org/2000/svg"
-                                                ]
-                                                [path_ [d_ "m6 9 6 6 6-6"]]
-                                            ]
-                                        ]
-                                    , section_
-                                        []
-                                        [ p_
-                                            [class_ "text-sm"]
-                                            [ "Yes. It's animated by default, but you can disable it if you prefer."
-                                            ]
-                                        ]
-                                    ]
-                                ]
-                            , section_
-                                [class_ "accordion"]
-                                [ details_
-                                    [class_ "group border-b last:border-b-0"]
-                                    [ summary_
-                                        [ class_
-                                            "w-full focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] transition-all outline-none rounded-md"
-                                        ]
-                                        [ h2_
-                                            [ class_
-                                                "flex flex-1 items-start justify-between gap-4 py-4 text-left text-sm font-medium hover:underline "
-                                            ]
-                                            [ "What are the key considerations when implementing a comprehensive enterprise-level authentication system?"
-                                            , svg_
-                                                [ class_
-                                                    "text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200 group-open:rotate-180"
-                                                , strokeLinejoin_ "round"
-                                                , strokeLinecap_ "round"
-                                                , strokeWidth_ "2"
-                                                , stroke_ "currentColor"
-                                                , fill_ "none"
-                                                , viewBox_ "0 0 24 24"
-                                                , height_ "24"
-                                                , width_ "24"
-                                                , xmlns_ "http://www.w3.org/2000/svg"
-                                                ]
-                                                [path_ [d_ "m6 9 6 6 6-6"]]
-                                            ]
-                                        ]
-                                    , section_
-                                        [class_ "pb-4"]
-                                        [ p_
-                                            [class_ "text-sm"]
-                                            [ "Implementing a robust enterprise authentication system requires careful consideration of multiple factors. This includes secure password hashing and storage, multi-factor authentication (MFA) implementation, session management, OAuth2 and SSO integration, regular security audits, rate limiting to prevent brute force attacks, and maintaining detailed audit logs. Additionally, you'll need to consider scalability, performance impact, and compliance with relevant data protection regulations such as GDPR or HIPAA."
-                                            ]
-                                        ]
-                                    ]
-                                , details_
-                                    [class_ "group"]
-                                    [ summary_
-                                        [ class_
-                                            "w-full focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] transition-all outline-none rounded-md"
-                                        ]
-                                        [ h2_
-                                            [ class_
-                                                "flex flex-1 items-start justify-between gap-4 py-4 text-left text-sm font-medium hover:underline "
-                                            ]
-                                            [ "How does modern distributed system architecture handle eventual consistency and data synchronization across multiple regions?"
-                                            , svg_
-                                                [ class_
-                                                    "text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200 group-open:rotate-180"
-                                                , strokeLinejoin_ "round"
-                                                , strokeLinecap_ "round"
-                                                , strokeWidth_ "2"
-                                                , stroke_ "currentColor"
-                                                , fill_ "none"
-                                                , viewBox_ "0 0 24 24"
-                                                , height_ "24"
-                                                , width_ "24"
-                                                , xmlns_ "http://www.w3.org/2000/svg"
-                                                ]
-                                                [path_ [d_ "m6 9 6 6 6-6"]]
-                                            ]
-                                        ]
-                                    , section_
-                                        []
-                                        [ p_
-                                            [class_ "text-sm"]
-                                            [ "Modern distributed systems employ various strategies to maintain data consistency across regions. This often involves using techniques like CRDT (Conflict-Free Replicated Data Types), vector clocks, and gossip protocols. Systems might implement event sourcing patterns, utilize message queues for asynchronous updates, and employ sophisticated conflict resolution strategies. Popular solutions like Amazon's DynamoDB and Google's Spanner demonstrate different approaches to solving these challenges, balancing between consistency, availability, and partition tolerance as described in the CAP theorem."
-                                            ]
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
+                , p_
+                  [ class_
+                    "text-muted-foreground text-[1.05rem] sm:text-base"
+                  ]
+                  [ "A vertically stacked set of interactive headings that each reveal a section of content."
+                  ]
+                , uiSection "Accordion" "#accordion"
+                  [ tabs_
+                    [ id_ "demo-tabs-with-panels"
                     ]
+                    [ tabList_ []
+                      [ tabButton_
+                        [ id_ "demo-tabs-with-panels-tab-1"
+                        , aria_ "controls" "demo-tabs-with-panels-panel-1"
+                        , aria_ "selected" "true"
+                        , tabindex_ "0"
+                        ]
+                        [ "Example" ]
+                      , tabButton_
+                        [ id_ "demo-tabs-with-panels-tab-2"
+                        , aria_ "controls" "demo-tabs-with-panels-panel-2"
+                        , aria_ "selected" "false"
+                        , tabindex_ "0"
+                        ]
+                        [ "Code" ]
+                      ]
+                    , hr_ []
+                    , tab_
+                      [ id_ "demo-tabs-with-panels-panel-1"
+                      , aria_ "labelledby" "demo-tabs-with-panels-tab-1"
+                      , tabindex_ "0"
+                      , aria_ "selected" "true"
+                      , hidden_ False
+                      ]
+                      [ accordionSample
+                      ]
+                    , tab_
+                      [ id_ "demo-tabs-with-panels-panel-2"
+                      , aria_ "labelledby" "demo-tabs-with-panels-tab-2"
+                      , tabindex_ "-1"
+                      , aria_ "selected" "false"
+                      , hidden_ True
+                      ]
+                      [ div_
+                        [ class_ "relative" ]
+                        [ pre_
+                          [ class_
+                            "grid text-sm max-h-[650px] overflow-y-auto rounded-xl scrollbar" ]
+                          [ code_
+                            [ class_ "language-haskell !bg-muted/40 !p-3.5 hljs"
+                            , onCreatedWith Highlight
+                            ]
+                            [ accordionCodeSample
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
                 , h1_
                     [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "alert"
@@ -5789,3 +5628,53 @@ kitchenSinkPage = div_
         ]
     ]
 -----------------------------------------------------------------------------
+uiSection
+  :: MisoString
+  -> MisoString
+  -> [View model action]
+  -> View model action
+uiSection name url content = section_
+  [ class_ "w-full rounded-lg border scroll-mt-14"
+  ]
+  [ header_
+    [ class_
+      "border-b px-4 py-3 flex items-center justify-between"
+    ]
+    [ h2_
+      [ class_ "text-sm font-medium"
+      ]
+      [ text name ]
+    , a_
+      [ data_ "side" "left"
+      , data_ "tooltip" "See documentation"
+      , class_
+        "text-muted-foreground hover:text-foreground"
+      , href_ url
+      ]
+      [ svg_
+        [ class_ "size-4"
+        , strokeLinejoin_ "round"
+        , strokeLinecap_ "round"
+        , strokeWidth_ "2"
+        , stroke_ "currentColor"
+        , fill_ "none"
+        , viewBox_ "0 0 24 24"
+        , height_ "24"
+        , width_ "24"
+        , xmlns_ "http://www.w3.org/2000/svg"
+        ]
+        [ path_ [d_ "M12 7v14"]
+        , path_
+          [ d_
+            "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+          ]
+        ]
+      ]
+    ]
+  , div_
+    [ class_ "p-4" ]
+    [ div_
+      [ class_ "group grid w-full max-w-xl gap-4" ]
+      content
+    ]
+  ]

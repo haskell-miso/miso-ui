@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="light theme-claude">
+<html lang="en" class="dark theme-claude">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,42 +25,34 @@
     <meta name="twitter:description" content="A collection of all the components available in miso-ui">
     <meta name="twitter:image" content="https://miso-ui.haskell-miso.org/assets/social-screenshot.png">
     <meta name="twitter:creator" content="@dmjio">
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/django.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/dark.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/haskell.min.js"></script>
     <script>
-      const highlight = () => {
-        if (!window.hljs) return;
-        document
-          .querySelectorAll('pre code:not([data-highlighted]), code.highlight:not([data-highlighted])')
-          .forEach(el => hljs.highlightElement(el));
-      };
-      if (!window._hljsInit) {
-        window._hljsInit = true;
-        document.addEventListener('DOMContentLoaded', highlight);
-      }
+         (() => {
+           try {
+             const stored = localStorage.getItem('themeMode');
+             if (stored ? stored === 'dark'
+                        : matchMedia('(prefers-color-scheme: dark)').matches) {
+               document.documentElement.classList.add('dark');
+             }
+           } catch (_) {}
+           const apply = dark => {
+             document.documentElement.classList.toggle('dark', dark);
+             try { localStorage.setItem('themeMode', dark ? 'dark' : 'light'); } catch (_) {}
+           };
+           document.addEventListener('basecoat:theme', (event) => {
+             const mode = event.detail?.mode;
+             apply(mode === 'dark' ? true
+                  : mode === 'light' ? false
+                  : !document.documentElement.classList.contains('dark'));
+           });
+         })();
     </script>
-    <script>
-        (() => {
-          try {
-            const stored = localStorage.getItem('themeMode');
-            if (stored ? stored === 'dark'
-                       : matchMedia('(prefers-color-scheme: dark)').matches) {
-              document.documentElement.classList.add('dark');
-            }
-          } catch (_) {}
-    
-          const apply = dark => {
-            document.documentElement.classList.toggle('dark', dark);
-            try { localStorage.setItem('themeMode', dark ? 'dark' : 'light'); } catch (_) {}
-          };
-    
-          document.addEventListener('basecoat:theme', (event) => {
-            const mode = event.detail?.mode;
-            apply(mode === 'dark' ? true
-                 : mode === 'light' ? false
-                 : !document.documentElement.classList.contains('dark'));
-          });
-        })();
+    <script type="model">
+       import hljs from 'highlight.js/lib/core';
+       import haskell from 'highlight.js/lib/languages/haskell';
+       hljs.registerLanguage('haskell', haskell);
     </script>
     <style>
     body {

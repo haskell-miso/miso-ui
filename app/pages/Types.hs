@@ -14,6 +14,7 @@ data Action
   = ToggleDarkMode
   | ChangeTheme MisoString
   | ToggleSidebar
+  | Highlight DOMRef
   | InitSlider DOMRef
   | DestroySlider DOMRef
   | Toaster { category, title, description, label :: MisoString }
