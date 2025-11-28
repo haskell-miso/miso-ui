@@ -200,7 +200,6 @@ topSection = div_
                 ]
                 [ option_ [value_ ""] ["Default"]
                 , option_ [value_ "claude", selected_ True ] ["Claude"]
-                , option_ [value_ "doom-64"] ["Doom 64"]
                 , option_ [value_ "supabase"] ["Supabase"]
                 ]
             , a_
