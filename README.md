@@ -3,7 +3,7 @@
 
 `miso-ui` is a component library that uses [Basecoat](https://basecoatui.com/) to deliver [ShadCN](https://ui.shadcn.com) styling. It uses [Tailwind CSS](https://tailwindcss.com/) utility classes under the hood.
 
-<a href="https://miso-ui.haskell-miso.org">
+<a href="https://ui.haskell-miso.org">
 <img width="841" height="567" alt="image" src="https://github.com/user-attachments/assets/9bea5783-848f-48fa-b2e0-7489c70ab821" />
 </a>
 
