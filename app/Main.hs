@@ -195,6 +195,8 @@ topSection = div_
                 ]
                 [ option_ [value_ ""] ["Default"]
                 , option_ [value_ "claude", selected_ True ] ["Claude"]
+                , option_ [value_ "cosmic"] ["Cosmic"]
+                , option_ [value_ "tangerine"] ["Tangerine"]
                 , option_ [value_ "supabase"] ["Supabase"]
                 ]
             , a_
