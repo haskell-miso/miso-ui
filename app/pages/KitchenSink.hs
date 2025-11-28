@@ -98,7 +98,7 @@ kitchenSinkPage = div_
                               "grid text-sm max-h-[650px] overflow-y-auto rounded-xl scrollbar"
                           ]
                           [ code_
-                            [ class_ "language-haskell !bg-muted/40 !p-3.5 hljs"
+                            [ class_ "language-haskell !p-3.5 hljs"
                             , onCreatedWith Highlight
                             ]
                             [ accordionCodeSample
