@@ -25,7 +25,7 @@ kitchenSinkPage :: View model Action
 kitchenSinkPage = div_
     []
     [ div_
-        [class_ "flex gap-x-10 justify-center"]
+        [class_ "flex flex-col gap-4"]
         [ div_
             []
             [ header_
@@ -39,7 +39,7 @@ kitchenSinkPage = div_
                     ]
                 ]
             , div_
-                [ class_ "grid gap-4 flex-1" ]
+                [ class_ "flex flex-col gap-4" ]
                 [ hr_ []
                 , h1_
                     [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
