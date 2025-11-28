@@ -3143,11 +3143,12 @@ kitchenSinkPage = div_
                 , br_ []
                 , hr_ [class_ "mt-20"]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight scroll-mt-14"]
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
+                    , id_ "form"
+                    ]
                     ["Form"]
                 , section_
                     [ class_ "w-full rounded-lg border scroll-mt-16"
-                    , id_ "form"
                     ]
                     [ header_
                         [class_ "border-b px-4 py-3"]
