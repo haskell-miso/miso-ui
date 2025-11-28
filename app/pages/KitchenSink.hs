@@ -1448,7 +1448,7 @@ kitchenSinkPage = div_
                     , div_
                         [class_ "p-4"]
                         [ div_
-                            [class_ "flex flex-col items-start gap-4"]
+                            [class_ "flex flex-col gap-4"]
                             [ div_
                                 [class_ "card w-full max-w-sm"]
                                 [ header_
