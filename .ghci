@@ -1,4 +1,4 @@
 :set prompt ">>> "
 :set prompt2 "... "
-:set -iapp:app/pages
+:set -ilib:shared
 :set -Wall

@@ -55,12 +55,31 @@ executable app
   main-is:
     Main.hs
   build-depends:
-    base < 5, miso, miso-ui, jsaddle
+    base < 5, miso, miso-ui, jsaddle, jsaddle-wasm
   js-sources:
     js/util.js
   hs-source-dirs:
-    app, app/pages
+    client, shared
   other-modules:
+    Client
+    KitchenSink
+    Types
+  default-language:
+    Haskell2010
+
+executable prerender
+  import:
+    options, cpp
+  main-is:
+    Main.hs
+  build-depends:
+    base < 5, miso, miso-ui, jsaddle, bytestring
+  js-sources:
+    js/util.js
+  hs-source-dirs:
+    server, shared
+  other-modules:
+    Client
     KitchenSink
     Types
   default-language:
@@ -74,7 +93,7 @@ library
   ghc-options:
     -Wall
   hs-source-dirs:
-    src
+    lib
   build-depends:
     base < 5, miso, jsaddle
   exposed-modules:
