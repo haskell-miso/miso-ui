@@ -1510,7 +1510,7 @@ kitchenSinkPage = div_
                                     ]
                                 ]
                             , div_
-                                [class_ "card"]
+                                [class_ "card w-full max-w-lg"]
                                 [ header_
                                     []
                                     [ h2_ [] ["Meeting Notes"]
@@ -1565,7 +1565,7 @@ kitchenSinkPage = div_
                                     ]
                                 ]
                             , div_
-                                [class_ "card"]
+                                [class_ "card w-full max-w-md"]
                                 [ header_
                                     []
                                     [ h2_ [] ["Is this an image?"]
