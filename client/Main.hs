@@ -51,7 +51,7 @@ withJS action = void $ do
   action
 -----------------------------------------------------------------------------
 main :: IO ()
-main = run $ withJS $ miso $ \_ -> app
+main = run $ withJS (startApp app)
 #ifdef VANILLA
   { styles =
       [ Href "/assets/styles.css"

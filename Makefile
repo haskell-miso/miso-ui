@@ -1,8 +1,8 @@
 .PHONY= update build optim
 
-all: update build prerender optim
+all: update build optim
 
-js: update-js build-js prerender
+js: update-js build-js
 
 update:
 	wasm32-wasi-cabal update
