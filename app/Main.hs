@@ -316,21 +316,25 @@ mainContent = div_
                       [ "A "
                       , a_
                         [ P.href_ "https://haskell-miso.org"
+                        , P.target_ "_blank"
                         , class_ "underline underline-offset-4"
                         ] ["miso"]
                       , " component library built with "
                       , a_
                         [ P.href_ "https://tailwindcss.com/"
+                        , P.target_ "_blank"
                         , class_ "underline underline-offset-4"
                         ]
                         [ "Tailwind" ]
                       , " , "
                       , a_ [ P.href_ "https://ui.shadcn.com/"
+                           , P.target_ "_blank"
                            , class_ "underline underline-offset-4"
                            ]
                            ["ShadCN"]
                       , " and "
                       , a_ [ P.href_ "https://basecoatui.com/"
+                           , P.target_ "_blank"
                            , class_ "underline underline-offset-4"
                            ] ["Basecoat"]
                       , "."
