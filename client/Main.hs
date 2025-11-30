@@ -16,16 +16,7 @@ import           Control.Monad
 import           Language.Javascript.JSaddle
 import           Prelude hiding ((.))
 -----------------------------------------------------------------------------
-import           Miso.Html hiding (data_)
-import qualified Miso.Html as H
-import qualified Miso.Html.Property as P
-import           Miso.Html.Property hiding (title_, label_, href_, form_)
-import           Miso.Svg.Element hiding (title_)
-import qualified Miso.Svg.Element as S
-import           Miso.Svg.Property hiding (target_)
------------------------------------------------------------------------------
 import           Miso
-import           Miso.Lens
 -----------------------------------------------------------------------------
 import           Client (app)
 -----------------------------------------------------------------------------
@@ -52,10 +43,15 @@ withJS action = void $ do
 -----------------------------------------------------------------------------
 main :: IO ()
 main = run $ withJS $ startApp app
-#ifdef VANILLA
+#ifndef WASM
   { styles =
       [ Href "/assets/styles.css"
       , Href "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css"
+      , Style """
+          html, body {
+            overflow-x: clip;
+          }      
+        """
       ]
   , scripts =
       [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.6/dist/js/basecoat.min.js"
@@ -82,6 +78,12 @@ main = run $ withJS $ startApp app
                   : !document.documentElement.classList.contains('dark'));
            });
          })();
+        """
+      , Module
+        """
+          import hljs from 'highlight.js/lib/core';
+          import haskell from 'highlight.js/lib/languages/haskell';
+          hljs.registerLanguage('haskell', haskell);
         """
       ]
   }

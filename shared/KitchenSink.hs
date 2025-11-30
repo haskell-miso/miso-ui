@@ -11,6 +11,7 @@ import           Miso.Html.Property hiding (max_, min_, label_, form_)
 import           Miso.Svg.Element
 import           Miso.Svg.Property hiding (path_)
 -----------------------------------------------------------------------------
+import           Miso.UI.Alert (alertSample, alertCodeSample)
 import           Miso.UI.AlertDialog (alertDialogComponent)
 import           Miso.UI.Accordion (accordionSample, accordionCodeSample)
 import           Miso.UI.Dialog (dialogComponent)
@@ -54,60 +55,7 @@ kitchenSinkPage = div_
                   [ "A vertically stacked set of interactive headings that each reveal a section of content."
                   ]
                 , uiSection "Accordion" "#accordion"
-                  [ tabs_
-                    [ id_ "demo-tabs-with-panels"
-                    ]
-                    [ tabList_ []
-                      [ tabButton_
-                        [ id_ "demo-tabs-with-panels-tab-1"
-                        , aria_ "controls" "demo-tabs-with-panels-panel-1"
-                        , aria_ "selected" "true"
-                        , tabindex_ "0"
-                        ]
-                        [ "Preview" ]
-                      , tabButton_
-                        [ id_ "demo-tabs-with-panels-tab-2"
-                        , aria_ "controls" "demo-tabs-with-panels-panel-2"
-                        , aria_ "selected" "false"
-                        , tabindex_ "0"
-                        ]
-                        [ "Code" ]
-                      ]
-                    , hr_ []
-                    , tab_
-                      [ id_ "demo-tabs-with-panels-panel-1"
-                      , aria_ "labelledby" "demo-tabs-with-panels-tab-1"
-                      , tabindex_ "0"
-                      , aria_ "selected" "true"
-                      , hidden_ False
-                      ]
-                      [ accordionSample
-                      ]
-                    , tab_
-                      [ id_ "demo-tabs-with-panels-panel-2"
-                      , aria_ "labelledby" "demo-tabs-with-panels-tab-2"
-                      , tabindex_ "-1"
-                      , aria_ "selected" "false"
-                      , hidden_ True
-                      ]
-                      [ div_
-                        [ class_ "relative"
-                        ]
-                        [ pre_
-                          [ class_
-                              "grid text-sm max-h-[650px] overflow-y-auto rounded-xl scrollbar"
-                          ]
-                          [ code_
-                            [ class_ "language-haskell !p-3.5 hljs"
-                            , onCreatedWith Highlight
-                            ]
-                            [ accordionCodeSample
-                            ]
-                          ]
-                          , copyButton
-                        ]
-                      ]
-                    ]
+                  [ previewCode "accordion" accordionSample accordionCodeSample
                   ]
                 , br_ []
                 , hr_ [class_ "mt-20"]
@@ -116,297 +64,9 @@ kitchenSinkPage = div_
                     , id_ "alert"
                     ]
                     ["Alert"]
-                , section_
-                    [ class_ "w-full rounded-lg border scroll-mt-14"
-                    ]
-                    [ header_
-                        [ class_
-                            "border-b px-4 py-3 flex items-center justify-between"
-                        ]
-                        [ h2_ [class_ "text-sm font-medium"] ["Alert"]
-                        , a_
-                            [ data_ "side" "left"
-                            , data_ "tooltip" "See documentation"
-                            , class_
-                                "text-muted-foreground hover:text-foreground"
-                            , href_ "#alert"
-                            ]
-                            [ svg_
-                                [ class_ "size-4"
-                                , strokeLinejoin_ "round"
-                                , strokeLinecap_ "round"
-                                , strokeWidth_ "2"
-                                , stroke_ "currentColor"
-                                , fill_ "none"
-                                , viewBox_ "0 0 24 24"
-                                , height_ "24"
-                                , width_ "24"
-                                , xmlns_ "http://www.w3.org/2000/svg"
-                                ]
-                                [ path_ [d_ "M12 7v14"]
-                                , path_
-                                    [ d_
-                                        "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
-                                    ]
-                                ]
-                            ]
-                        ]
-                    , div_
-                        [class_ "p-4"]
-                        [ div_
-                            [class_ "grid max-w-xl items-start gap-4"]
-                            [ div_
-                                [class_ "alert"]
-                                [ svg_
-                                    [ strokeLinejoin_ "round"
-                                    , strokeLinecap_ "round"
-                                    , strokeWidth_ "2"
-                                    , stroke_ "currentColor"
-                                    , fill_ "none"
-                                    , viewBox_ "0 0 24 24"
-                                    , height_ "24"
-                                    , width_ "24"
-                                    , xmlns_ "http://www.w3.org/2000/svg"
-                                    ]
-                                    [ circle_ [r_ "10", cy_ "12", cx_ "12"]
-                                    , path_ [d_ "m9 12 2 2 4-4"]
-                                    ]
-                                , h2_ [] ["Success! Your changes have been saved"]
-                                , section_
-                                    []
-                                    [ "This is an alert with icon, title and description."
-                                    ]
-                                ]
-                            , div_
-                                [class_ "alert"]
-                                [ svg_
-                                    [ strokeLinejoin_ "round"
-                                    , strokeLinecap_ "round"
-                                    , strokeWidth_ "2"
-                                    , stroke_ "currentColor"
-                                    , fill_ "none"
-                                    , viewBox_ "0 0 24 24"
-                                    , height_ "24"
-                                    , width_ "24"
-                                    , xmlns_ "http://www.w3.org/2000/svg"
-                                    ]
-                                    [ path_
-                                        [ d_
-                                            "m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z"
-                                        ]
-                                    , path_ [d_ "m9 10 2 2 4-4"]
-                                    ]
-                                , section_
-                                    []
-                                    [ "This is an alert with icon, description and no title."
-                                    ]
-                                ]
-                            , div_
-                                [class_ "alert"]
-                                [ section_
-                                    []
-                                    [ "This one has a description only. No title. No icon."
-                                    ]
-                                ]
-                            , div_
-                                [class_ "alert"]
-                                [ svg_
-                                    [ strokeLinejoin_ "round"
-                                    , strokeLinecap_ "round"
-                                    , strokeWidth_ "2"
-                                    , stroke_ "currentColor"
-                                    , fill_ "none"
-                                    , viewBox_ "0 0 24 24"
-                                    , height_ "24"
-                                    , width_ "24"
-                                    , xmlns_ "http://www.w3.org/2000/svg"
-                                    ]
-                                    [ path_
-                                        [ d_
-                                            "M18 8a2 2 0 0 0 0-4 2 2 0 0 0-4 0 2 2 0 0 0-4 0 2 2 0 0 0-4 0 2 2 0 0 0 0 4"
-                                        ]
-                                    , path_ [d_ "M10 22 9 8"]
-                                    , path_ [d_ "m14 22 1-14"]
-                                    , path_
-                                        [ d_
-                                            "M20 8c.5 0 .9.4.8 1l-2.6 12c-.1.5-.7 1-1.2 1H7c-.6 0-1.1-.4-1.2-1L3.2 9c-.1-.6.3-1 .8-1Z"
-                                        ]
-                                    ]
-                                , h2_ [] ["Let's try one with icon and title."]
-                                ]
-                            , div_
-                                [class_ "alert"]
-                                [ svg_
-                                    [ strokeLinejoin_ "round"
-                                    , strokeLinecap_ "round"
-                                    , strokeWidth_ "2"
-                                    , stroke_ "currentColor"
-                                    , fill_ "none"
-                                    , viewBox_ "0 0 24 24"
-                                    , height_ "24"
-                                    , width_ "24"
-                                    , xmlns_ "http://www.w3.org/2000/svg"
-                                    ]
-                                    [ path_
-                                        [ d_
-                                            "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
-                                        ]
-                                    , path_ [d_ "M12 8v4"]
-                                    , path_ [d_ "M12 16h.01"]
-                                    ]
-                                , h2_
-                                    []
-                                    [ "This is a very long alert title that demonstrates how the component handles extended text content and potentially wraps across multiple lines"
-                                    ]
-                                ]
-                            , div_
-                                [class_ "alert"]
-                                [ svg_
-                                    [ strokeLinejoin_ "round"
-                                    , strokeLinecap_ "round"
-                                    , strokeWidth_ "2"
-                                    , stroke_ "currentColor"
-                                    , fill_ "none"
-                                    , viewBox_ "0 0 24 24"
-                                    , height_ "24"
-                                    , width_ "24"
-                                    , xmlns_ "http://www.w3.org/2000/svg"
-                                    ]
-                                    [ rect_
-                                        [ rx_ "1"
-                                        , height_ "4"
-                                        , width_ "18"
-                                        , y_ "8"
-                                        , x_ "3"
-                                        ]
-                                    , path_ [d_ "M12 8v13"]
-                                    , path_
-                                        [d_ "M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"]
-                                    , path_
-                                        [ d_
-                                            "M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"
-                                        ]
-                                    ]
-                                , section_
-                                    []
-                                    [ "This is a very long alert description that demonstrates how the component handles extended text content and potentially wraps across multiple lines"
-                                    ]
-                                ]
-                            , div_
-                                [class_ "alert"]
-                                [ svg_
-                                    [ strokeLinejoin_ "round"
-                                    , strokeLinecap_ "round"
-                                    , strokeWidth_ "2"
-                                    , stroke_ "currentColor"
-                                    , fill_ "none"
-                                    , viewBox_ "0 0 24 24"
-                                    , height_ "24"
-                                    , width_ "24"
-                                    , xmlns_ "http://www.w3.org/2000/svg"
-                                    ]
-                                    [ circle_ [r_ "10", cy_ "12", cx_ "12"]
-                                    , line_
-                                        [y2_ "12", y1_ "8", x2_ "12", x1_ "12"]
-                                    , line_
-                                        [y2_ "16", y1_ "16", x2_ "12.01", x1_ "12"]
-                                    ]
-                                , h2_
-                                    []
-                                    [ "This is an extremely long alert title that spans multiple lines to demonstrate how the component handles very lengthy headings while maintaining readability and proper text wrapping behavior"
-                                    ]
-                                , section_
-                                    []
-                                    [ "This is an equally long description that contains detailed information about the alert. It shows how the component can accommodate extensive content while preserving proper spacing, alignment, and readability across different screen sizes and viewport widths. This helps ensure the user experience remains consistent regardless of the content length."
-                                    ]
-                                ]
-                            , div_
-                                [class_ "alert-destructive"]
-                                [ svg_
-                                    [ strokeLinejoin_ "round"
-                                    , strokeLinecap_ "round"
-                                    , strokeWidth_ "2"
-                                    , stroke_ "currentColor"
-                                    , fill_ "none"
-                                    , viewBox_ "0 0 24 24"
-                                    , height_ "24"
-                                    , width_ "24"
-                                    , xmlns_ "http://www.w3.org/2000/svg"
-                                    ]
-                                    [ circle_ [r_ "10", cy_ "12", cx_ "12"]
-                                    , line_
-                                        [y2_ "12", y1_ "8", x2_ "12", x1_ "12"]
-                                    , line_
-                                        [y2_ "16", y1_ "16", x2_ "12.01", x1_ "12"]
-                                    ]
-                                , h2_ [] ["Something went wrong!"]
-                                , section_
-                                    []
-                                    ["Your session has expired. Please log in again."]
-                                ]
-                            , div_
-                                [class_ "alert-destructive"]
-                                [ svg_
-                                    [ strokeLinejoin_ "round"
-                                    , strokeLinecap_ "round"
-                                    , strokeWidth_ "2"
-                                    , stroke_ "currentColor"
-                                    , fill_ "none"
-                                    , viewBox_ "0 0 24 24"
-                                    , height_ "24"
-                                    , width_ "24"
-                                    , xmlns_ "http://www.w3.org/2000/svg"
-                                    ]
-                                    [ circle_ [r_ "10", cy_ "12", cx_ "12"]
-                                    , line_
-                                        [y2_ "12", y1_ "8", x2_ "12", x1_ "12"]
-                                    , line_
-                                        [y2_ "16", y1_ "16", x2_ "12.01", x1_ "12"]
-                                    ]
-                                , h2_ [] ["Something went wrong!"]
-                                , section_
-                                    []
-                                    [ p_
-                                        []
-                                        [ "Please verify your billing information and try again."
-                                        ]
-                                    , ul_
-                                        []
-                                        [ li_ [] ["Check your card details"]
-                                        , li_ [] ["Ensure sufficient funds"]
-                                        , li_ [] ["Verify billing address"]
-                                        ]
-                                    ]
-                                ]
-                            , div_
-                                [ class_
-                                    "alert border-amber-50 bg-amber-50 text-amber-900 dark:border-amber-950 dark:bg-amber-950 dark:text-amber-100"
-                                ]
-                                [ svg_
-                                    [ strokeLinejoin_ "round"
-                                    , strokeLinecap_ "round"
-                                    , strokeWidth_ "2"
-                                    , stroke_ "currentColor"
-                                    , fill_ "none"
-                                    , viewBox_ "0 0 24 24"
-                                    , height_ "24"
-                                    , width_ "24"
-                                    , xmlns_ "http://www.w3.org/2000/svg"
-                                    ]
-                                    [ circle_ [r_ "10", cy_ "12", cx_ "12"]
-                                    , path_ [d_ "m9 12 2 2 4-4"]
-                                    ]
-                                , h2_
-                                    []
-                                    ["Plot Twist: This Alert is Actually Amber!"]
-                                , section_
-                                    []
-                                    [ "This one has custom colors for light and dark mode."
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
+                , uiSection "Alert" "#alert"
+                  [ previewCode "alert" alertSample alertCodeSample
+                  ]
                 , br_ []
                 , hr_ [class_ "mt-20"]
                 , h1_
@@ -5737,8 +5397,7 @@ uiSection name url content = section_
 
 
 copyButton :: View model Action
-copyButton =
-  button_
+copyButton = button_
     [ class_
         "btn-icon-ghost size-8 absolute right-2.5 top-2 text-muted-foreground hover:text-foreground group"
     , onClickWith CopyButton
@@ -5783,3 +5442,64 @@ copyButton =
         [ path_ [d_ "M20 6 9 17l-5-5"]
         ]
     ]
+
+previewCode
+  :: MisoString
+  -> View m Action
+  -> View m Action
+  -> View m Action
+previewCode name sample codeSample = tabs_
+  [ id_ "demo-tabs-with-panels"
+  ]
+  [ tabList_ []
+    [ tabButton_
+      [ id_ ("demo-tabs-with-panels-tab-1-" <> name)
+      , aria_ "controls" ("demo-tabs-with-panels-panel-1-" <> name)
+      , aria_ "selected" "true"
+      , tabindex_ "0"
+      ]
+      [ "Preview" ]
+    , tabButton_
+      [ id_ ("demo-tabs-with-panels-tab-2-" <> name)
+      , aria_ "controls" ("demo-tabs-with-panels-panel-2-" <> name)
+      , aria_ "selected" "false"
+      , tabindex_ "0"
+      ]
+      [ "Code" ]
+    ]
+  , hr_ []
+  , tab_
+    [ id_ ("demo-tabs-with-panels-panel-1-" <> name)
+    , aria_ "labelledby" ("demo-tabs-with-panels-tab-1-" <> name)
+    , tabindex_ "0"
+    , aria_ "selected" "true"
+    , hidden_ False
+    ]
+    [ sample
+    ]
+  , tab_
+    [ id_ ("demo-tabs-with-panels-panel-2-" <> name)
+    , aria_ "labelledby" ("demo-tabs-with-panels-tab-2-" <> name)
+    , tabindex_ "-1"
+    , aria_ "selected" "false"
+    , hidden_ True
+    ]
+    [ div_
+      [ class_ "relative"
+      ]
+      [ pre_
+        [ class_
+          "grid text-sm max-h-[650px] overflow-y-auto rounded-xl scrollbar"
+        ]
+        [ code_
+          [ class_ "language-haskell !p-3.5 hljs"
+          , onCreatedWith Highlight
+          ]
+          [ codeSample
+          ]
+        ]
+      , copyButton
+      ]
+    ]
+  ]
+

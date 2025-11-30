@@ -1,5 +1,6 @@
 -----------------------------------------------------------------------------
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE MultilineStrings  #-}
 {-# LANGUAGE ExistentialQuantification  #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE RecordWildCards            #-}
@@ -7,16 +8,15 @@
 {-# LANGUAGE LambdaCase                 #-}
 -----------------------------------------------------------------------------
 module Miso.UI.Alert
-  ( -- ** Component
+  ( -- ** Views
     alert_
-  , alertComponent
-    -- ** Types
-  , Alert (..)
-  , AlertIcon (..)
-    -- ** Constructors
-  , emptyAlert
-  , alertSuccess
-  , alertDestructive
+  , alertHeader_
+  , alertSection_
+  , successIcon
+  , destructiveIcon
+    -- ** Sample
+  , alertSample
+  , alertCodeSample
   ) where
 -----------------------------------------------------------------------------
 import           Miso hiding (alert)
@@ -24,59 +24,42 @@ import qualified Miso.Svg as S
 import qualified Miso.Svg.Property as SP
 import qualified Miso.Html.Element as H
 import qualified Miso.Html.Property as P
-import           Miso.Lens
 -----------------------------------------------------------------------------
-data Alert
-  = Alert
-  { _alertIcon :: Maybe AlertIcon
-    -- ^ Optional icon
-  , _alertHeader :: MisoString
-    -- ^ Header of the alert <h2>
-  , _alertSection :: MisoString
-    -- ^ Sub section of the alert <section>
-  } deriving (Show, Eq)
+alert_
+  :: [Attribute action]
+  -> [View model action]
+  -> View model action
+alert_ attrs kids = do
+  optionalAttrs
+   H.div_
+   attrs
+   True
+   [ P.class_ "alert" ]
+   kids
 -----------------------------------------------------------------------------
-alertIcon :: Lens Alert (Maybe AlertIcon)
-alertIcon = lens _alertIcon $ \r x -> r { _alertIcon = x }
+alertHeader_
+  :: [Attribute action]
+  -> [View model action]
+  -> View model action
+alertHeader_ attrs kids =
+  optionalAttrs
+  H.h2_
+  attrs
+  True
+  []
+  kids
 -----------------------------------------------------------------------------
-alertHeader :: Lens Alert MisoString
-alertHeader = lens _alertHeader $ \r x -> r { _alertHeader = x }
------------------------------------------------------------------------------
-alertSection :: Lens Alert MisoString
-alertSection = lens _alertSection $ \r x -> r { _alertSection = x }
------------------------------------------------------------------------------
-data AlertIcon
-  = AlertSuccessful
-  | AlertDestructive
-  deriving (Show, Eq)
------------------------------------------------------------------------------
-alert_ :: Binding parent Alert -> Component parent Alert ()
-alert_ binding = alertComponent { bindings = [binding] }
------------------------------------------------------------------------------
-emptyAlert :: Alert
-emptyAlert = Alert Nothing mempty mempty 
------------------------------------------------------------------------------
-alertSuccess, alertDestructive :: MisoString -> MisoString -> Alert
-alertSuccess = Alert (pure AlertSuccessful)
-alertDestructive = Alert (pure AlertDestructive)
------------------------------------------------------------------------------
-alertComponent :: Component parent Alert ()
-alertComponent = component emptyAlert noop $ \model ->
-  H.div_ [ P.class_ "alert" ] (icon model <> textSection model)
-    where
-      icon model = 
-        [ iconView ico
-        | Just ico <- pure (model ^. alertIcon)
-        ] where
-            iconView = \case
-              AlertSuccessful ->
-                successIcon
-              AlertDestructive ->
-                destructiveIcon
-      textSection model = 
-        [ H.h2_ [] [ text (model ^. alertHeader) ]
-        , H.section_ [] [ text (model ^. alertSection) ]
-        ]
+alertSection_
+  :: [Attribute action]
+  -> [View model action]
+  -> View model action
+alertSection_ attrs kids =
+  optionalAttrs
+  H.section_
+  attrs
+  True
+  []
+  kids
 -----------------------------------------------------------------------------
 successIcon :: View model action
 successIcon = S.svg_
@@ -93,7 +76,7 @@ successIcon = S.svg_
   [ S.circle_
     [ SP.cx_ "12"
     , SP.cy_ "12"
-    , SP.r_ "S"
+    , SP.r_ "10"
     ]
   , S.path_
     [ SP.d_ "m9 12 2 2 4-4"
@@ -131,4 +114,77 @@ destructiveIcon =
       , SP.x1_ "12"
       ]
     ]
+-----------------------------------------------------------------------------
+alertSample :: View model action
+alertSample =
+  H.div_
+  [ P.class_ "p-4" ]
+  [ H.div_ [ P.class_ "grid max-w-xl items-start gap-4" ]
+    [ alert_ []
+      [ successIcon
+      , alertHeader_ [] [ "Success!" ]
+      , alertSection_ []
+        [ """
+          Congratulations this is a
+          successful alert !
+          """
+        ]
+      ]
+    , alert_
+      [ P.class_ "alert-destructive" ]
+      [ destructiveIcon
+      , alertHeader_ [] [ "Warning!" ]
+      , alertSection_ []
+        [ """
+          Something bad happened :( you're getting
+          a destructive alert!
+          """
+        ]
+      ]
+    ]
+  ]
+-----------------------------------------------------------------------------
+alertCodeSample :: View model action
+alertCodeSample =
+  """
+  -----------------------------------------------------------------------------
+  module MyAlert (alertSample) where
+  -----------------------------------------------------------------------------
+  import           Miso
+  import qualified Miso.Html as H
+  import qualified Miso.Html.Property as P
+  -----------------------------------------------------------------------------
+  import qualified Miso.UI.Alert as Alert
+  -----------------------------------------------------------------------------
+  alertSample :: View model action
+  alertSample =
+    H.div_
+    [ P.class_ "p-4" ]
+    [ H.div_
+      [ P.class_ "grid max-w-xl items-start gap-4"
+      ]
+      [ Alert.alert_ []
+        [ Alert.successIcon
+        , Alert.alertHeader_ [] [ "Success!" ]
+        , Alert.alertSection_ []
+          [ \"\"\"
+            Congratulations this is a
+            successful alert !
+            \"\"\"
+          ]
+        ]
+      , Alert.alert_
+        [ P.class_ "alert-destructive" ]
+        [ Alert.destructiveIcon
+        , Alert.alertHeader_ [] [ "Warning!" ]
+        , Alert.alertSection_ []
+          [ \"\"\"
+            Something bad happened :( you're getting
+            a destructive alert!
+            \"\"\"
+          ]
+        ]
+      ]
+    ]
+  """
 -----------------------------------------------------------------------------
