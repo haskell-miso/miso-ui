@@ -274,11 +274,16 @@ mainContent = div_
                            , class_ "underline underline-offset-4"
                            ]
                            ["ShadCN"]
-                      , " and "
-                      , a_ [ P.href_ "https://basecoatui.com/"
+                      , " , "
+                      , a_ [ P.href_ "https://github.com/hunvreus/basecoat"
                            , P.target_ "_blank"
                            , class_ "underline underline-offset-4"
                            ] ["Basecoat"]
+                      , " and "
+                      , a_ [ P.href_ "https://tweakcn.com/"
+                           , P.target_ "_blank"
+                           , class_ "underline underline-offset-4"
+                           ] ["TweakCN"]
                       , "."
                    ]
                 ]
