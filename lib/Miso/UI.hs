@@ -13,6 +13,7 @@ import Miso.UI.Button        as UI
 import Miso.UI.Card          as UI
 import Miso.UI.Checkbox      as UI
 import Miso.UI.Combobox      as UI
+import Miso.UI.CommandMenu   as UI
 import Miso.UI.Dialog        as UI
 import Miso.UI.DropDownMenu  as UI
 import Miso.UI.Form          as UI
