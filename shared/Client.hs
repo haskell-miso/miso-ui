@@ -268,13 +268,13 @@ mainContent = div_
                         , class_ "underline underline-offset-4"
                         ]
                         [ "Tailwind" ]
-                      , " , "
+                      , ", "
                       , a_ [ P.href_ "https://ui.shadcn.com/"
                            , P.target_ "_blank"
                            , class_ "underline underline-offset-4"
                            ]
                            ["ShadCN"]
-                      , " , "
+                      , ", "
                       , a_ [ P.href_ "https://github.com/hunvreus/basecoat"
                            , P.target_ "_blank"
                            , class_ "underline underline-offset-4"
