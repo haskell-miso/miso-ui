@@ -565,13 +565,8 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-<<<<<<< variant A
         "lastModified": 1764812256,
         "narHash": "sha256-ZfIjNUVo93gS5eD4+FRDZZVWTcEdaVoC5U9fUxVJBtU=",
->>>>>>> variant B
-        "lastModified": 1764725982,
-        "narHash": "sha256-x1UzIvWb3jQ7TAYRsA1lPpUdSnk65of1WqNRkxPztVs=",
-======= end
         "owner": "dmjio",
         "repo": "miso",
         "rev": "a8db91a6e373618945c0af501024fad597b49d99",
