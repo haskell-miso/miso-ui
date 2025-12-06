@@ -252,7 +252,7 @@ mainContent = div_
                       [ class_
                          "text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl"
                       ]
-                      ["🍜 miso-ui"]
+                      ["🍜 miso.ui"]
                     , p_
                       [ class_ "sm:text-lg text-muted-foreground"]
                       [ "A "
@@ -323,7 +323,7 @@ asideView = aside_
                     ]
                     [ span_
                         [class_ "truncate font-medium"]
-                        ["🍜 miso-ui"]
+                        ["🍜 miso.ui"]
                     , span_ [class_ "truncate text-xs"] ["v1.0.0"]
                     ]
                 ]
@@ -524,7 +524,7 @@ asideView = aside_
                             [class_ "grid gap-1.5"]
                             [ h2_
                                 [class_ "font-semibold"]
-                                ["🍜 miso-ui"]
+                                ["🍜 miso.ui"]
                             , p_
                                 [class_ "text-muted-foreground text-sm"]
                                 [ " Hi, I'm "
@@ -547,7 +547,7 @@ asideView = aside_
                                     , P.href_ "https://github.com/haskell-miso/miso-ui"
                                     , class_ "underline underline-offset-4"
                                     ]
-                                    ["miso-ui"]
+                                    ["miso.ui"]
                                 , ". If you find it useful, please consider sponsoring "
                                 , a_
                                     [ target_ "_blank"
