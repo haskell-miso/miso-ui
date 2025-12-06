@@ -36,7 +36,7 @@ kitchenSinkPage = div_
                     ["Components"]
                 , p_
                     [class_ "text-muted-foreground"]
-                    [ "A collection of all the components available in miso-ui"
+                    [ "A collection of all the components available in miso.ui"
                     ]
                 ]
             , div_
