@@ -16,6 +16,7 @@ import           Miso.UI.AlertDialog (alertDialogComponent)
 import           Miso.UI.Accordion (accordionSample, accordionCodeSample)
 import           Miso.UI.Dialog (dialogComponent)
 import           Miso.UI.Tabs (tabs_, tabList_, tabButton_, tab_)
+import           Miso.UI.Avatar (avatar_)
 -----------------------------------------------------------------------------
 import           Types
 -----------------------------------------------------------------------------
@@ -162,17 +163,16 @@ kitchenSinkPage = div_
                             [ class_
                                 "flex flex-row flex-wrap items-center gap-4"
                             ]
-                            [ img_
+                            [ avatar_
                                 [ src_ "https://github.com/dmjio.png"
                                 , alt_ "@dmjio"
-                                , class_ "size-8 shrink-0 object-cover rounded-full"
                                 ]
                             , span_
                                 [ class_
                                     "size-8 shrink-0 bg-muted flex items-center justify-center rounded-full"
                                 ]
                                 ["CN"]
-                            , img_
+                            , avatar_
                                 [ src_ "https://github.com/dmjio.png"
                                 , alt_ "@dmjio"
                                 , class_

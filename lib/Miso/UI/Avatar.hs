@@ -7,20 +7,16 @@
 {-# LANGUAGE LambdaCase                 #-}
 -----------------------------------------------------------------------------
 module Miso.UI.Avatar
-  ( -- ** Component
+  ( -- ** Views
     avatar_
   ) where
 -----------------------------------------------------------------------------
 import           Miso
-import qualified Miso.Html.Element as H
+import qualified Miso.Html as H
 import qualified Miso.Html.Property as P
 -----------------------------------------------------------------------------
-avatar_ :: Component parent model action
-avatar_ = component undefined noop (const view_)
------------------------------------------------------------------------------
-view_ :: View model action
-view_ = H.img_
-    [ P.src_ "https://github.com/hunvreus.png"
-    , P.alt_ "@hunvreus"
-    , P.class_ "size-8 shrink-0 object-cover rounded-full"
-    ]
+avatar_
+  :: [Attribute action]
+  -> View model action
+avatar_ attrs =
+  H.img_ (attrs ++ [ P.class_ "size-8 shrink-0 object-cover rounded-full" ])
