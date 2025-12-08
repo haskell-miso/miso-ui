@@ -1848,7 +1848,9 @@ kitchenSinkPage = div_
                 , br_ []
                 , hr_ [class_ "mt-20"]
                 , h1_
-                    [class_ "text-3xl font-semibold tracking-tight scroll-mt-14"]
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
+                    , id_ "dialog"
+                    ]
                     ["Dialog"]
                 , div_ [] +> dialogComponent
                 , br_ []
