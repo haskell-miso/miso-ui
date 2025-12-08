@@ -25,10 +25,12 @@ import Language.Javascript.JSaddle ((#), jsg)
 data Action
   = ShowDialog MisoString DOMRef
   | CloseDialog 
+  | NoOp
 -----------------------------------------------------------------------------
 dialogComponent :: Component parent MisoString Action
 dialogComponent = component "" update_ $ \_ -> view_
   where
+    update_ NoOp = pure ()
     update_ (ShowDialog sel domRef) = do
       this .= sel
       io_ $ do
@@ -101,7 +103,8 @@ view_ = section_
                     "demo-dialog-edit-profile-description"
                 ]
                 [ div_
-                    []
+                    [ onClickWithOptions stopPropagation NoOp
+                    ]
                     [ header_
                         []
                         [ h2_
@@ -127,7 +130,8 @@ view_ = section_
                                     ]
                                 ]
                             , div_
-                                [class_ "grid gap-3"]
+                                [class_ "grid gap-3"
+                                ]
                                 [ label_
                                     [for_ "demo-dialog-edit-profile-username"]
                                     ["Username"]
@@ -175,7 +179,7 @@ view_ = section_
                 , aria_ "describedby" "dialog-example-description"
                 ]
                 [ div_
-                    []
+                    [ onClickWithOptions stopPropagation NoOp ]
                     [ header_
                         []
                         [ h2_
