@@ -16,7 +16,7 @@ import           Miso.UI.AlertDialog (alertDialogComponent)
 import           Miso.UI.Accordion (accordionSample, accordionCodeSample)
 import           Miso.UI.Dialog (dialogComponent)
 import           Miso.UI.Tabs (tabs_, tabList_, tabButton_, tab_)
-import           Miso.UI.Avatar (avatar_)
+import           Miso.UI.Avatar (avatarSample, avatarCodeSample)
 import           Miso.UI.Badge (badgeSample, badgeCodeSample)
 -----------------------------------------------------------------------------
 import           Types
@@ -159,96 +159,8 @@ kitchenSinkPage = div_
                             ]
                         ]
                     , div_
-                        [class_ "p-4"]
-                        [ div_
-                            [ class_
-                                "flex flex-row flex-wrap items-center gap-4"
-                            ]
-                            [ avatar_
-                                [ src_ "https://github.com/dmjio.png"
-                                , alt_ "@dmjio"
-                                ]
-                            , span_
-                                [ class_
-                                    "size-8 shrink-0 bg-muted flex items-center justify-center rounded-full"
-                                ]
-                                ["CN"]
-                            , avatar_
-                                [ src_ "https://github.com/dmjio.png"
-                                , alt_ "@dmjio"
-                                , class_
-                                    "size-12 shrink-0 object-cover rounded-full"
-                                ]
-                            , img_
-                                [ src_ "https://github.com/dmjio.png"
-                                , alt_ "@dmjio"
-                                , class_ "size-8 shrink-0 object-cover rounded-lg"
-                                ]
-                            , div_
-                                [ class_
-                                    "flex -space-x-2 [&_img]:ring-background [&_img]:ring-2 [&_img]:grayscale [&_img]:size-8 [&_img]:shrink-0 [&_img]:object-cover [&_img]:rounded-full"
-                                ]
-                                [ img_
-                                    [ src_ "https://github.com/dmjio.png"
-                                    , alt_ "@dmjio"
-                                    ]
-                                , img_
-                                    [ src_ "https://github.com/shadcn.png"
-                                    , alt_ "@shadcn"
-                                    ]
-                                , img_
-                                    [ src_ "https://github.com/adamwathan.png"
-                                    , alt_ "@adamwathan"
-                                    ]
-                                , img_
-                                    [ src_ "https://github.com/hunvreus.png"
-                                    , alt_ "@hunvreus"
-                                    ]
-                                ]
-                            , div_
-                                [ class_
-                                    "flex -space-x-2 [&_img]:ring-background [&_img]:ring-2 [&_img]:grayscale [&_img]:size-12 [&_img]:shrink-0 [&_img]:object-cover [&_img]:rounded-full"
-                                ]
-                                [ img_
-                                    [ src_ "https://github.com/dmjio.png"
-                                    , alt_ "@dmjio"
-                                    ]
-                                , img_
-                                    [ src_ "https://github.com/shadcn.png"
-                                    , alt_ "@shadcn"
-                                    ]
-                                , img_
-                                    [ src_ "https://github.com/adamwathan.png"
-                                    , alt_ "@adamwathan"
-                                    ]
-                                , img_
-                                    [ src_ "https://github.com/hunvreus.png"
-                                    , alt_ "@hunvreus"
-                                    ]
-                                ]
-                            , div_
-                                [ class_
-                                    "flex -space-x-2 hover:space-x-1 [&_img]:ring-background [&_img]:size-12 [&_img]:shrink-0 [&_img]:object-cover [&_img]:rounded-full [&_img]:ring-2 [&_img]:grayscale [&_img]:transition-all [&_img]:ease-in-out [&_img]:duration-300"
-                                ]
-                                [ img_
-                                    [ src_ "https://github.com/dmjio.png"
-                                    , alt_ "@dmjio"
-                                    ]
-                                , img_
-                                    [ src_ "https://github.com/shadcn.png"
-                                    , alt_ "@shadcn"
-                                    ]
-                                , img_
-                                    [ src_ "https://github.com/adamwathan.png"
-                                    , alt_ "@adamwathan"
-                                    ]
-                                , img_
-                                    [ src_ "https://github.com/hunvreus.png"
-                                    , alt_ "@hunvreus"
-                                    ]
-                                ]
-                            ]
-                        ]
+                        [ class_ "p-4 max-w-3xl w-full" ]
+                        [ previewCode "avatar" avatarSample avatarCodeSample ]
                     ]
                 , br_ []
                 , hr_ [class_ "mt-20"]
@@ -293,7 +205,7 @@ kitchenSinkPage = div_
                             ]
                         ]
                     , div_
-                        [class_ "p-4"]
+                        [ class_ "p-4 max-w-3xl w-full" ]
                         [ previewCode "badge" badgeSample badgeCodeSample ]
                     ]
                 , br_ []
