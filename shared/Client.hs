@@ -453,6 +453,7 @@ asideView = aside_
                     , li_ [] [a_ [ P.href_ "#combobox"] ["Combobox"]]
                     , li_ [] [a_ [ P.href_ "#dialog"] ["Dialog"]]
                     , li_ [] [a_ [ P.href_ "#dropdown-menu"] ["Dropdown Menu"]]
+                    , li_ [] [a_ [ P.href_ "#empty"] ["Empty"]]
                     , li_ [] [a_ [ P.href_ "#form"] ["Form"]]
                     , li_ [] [a_ [ P.href_ "#input"] ["Input"]]
                     , li_ [] [a_ [ P.href_ "#kbd"] ["Kbd"]]

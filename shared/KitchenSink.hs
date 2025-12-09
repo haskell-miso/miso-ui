@@ -2847,6 +2847,127 @@ kitchenSinkPage = div_
                 , hr_ [class_ "mt-20"]
                 , h1_
                     [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
+                    , id_ "empty"
+                    ]
+                    ["Empty"]
+                , section_
+                    [ class_ "w-full rounded-lg border scroll-mt-14"
+                    ]
+                    [ header_
+                        [ class_
+                            "border-b px-4 py-3 flex items-center justify-between"
+                        ]
+                        [ h2_
+                            [class_ "text-sm font-medium"]
+                            ["Empty"]
+                        , a_
+                            [ data_ "side" "left"
+                            , data_ "tooltip" "See documentation"
+                            , class_
+                                "text-muted-foreground hover:text-foreground"
+                            , href_ "#empty"
+                            ]
+                            [ svg_
+                                [ class_ "size-4"
+                                , strokeLinejoin_ "round"
+                                , strokeLinecap_ "round"
+                                , strokeWidth_ "2"
+                                , stroke_ "currentColor"
+                                , fill_ "none"
+                                , viewBox_ "0 0 24 24"
+                                , height_ "24"
+                                , width_ "24"
+                                , xmlns_ "http://www.w3.org/2000/svg"
+                                ]
+                                [ path_ [d_ "M12 7v14"]
+                                , path_
+                                    [ d_
+                                        "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+                                    ]
+                                ]
+                            ]
+                        ]
+                    , div_
+                        [class_ "p-4"]
+                        [ div_
+                          [ class_
+                              "flex min-w-0 flex-1 flex-col items-center justify-center gap-6 rounded-lg border-dashed p-6 text-center text-balance md:p-12 text-neutral-800 dark:text-neutral-300"
+                          ]
+                          [ header_
+                              [ class_
+                                  "flex max-w-sm flex-col items-center gap-2 text-center"
+                              ]
+                              [ div_
+                                  [ class_
+                                      "mb-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 bg-muted text-foreground flex size-10 shrink-0 items-center justify-center rounded-lg [&_svg:not([class*='size-'])]:size-6"
+                                  ]
+                                  [ svg_
+                                      [ strokeLinejoin_ "round"
+                                      , strokeLinecap_ "round"
+                                      , strokeWidth_ "2"
+                                      , stroke_ "currentColor"
+                                      , fill_ "none"
+                                      , viewBox_ "0 0 24 24"
+                                      , height_ "24"
+                                      , width_ "24"
+                                      , xmlns_ "http://www.w3.org/2000/svg"
+                                      ]
+                                      [ path_ [d_ "M10 10.5 8 13l2 2.5"]
+                                      , path_ [d_ "m14 10.5 2 2.5-2 2.5"]
+                                      , path_
+                                          [ d_
+                                              "M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z"
+                                          ]
+                                      ]
+                                  ]
+                              , h3_
+                                  [class_ "text-lg font-medium tracking-tight"]
+                                  ["No Projects Yet"]
+                              , p_
+                                  [ class_
+                                      "text-muted-foreground [&>a:hover]:text-primary text-sm/relaxed [&>a]:underline [&>a]:underline-offset-4"
+                                  ]
+                                  [ "You haven't created any projects yet. Get started by creating your first project."
+                                  ]
+                              ]
+                          , section_
+                              [ class_
+                                  "flex w-full max-w-sm min-w-0 flex-col items-center gap-4 text-sm text-balance"
+                              ]
+                              [ div_
+                                  [class_ "flex gap-2"]
+                                  [ button_ [class_ "btn"] ["Create Project"]
+                                  , button_ [class_ "btn-outline"] ["Import Project"]
+                                  ]
+                              ]
+                          , a_
+                              [ class_
+                                  "inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive underline-offset-4 hover:underline h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5 text-muted-foreground"
+                              , href_ "#"
+                              ]
+                              [ "Learn More"
+                              , svg_
+                                  [ strokeLinejoin_ "round"
+                                  , strokeLinecap_ "round"
+                                  , strokeWidth_ "2"
+                                  , stroke_ "currentColor"
+                                  , fill_ "none"
+                                  , viewBox_ "0 0 24 24"
+                                  , height_ "24"
+                                  , width_ "24"
+                                  , xmlns_ "http://www.w3.org/2000/svg"
+                                  ]
+                                  [ path_ [d_ "M7 7h10v10"]
+                                  , path_ [d_ "M7 17 17 7"]
+                                  ]
+                              ]
+                          ]
+                        ]
+                    ]
+                , br_ []
+                , hr_ [class_ "mt-20"]
+                , h1_
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "form"
                     ]
                     ["Form"]
