@@ -10,6 +10,7 @@
 module Miso.UI.CommandMenu where
 -----------------------------------------------------------------------------
 import           Miso
+import qualified Miso.CSS as CSS
 import           Miso.Html hiding (data_)
 import           Miso.Html.Property hiding (form_, label_)
 import           Miso.Svg hiding (view_)
@@ -293,6 +294,7 @@ view_ = section_
         , button_
             [ onClick CloseDialog
             , aria_ "label" "Close dialog"
+            , CSS.style_ [ CSS.cursor "pointer" ]
             , type_ "button"
             ]
             [ svg_
