@@ -454,6 +454,7 @@ asideView = aside_
                     , li_ [] [a_ [ P.href_ "#dropdown-menu"] ["Dropdown Menu"]]
                     , li_ [] [a_ [ P.href_ "#form"] ["Form"]]
                     , li_ [] [a_ [ P.href_ "#input"] ["Input"]]
+                    , li_ [] [a_ [ P.href_ "#kbd"] ["Kbd"]]
                     , li_ [] [a_ [ P.href_ "#label"] ["Label"]]
                     , li_ [] [a_ [ P.href_ "#pagination"] ["Pagination"]]
                     , li_ [] [a_ [ P.href_ "#popover"] ["Popover"]]
