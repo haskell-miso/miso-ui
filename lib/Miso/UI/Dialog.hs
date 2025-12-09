@@ -12,15 +12,17 @@ module Miso.UI.Dialog
     dialogComponent
   ) where
 -----------------------------------------------------------------------------
-import Miso
-import Miso.Html hiding (data_)
-import Miso.Html.Property hiding (form_, label_)
-import Miso.Svg hiding (view_)
-import Miso.Svg.Property hiding (path_)
-import Miso.Lens
+import           Miso
+import           Miso.Html hiding (data_)
+import           Miso.Html.Property hiding (form_, label_)
+import           Miso.Svg hiding (view_)
+import           Miso.Svg.Property hiding (path_)
+import           Miso.Lens
 -----------------------------------------------------------------------------
-import Control.Monad
-import Language.Javascript.JSaddle ((#), jsg)
+import qualified Miso.CSS as CSS
+-----------------------------------------------------------------------------
+import           Control.Monad
+import           Language.Javascript.JSaddle ((#), jsg)
 -----------------------------------------------------------------------------
 data Action
   = ShowDialog MisoString DOMRef
@@ -148,7 +150,11 @@ view_ = section_
                         , button_ [class_ "btn", onClick CloseDialog ] ["Save changes"]
                         ]
                     , button_
-                        [type_ "button", aria_ "label" "Close dialog", onClick CloseDialog ]
+                        [ type_ "button"
+                        , aria_ "label" "Close dialog"
+                        , CSS.style_ [ CSS.cursor "pointer" ]
+                        , onClick CloseDialog
+                        ]
                         [ svg_
                             [ xmlns_ "http://www.w3.org/2000/svg"
                             , width_ "24"
@@ -239,7 +245,11 @@ view_ = section_
                         []
                         [button_ [class_ "btn-outline", onClick CloseDialog ] ["Close"] ]
                     , button_
-                        [type_ "button", aria_ "label" "Close dialog", onClick CloseDialog ]
+                        [ type_ "button"
+                        , aria_ "label" "Close dialog"
+                        , onClick CloseDialog
+                        , CSS.style_ [ CSS.cursor "pointer" ]
+                        ]
                         [ svg_
                             [ xmlns_ "http://www.w3.org/2000/svg"
                             , width_ "24"
