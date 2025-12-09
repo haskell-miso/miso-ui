@@ -839,6 +839,275 @@ kitchenSinkPage = div_
                 , hr_ [class_ "mt-20"]
                 , h1_
                     [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
+                    , id_ "button-group"
+                    ]
+                    ["Button Group"]
+                , section_
+                    [ class_ "w-full rounded-lg border scroll-mt-14"
+                    ]
+                    [ header_
+                        [ class_
+                            "border-b px-4 py-3 flex items-center justify-between"
+                        ]
+                        [ h2_ [class_ "text-sm font-medium"] ["Button Group"]
+                        , a_
+                            [ data_ "side" "left"
+                            , data_ "tooltip" "See documentation"
+                            , class_
+                                "text-muted-foreground hover:text-foreground"
+                            , href_ "#button-group"
+                            ]
+                            [ svg_
+                                [ class_ "size-4"
+                                , strokeLinejoin_ "round"
+                                , strokeLinecap_ "round"
+                                , strokeWidth_ "2"
+                                , stroke_ "currentColor"
+                                , fill_ "none"
+                                , viewBox_ "0 0 24 24"
+                                , height_ "24"
+                                , width_ "24"
+                                , xmlns_ "http://www.w3.org/2000/svg"
+                                ]
+                                [ path_ [d_ "M12 7v14"]
+                                , path_
+                                    [ d_
+                                        "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+                                    ]
+                                ]
+                            ]
+                        ]
+                    , div_
+                        [class_ "p-4"]
+                        [ div_
+                            [ class_ "flex w-fit items-stretch gap-2" ]
+                            [ button_
+                                [ aria_ "label" "Go Back"
+                                , class_ "btn-icon-outline"
+                                , type_ "button"
+                                ]
+                                [ svg_
+                                    [ strokeLinejoin_ "round"
+                                    , strokeLinecap_ "round"
+                                    , strokeWidth_ "2"
+                                    , stroke_ "currentColor"
+                                    , fill_ "none"
+                                    , viewBox_ "0 0 24 24"
+                                    , height_ "24"
+                                    , width_ "24"
+                                    , xmlns_ "http://www.w3.org/2000/svg"
+                                    ]
+                                    [ path_ [d_ "m12 19-7-7 7-7"]
+                                    , path_ [d_ "M19 12H5"]
+                                    ]
+                                ]
+                            , div_
+                                [class_ "button-group", role_ "group"]
+                                [ button_
+                                    [class_ "btn-outline", type_ "button"]
+                                    ["Archive"]
+                                , button_
+                                    [class_ "btn-outline", type_ "button"]
+                                    ["Report"]
+                                ]
+                            , div_
+                                [class_ "button-group", role_ "group"]
+                                [ button_
+                                    [class_ "btn-outline", type_ "button"]
+                                    ["Snooze"]
+                                , div_
+                                    [ class_ "dropdown-menu"
+                                    , id_ "dropdown-menu-931918"
+                                    ]
+                                    [ button_
+                                        [ class_ "btn-icon-outline"
+                                        , aria_ "expanded" "false"
+                                        , aria_ "controls" "dropdown-menu-931918-menu"
+                                        , aria_ "haspopup" "menu"
+                                        , id_ "dropdown-menu-931918-trigger"
+                                        , type_ "button"
+                                        ]
+                                        [ svg_
+                                            [ strokeLinejoin_ "round"
+                                            , strokeLinecap_ "round"
+                                            , strokeWidth_ "2"
+                                            , stroke_ "currentColor"
+                                            , fill_ "none"
+                                            , viewBox_ "0 0 24 24"
+                                            , height_ "24"
+                                            , width_ "24"
+                                            , xmlns_ "http://www.w3.org/2000/svg"
+                                            ]
+                                            [ circle_ [r_ "1", cy_ "12", cx_ "12"]
+                                            , circle_ [r_ "1", cy_ "12", cx_ "19"]
+                                            , circle_ [r_ "1", cy_ "12", cx_ "5"]
+                                            ]
+                                        ]
+                                    , div_
+                                        [ data_ "align" "end"
+                                        , aria_ "hidden" "true"
+                                        , data_ "popover" ""
+                                        , id_ "dropdown-menu-931918-popover"
+                                        ]
+                                        [ div_
+                                            [ aria_ "labelledby" "dropdown-menu-931918-trigger"
+                                            , id_ "dropdown-menu-931918-menu"
+                                            , role_ "menu"
+                                            ]
+                                            [ div_
+                                                [role_ "menuitem"]
+                                                [ svg_
+                                                    [ strokeLinejoin_ "round"
+                                                    , strokeLinecap_ "round"
+                                                    , strokeWidth_ "2"
+                                                    , stroke_ "currentColor"
+                                                    , fill_ "none"
+                                                    , viewBox_ "0 0 24 24"
+                                                    , height_ "24"
+                                                    , width_ "24"
+                                                    , xmlns_ "http://www.w3.org/2000/svg"
+                                                    ]
+                                                    [ path_
+                                                        [ d_
+                                                            "M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"
+                                                        ]
+                                                    , path_
+                                                        [d_ "m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"]
+                                                    , path_ [d_ "m16 19 2 2 4-4"]
+                                                    ]
+                                                , "Mark as Read"
+                                                ]
+                                            , div_
+                                                [role_ "menuitem"]
+                                                [ svg_
+                                                    [ strokeLinejoin_ "round"
+                                                    , strokeLinecap_ "round"
+                                                    , strokeWidth_ "2"
+                                                    , stroke_ "currentColor"
+                                                    , fill_ "none"
+                                                    , viewBox_ "0 0 24 24"
+                                                    , height_ "24"
+                                                    , width_ "24"
+                                                    , xmlns_ "http://www.w3.org/2000/svg"
+                                                    ]
+                                                    [ rect_
+                                                        [ rx_ "1"
+                                                        , y_ "3"
+                                                        , x_ "2"
+                                                        , height_ "5"
+                                                        , width_ "20"
+                                                        ]
+                                                    , path_
+                                                        [d_ "M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"]
+                                                    , path_ [d_ "M10 12h4"]
+                                                    ]
+                                                , "Archive"
+                                                ]
+                                            , hr_ [role_ "separator"]
+                                            , div_
+                                                [role_ "menuitem"]
+                                                [ svg_
+                                                    [ strokeLinejoin_ "round"
+                                                    , strokeLinecap_ "round"
+                                                    , strokeWidth_ "2"
+                                                    , stroke_ "currentColor"
+                                                    , fill_ "none"
+                                                    , viewBox_ "0 0 24 24"
+                                                    , height_ "24"
+                                                    , width_ "24"
+                                                    , xmlns_ "http://www.w3.org/2000/svg"
+                                                    ]
+                                                    [ circle_ [r_ "10", cy_ "12", cx_ "12"]
+                                                    , polyline_ [points_ "12 6 12 12 16 14"]
+                                                    ]
+                                                , "Snooze"
+                                                ]
+                                            , div_
+                                                [role_ "menuitem"]
+                                                [ svg_
+                                                    [ strokeLinejoin_ "round"
+                                                    , strokeLinecap_ "round"
+                                                    , strokeWidth_ "2"
+                                                    , stroke_ "currentColor"
+                                                    , fill_ "none"
+                                                    , viewBox_ "0 0 24 24"
+                                                    , height_ "24"
+                                                    , width_ "24"
+                                                    , xmlns_ "http://www.w3.org/2000/svg"
+                                                    ]
+                                                    [ path_ [d_ "M8 2v4"]
+                                                    , path_ [d_ "M16 2v4"]
+                                                    , rect_
+                                                        [ rx_ "2"
+                                                        , y_ "4"
+                                                        , x_ "3"
+                                                        , height_ "18"
+                                                        , width_ "18"
+                                                        ]
+                                                    , path_ [d_ "M3 10h18"]
+                                                    ]
+                                                , "Add to Calendar"
+                                                ]
+                                            , div_
+                                                [role_ "menuitem"]
+                                                [ svg_
+                                                    [ strokeLinejoin_ "round"
+                                                    , strokeLinecap_ "round"
+                                                    , strokeWidth_ "2"
+                                                    , stroke_ "currentColor"
+                                                    , fill_ "none"
+                                                    , viewBox_ "0 0 24 24"
+                                                    , height_ "24"
+                                                    , width_ "24"
+                                                    , xmlns_ "http://www.w3.org/2000/svg"
+                                                    ]
+                                                    [ path_ [d_ "M10 18h4"]
+                                                    , path_ [d_ "M11 6H3"]
+                                                    , path_ [d_ "M15 6h6"]
+                                                    , path_ [d_ "M18 9V3"]
+                                                    , path_ [d_ "M7 12h8"]
+                                                    ]
+                                                , "Add to List"
+                                                ]
+                                            , hr_ [role_ "separator"]
+                                            , div_
+                                                [ class_
+                                                    "text-destructive hover:bg-destructive/10 dark:hover:bg-destructive/20 focus:bg-destructive/10 dark:focus:bg-destructive/20 focus:text-destructive [&_svg]:!text-destructive"
+                                                , role_ "menuitem"
+                                                ]
+                                                [ svg_
+                                                    [ strokeLinejoin_ "round"
+                                                    , strokeLinecap_ "round"
+                                                    , strokeWidth_ "2"
+                                                    , stroke_ "currentColor"
+                                                    , fill_ "none"
+                                                    , viewBox_ "0 0 24 24"
+                                                    , height_ "24"
+                                                    , width_ "24"
+                                                    , xmlns_ "http://www.w3.org/2000/svg"
+                                                    ]
+                                                    [ path_ [d_ "M3 6h18"]
+                                                    , path_
+                                                        [d_ "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"]
+                                                    , path_ [d_ "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"]
+                                                    , line_
+                                                        [y2_ "17", y1_ "11", x2_ "10", x1_ "10"]
+                                                    , line_
+                                                        [y2_ "17", y1_ "11", x2_ "14", x1_ "14"]
+                                                    ]
+                                                , "Trash"
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                , br_ []
+                , hr_ [class_ "mt-20"]
+                , h1_
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "card"
                     ]
                     ["Card"]
