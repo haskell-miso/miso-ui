@@ -447,6 +447,7 @@ asideView = aside_
                     , li_ [] [a_ [ P.href_ "#badge"] ["Badge"]]
                     , li_ [] [a_ [ P.href_ "#breadcrumb"] ["Breadcrumb"]]
                     , li_ [] [a_ [ P.href_ "#button"] ["Button"]]
+                    , li_ [] [a_ [ P.href_ "#button-group"] ["Button Group"]]
                     , li_ [] [a_ [ P.href_ "#card"] ["Card"]]
                     , li_ [] [a_ [ P.href_ "#checkbox"] ["Checkbox"]]
                     , li_ [] [a_ [ P.href_ "#combobox"] ["Combobox"]]
