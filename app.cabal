@@ -54,7 +54,7 @@ executable app
     wasm, options, js, cpp
   main-is:
     Main.hs
-  build-depends:, base < 5, bytestring, jsaddle, jsaddle-wasm, miso, miso-ui
+  build-depends: base < 5, bytestring, jsaddle, miso, miso-ui
   js-sources:
     js/util.js
   hs-source-dirs:
@@ -68,10 +68,10 @@ executable app
 
 executable prerender
   import:
-    options, cpp
+    wasm, options, cpp
   main-is:
     Main.hs
-  build-depends:, base < 5, bytestring, bytestring, bytestring, jsaddle, miso, miso-ui
+  build-depends: base < 5, bytestring, bytestring, bytestring, jsaddle, miso, miso-ui
   js-sources:
     js/util.js
   hs-source-dirs:
@@ -92,7 +92,7 @@ library
     -Wall
   hs-source-dirs:
     lib
-  build-depends:, base < 5, bytestring, jsaddle, miso
+  build-depends: base < 5, bytestring, jsaddle, miso
   exposed-modules:
     Miso.UI
     Miso.UI.Accordion
