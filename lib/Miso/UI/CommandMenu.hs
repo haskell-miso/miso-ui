@@ -46,14 +46,14 @@ commandMenuComponent = component "" update_ $ \_ -> view_
 view_ :: View m Action
 view_ = section_
     [ id_ "command-menu"
-    , class_ "w-full rounded-lg border scroll-mt-14"
+    , class_ "w-full rounded-lg scroll-mt-14"
     ]
     [ button_
       [ onClickWith (ShowDialog "demo-command-dialog")
       , class_ "btn-outline"
       , type_ "button"
       ]
-      [ "Open command menu"
+      [ "Open Command Menu"
       , kbd_ [class_ "kbd"] ["⌘J"]
       ]
     , dialog_
@@ -86,6 +86,7 @@ view_ = section_
                 , aria_ "expanded" "true"
                 , role_ "combobox"
                 , aria_ "autocomplete" "list"
+                , onClickWithOptions stopPropagation NoOp
                 , spellcheck_ False
                 , autocorrect_ False
                 , autocomplete_ False
