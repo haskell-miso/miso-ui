@@ -461,6 +461,7 @@ asideView = aside_
                     , li_ [] [a_ [ P.href_ "#select"] ["Select"]]
                     , li_ [] [a_ [ P.href_ "#skeleton"] ["Skeleton"]]
                     , li_ [] [a_ [ P.href_ "#slider"] ["Slider"]]
+                    , li_ [] [a_ [ P.href_ "#spinner"] ["Spinner"]]
                     , li_ [] [a_ [ P.href_ "#switch"] ["Switch"]]
                     , li_ [] [a_ [ P.href_ "#table"] ["Table"]]
                     , li_ [] [a_ [ P.href_ "#tabs"] ["Tabs"]]
