@@ -3395,6 +3395,174 @@ kitchenSinkPage = div_
                 , hr_ [class_ "mt-20"]
                 , h1_
                     [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
+                    , id_ "input-group"
+                    ]
+                    ["Input Group"]
+                , section_
+                    [ class_ "w-full rounded-lg border scroll-mt-14"
+                    ]
+                    [ header_
+                        [ class_
+                            "border-b px-4 py-3 flex items-center justify-between"
+                        ]
+                        [ h2_ [class_ "text-sm font-medium"] ["Input Group"]
+                        , a_
+                            [ data_ "side" "left"
+                            , data_ "tooltip" "See documentation"
+                            , class_
+                                "text-muted-foreground hover:text-foreground"
+                            , href_ "#input-group"
+                            ]
+                            [ svg_
+                                [ class_ "size-4"
+                                , strokeLinejoin_ "round"
+                                , strokeLinecap_ "round"
+                                , strokeWidth_ "2"
+                                , stroke_ "currentColor"
+                                , fill_ "none"
+                                , viewBox_ "0 0 24 24"
+                                , height_ "24"
+                                , width_ "24"
+                                , xmlns_ "http://www.w3.org/2000/svg"
+                                ]
+                                [ path_ [d_ "M12 7v14"]
+                                , path_
+                                    [ d_
+                                        "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+                                    ]
+                                ]
+                            ]
+                        ]
+                    , div_
+                        [class_ "p-4"]
+                        [ div_
+                          [ class_ "relative" ]
+                          [ textarea_
+                              [ placeholder_ "console.log('Hello, world!')."
+                              , class_ "textarea pt-15 pb-17 min-h-77"
+                              ]
+                              []
+                          , header_
+                              [ class_
+                                  "absolute top-0 flex items-center w-full gap-2 p-3 border-b"
+                              ]
+                              [ svg_
+                                  [ class_
+                                      "tabler-icon tabler-icon-brand-javascript size-4 text-muted-foreground"
+                                  , strokeLinejoin_ "round"
+                                  , strokeLinecap_ "round"
+                                  , strokeWidth_ "2"
+                                  , stroke_ "currentColor"
+                                  , fill_ "none"
+                                  , viewBox_ "0 0 24 24"
+                                  , height_ "24"
+                                  , width_ "24"
+                                  , xmlns_ "http://www.w3.org/2000/svg"
+                                  ]
+                                  [ path_
+                                      [d_ "M20 4l-2 14.5l-6 2l-6 -2l-2 -14.5z"]
+                                  , path_ [d_ "M7.5 8h3v8l-2 -1"]
+                                  , path_
+                                      [ d_
+                                          "M16.5 8h-2.5a.5 .5 0 0 0 -.5 .5v3a.5 .5 0 0 0 .5 .5h1.423a.5 .5 0 0 1 .495 .57l-.418 2.93l-2 .5"
+                                      ]
+                                  ]
+                              , span_
+                                  [ class_
+                                      "font-mono text-sm text-muted-foreground mr-auto"
+                                  ]
+                                  ["script.js"]
+                              , button_
+                                  [ class_
+                                      "btn-sm-icon-ghost text-muted-foreground hover:text-accent-foreground size-6"
+                                  ]
+                                  [ svg_
+                                      [ strokeLinejoin_ "round"
+                                      , strokeLinecap_ "round"
+                                      , strokeWidth_ "2"
+                                      , stroke_ "currentColor"
+                                      , fill_ "none"
+                                      , viewBox_ "0 0 24 24"
+                                      , height_ "24"
+                                      , width_ "24"
+                                      , xmlns_ "http://www.w3.org/2000/svg"
+                                      ]
+                                      [ path_
+                                          [ d_
+                                              "M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"
+                                          ]
+                                      , path_ [d_ "M3 3v5h5"]
+                                      , path_
+                                          [ d_
+                                              "M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"
+                                          ]
+                                      , path_ [d_ "M16 16h5v5"]
+                                      ]
+                                  ]
+                              , button_
+                                  [ class_
+                                      "btn-sm-icon-ghost text-muted-foreground hover:text-accent-foreground size-6"
+                                  ]
+                                  [ svg_
+                                      [ strokeLinejoin_ "round"
+                                      , strokeLinecap_ "round"
+                                      , strokeWidth_ "2"
+                                      , stroke_ "currentColor"
+                                      , fill_ "none"
+                                      , viewBox_ "0 0 24 24"
+                                      , height_ "24"
+                                      , width_ "24"
+                                      , xmlns_ "http://www.w3.org/2000/svg"
+                                      ]
+                                      [ rect_
+                                          [ ry_ "2"
+                                          , rx_ "2"
+                                          , y_ "8"
+                                          , x_ "8"
+                                          , height_ "14"
+                                          , width_ "14"
+                                          ]
+                                      , path_
+                                          [ d_
+                                              "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+                                          ]
+                                      ]
+                                  ]
+                              ]
+                          , footer_
+                              [ class_
+                                  "absolute bottom-0 flex items-center w-full gap-2 p-3 border-t"
+                              ]
+                              [ span_
+                                  [class_ "text-sm text-muted-foreground mr-auto"]
+                                  ["Line 1, Column 1"]
+                              , button_
+                                  [class_ "btn-sm", type_ "button"]
+                                  [ "Run"
+                                  , svg_
+                                      [ strokeLinejoin_ "round"
+                                      , strokeLinecap_ "round"
+                                      , strokeWidth_ "2"
+                                      , stroke_ "currentColor"
+                                      , fill_ "none"
+                                      , viewBox_ "0 0 24 24"
+                                      , height_ "24"
+                                      , width_ "24"
+                                      , xmlns_ "http://www.w3.org/2000/svg"
+                                      ]
+                                      [ polyline_ [points_ "9 10 4 15 9 20"]
+                                      , path_ [d_ "M20 4v7a4 4 0 0 1-4 4H4"]
+                                      ]
+                                  ]
+                              ]
+                          ]
+                        ]
+                    ]
+
+                , br_ []
+                , hr_ [class_ "mt-20"]
+                , h1_
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "label"
                     ]
                     ["Label"]

@@ -456,6 +456,7 @@ asideView = aside_
                     , li_ [] [a_ [ P.href_ "#empty"] ["Empty"]]
                     , li_ [] [a_ [ P.href_ "#form"] ["Form"]]
                     , li_ [] [a_ [ P.href_ "#input"] ["Input"]]
+                    , li_ [] [a_ [ P.href_ "#input-group"] ["Input Group"]]
                     , li_ [] [a_ [ P.href_ "#kbd"] ["Kbd"]]
                     , li_ [] [a_ [ P.href_ "#label"] ["Label"]]
                     , li_ [] [a_ [ P.href_ "#pagination"] ["Pagination"]]
