@@ -4342,6 +4342,110 @@ kitchenSinkPage = div_
                 , hr_ [class_ "mt-20"]
                 , h1_
                     [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
+                    , id_ "spinner"
+                    ]
+                    ["Spinner"]
+                , section_
+                    [ class_ "w-full rounded-lg border scroll-mt-14"
+                    ]
+                    [ header_
+                        [ class_
+                            "border-b px-4 py-3 flex items-center justify-between"
+                        ]
+                        [ h2_ [class_ "text-sm font-medium"] ["Spinner"]
+                        , a_
+                            [ data_ "side" "left"
+                            , data_ "tooltip" "See documentation"
+                            , class_
+                                "text-muted-foreground hover:text-foreground"
+                            , href_ "#spinner"
+                            ]
+                            [ svg_
+                                [ class_ "size-4"
+                                , strokeLinejoin_ "round"
+                                , strokeLinecap_ "round"
+                                , strokeWidth_ "2"
+                                , stroke_ "currentColor"
+                                , fill_ "none"
+                                , viewBox_ "0 0 24 24"
+                                , height_ "24"
+                                , width_ "24"
+                                , xmlns_ "http://www.w3.org/2000/svg"
+                                ]
+                                [ path_ [d_ "M12 7v14"]
+                                , path_
+                                    [ d_
+                                        "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+                                    ]
+                                ]
+                            ]
+                        ]
+                    , div_
+                        [class_ "p-4"]
+                        [ article_
+                            [ class_
+                                "group/item flex items-center border text-sm rounded-md transition-colors [a]:hover:bg-accent/50 [a]:transition-colors duration-100 flex-wrap outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] border-border p-4 gap-4"
+                            ]
+                            [ div_
+                                [ class_
+                                    "flex shrink-0 items-center justify-center gap-2 self-start [&_svg]:pointer-events-none size-8 border rounded-md bg-muted [&_svg:not([class*='size-'])]:size-4"
+                                ]
+                                [ svg_
+                                    [ class_ "animate-spin size-4 text-muted-foreground"
+                                    , aria_ "label" "Loading"
+                                    , role_ "status"
+                                    , strokeLinejoin_ "round"
+                                    , strokeLinecap_ "round"
+                                    , strokeWidth_ "2"
+                                    , stroke_ "currentColor"
+                                    , fill_ "none"
+                                    , viewBox_ "0 0 24 24"
+                                    , height_ "24"
+                                    , width_ "24"
+                                    , xmlns_ "http://www.w3.org/2000/svg"
+                                    ]
+                                    [path_ [d_ "M21 12a9 9 0 1 1-6.219-8.56"]]
+                                ]
+                            , div_
+                                [class_ "flex flex-1 flex-col gap-1"]
+                                [ h3_
+                                    [ class_
+                                        "flex w-fit items-center gap-2 text-sm leading-snug font-medium"
+                                    ]
+                                    ["Downloading..."]
+                                , p_
+                                    [ class_
+                                        "text-muted-foreground line-clamp-2 text-sm leading-normal font-normal text-balance [&>a:hover]:text-primary [&>a]:underline [&>a]:underline-offset-4"
+                                    ]
+                                    ["129 MB / 1000 MB"]
+                                ]
+                            , button_
+                                [class_ "btn-sm-outline self-start"]
+                                ["Cancel"]
+                            , footer_
+                                [ class_
+                                    "flex basis-full items-center justify-between gap-2"
+                                ]
+                                [ div_
+                                    [ class_
+                                        "bg-primary/20 relative h-2 w-full overflow-hidden rounded-full"
+                                    ]
+                                    [ div_
+                                        [ CSS.style_ ["width" =: "13%"]
+                                        , class_
+                                            "bg-primary h-full w-full flex-1 transition-all"
+                                        , id_ "demo-progress"
+                                        ]
+                                        []
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                , br_ []
+                , hr_ [class_ "mt-20"]
+                , h1_
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "switch"
                     ]
                     ["Switch"]
