@@ -3277,68 +3277,6 @@ kitchenSinkPage = div_
                 , hr_ [class_ "mt-20"]
                 , h1_
                     [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
-                    , id_ "kbd"
-                    ]
-                    ["Kbd"]
-                , section_
-                    [ class_ "w-full rounded-lg border scroll-mt-14"
-                    ]
-                    [ header_
-                        [ class_
-                            "border-b px-4 py-3 flex items-center justify-between"
-                        ]
-                        [ h2_ [class_ "text-sm font-medium"] ["Kbd"]
-                        , a_
-                            [ data_ "side" "left"
-                            , data_ "tooltip" "See documentation"
-                            , class_
-                                "text-muted-foreground hover:text-foreground"
-                            , href_ "#kbd"
-                            ]
-                            [ svg_
-                                [ class_ "size-4"
-                                , strokeLinejoin_ "round"
-                                , strokeLinecap_ "round"
-                                , strokeWidth_ "2"
-                                , stroke_ "currentColor"
-                                , fill_ "none"
-                                , viewBox_ "0 0 24 24"
-                                , height_ "24"
-                                , width_ "24"
-                                , xmlns_ "http://www.w3.org/2000/svg"
-                                ]
-                                [ path_ [d_ "M12 7v14"]
-                                , path_
-                                    [ d_
-                                        "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
-                                    ]
-                                ]
-                            ]
-                        ]
-                    , div_
-                        [class_ "p-4"]
-                        [ div_
-                            [class_ "flex flex-col items-center gap-4"]
-                            [ span_
-                                [class_ "inline-flex items-center gap-1"]
-                                [ kbd_ [class_ "kbd"] ["⌘"]
-                                , kbd_ [class_ "kbd"] ["⇧"]
-                                , kbd_ [class_ "kbd"] ["⌥"]
-                                , kbd_ [class_ "kbd"] ["⌃"]
-                                ]
-                            , span_
-                                [class_ "inline-flex items-center gap-1"]
-                                [ kbd_ [class_ "kbd"] ["Ctrl"]
-                                , span_ [] ["+"]
-                                , kbd_ [class_ "kbd"] ["B"]
-                                ]
-                            ]
-                        ]
-                    ]
-                , br_ []
-                , hr_ [class_ "mt-20"]
-                , h1_
-                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
                     , id_ "input"
                     ]
                     ["Input"]
@@ -3605,7 +3543,68 @@ kitchenSinkPage = div_
                           ]
                         ]
                     ]
-
+                , br_ []
+                , hr_ [class_ "mt-20"]
+                , h1_
+                    [ class_ "text-3xl font-semibold tracking-tight scroll-mt-14"
+                    , id_ "kbd"
+                    ]
+                    ["Kbd"]
+                , section_
+                    [ class_ "w-full rounded-lg border scroll-mt-14"
+                    ]
+                    [ header_
+                        [ class_
+                            "border-b px-4 py-3 flex items-center justify-between"
+                        ]
+                        [ h2_ [class_ "text-sm font-medium"] ["Kbd"]
+                        , a_
+                            [ data_ "side" "left"
+                            , data_ "tooltip" "See documentation"
+                            , class_
+                                "text-muted-foreground hover:text-foreground"
+                            , href_ "#kbd"
+                            ]
+                            [ svg_
+                                [ class_ "size-4"
+                                , strokeLinejoin_ "round"
+                                , strokeLinecap_ "round"
+                                , strokeWidth_ "2"
+                                , stroke_ "currentColor"
+                                , fill_ "none"
+                                , viewBox_ "0 0 24 24"
+                                , height_ "24"
+                                , width_ "24"
+                                , xmlns_ "http://www.w3.org/2000/svg"
+                                ]
+                                [ path_ [d_ "M12 7v14"]
+                                , path_
+                                    [ d_
+                                        "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+                                    ]
+                                ]
+                            ]
+                        ]
+                    , div_
+                        [class_ "p-4"]
+                        [ div_
+                            [class_ "flex flex-col items-center gap-4"]
+                            [ span_
+                                [class_ "inline-flex items-center gap-1"]
+                                [ kbd_ [class_ "kbd"] ["⌘"]
+                                , kbd_ [class_ "kbd"] ["⇧"]
+                                , kbd_ [class_ "kbd"] ["⌥"]
+                                , kbd_ [class_ "kbd"] ["⌃"]
+                                ]
+                            , span_
+                                [class_ "inline-flex items-center gap-1"]
+                                [ kbd_ [class_ "kbd"] ["Ctrl"]
+                                , span_ [] ["+"]
+                                , kbd_ [class_ "kbd"] ["B"]
+                                ]
+                            ]
+                        ]
+                    ]
                 , br_ []
                 , hr_ [class_ "mt-20"]
                 , h1_
