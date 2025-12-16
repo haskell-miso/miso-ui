@@ -115,7 +115,7 @@ kitchenSinkPage = div_
                             ]
                         ]
                     , div_
-                        [class_ "p-4"] +> alertDialogComponent
+                        [class_ "p-4"] [ mount alertDialogComponent ]
                         ]
                 , br_ []
                 , hr_ [class_ "mt-20"]
@@ -1931,7 +1931,7 @@ kitchenSinkPage = div_
                                 ]
                             ]
                         ]
-                    , div_ [class_ "p-4"] +> commandMenuComponent
+                    , div_ [class_ "p-4"] [ mount commandMenuComponent ]
                     ]
                 , br_ []
                 , hr_ [class_ "mt-20"]
@@ -1940,7 +1940,7 @@ kitchenSinkPage = div_
                     , id_ "dialog"
                     ]
                     ["Dialog"]
-                , div_ [] +> dialogComponent
+                , div_ [] [ mount dialogComponent ]
                 , br_ []
                 , hr_ [class_ "mt-20"]
                 , h1_
