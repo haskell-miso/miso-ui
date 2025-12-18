@@ -193,7 +193,7 @@ topSection = div_
                 , data_ "tooltip" "Toggle dark mode"
                 , aria_ "label" "Toggle dark mode"
                 , type_ "button"
-                , onClick ToggleDarkMode
+                , onClickCapture ToggleDarkMode
                 ]
                 [ span_
                     [class_ "hidden dark:block"]
