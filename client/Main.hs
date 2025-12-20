@@ -43,7 +43,7 @@ withJS action = void $ do
 -----------------------------------------------------------------------------
 main :: IO ()
 main = run $ withJS $ startApp app
-#ifndef WASM
+#ifdef VANILLA
   { styles =
       [ Href "/assets/styles.css"
       , Href "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css"
