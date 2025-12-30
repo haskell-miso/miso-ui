@@ -37,8 +37,6 @@ common wasm
   if arch(wasm32)
     ghc-options:
       -no-hs-main -optl-mexec-model=reactor "-optl-Wl,--export=hs_start"
-    build-depends:
-      jsaddle-wasm >= 0.1.2 && < 0.2
 
 common js
   if arch(javascript)
@@ -50,7 +48,7 @@ executable app
     wasm, options, js, cpp
   main-is:
     Main.hs
-  build-depends: base < 5, bytestring, jsaddle, miso, miso-ui
+  build-depends: base < 5, bytestring, miso, miso-ui
   js-sources:
     js/util.js
   hs-source-dirs:
@@ -67,7 +65,7 @@ executable prerender
     wasm, options, cpp
   main-is:
     Main.hs
-  build-depends: base < 5, bytestring, bytestring, bytestring, jsaddle, miso, miso-ui
+  build-depends: base < 5, bytestring, bytestring, bytestring, miso, miso-ui
   js-sources:
     js/util.js
   hs-source-dirs:
@@ -88,7 +86,7 @@ library
     -Wall
   hs-source-dirs:
     lib
-  build-depends: base < 5, bytestring, jsaddle, miso
+  build-depends: base < 5, bytestring, miso
   exposed-modules:
     Miso.UI
     Miso.UI.Accordion
