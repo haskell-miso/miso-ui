@@ -17,7 +17,6 @@ module Miso.UI.AlertDialog
   ) where
 -----------------------------------------------------------------------------
 import           Control.Monad
-import           Language.Javascript.JSaddle ((#), jsg)
 -----------------------------------------------------------------------------
 import           Miso
 import qualified Miso.Html.Element as H
@@ -44,7 +43,7 @@ alertDialogComponent = vcomp
       void $ dialogRef # ("showModal" :: MisoString) $ ()
 
     update_ CloseDialog = io_ $ do
-      dialog <- jsg @MisoString "document"
+      dialog <- jsg "document"
         # ("getElementById" :: MisoString)
         $ ["alert-dialog-demo" :: MisoString]
       void $ dialog # ("close" :: MisoString) $ ()

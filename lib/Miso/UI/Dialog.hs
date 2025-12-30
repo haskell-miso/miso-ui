@@ -22,7 +22,6 @@ import           Miso.Lens
 import qualified Miso.CSS as CSS
 -----------------------------------------------------------------------------
 import           Control.Monad
-import           Language.Javascript.JSaddle ((#), jsg)
 -----------------------------------------------------------------------------
 data Action
   = ShowDialog MisoString DOMRef
@@ -42,7 +41,7 @@ dialogComponent = component "" update_ $ \_ -> view_
     update_ CloseDialog = do
       sel <- use this
       io_ $ do
-        dialog <- jsg @MisoString "document"
+        dialog <- jsg "document"
           # ("getElementById" :: MisoString)
           $ [sel :: MisoString]
         void $ dialog # ("close" :: MisoString) $ ()
