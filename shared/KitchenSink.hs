@@ -1940,7 +1940,7 @@ kitchenSinkPage = div_
                     , id_ "dialog"
                     ]
                     ["Dialog"]
-                , div_ [] [ mount dialogComponent ]
+                , mount dialogComponent
                 , br_ []
                 , hr_ [class_ "mt-20"]
                 , h1_

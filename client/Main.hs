@@ -13,7 +13,6 @@
 module Main where
 -----------------------------------------------------------------------------
 import           Control.Monad
-import           Language.Javascript.JSaddle
 import           Prelude hiding ((.))
 -----------------------------------------------------------------------------
 import           Miso
@@ -22,27 +21,21 @@ import           Client (app)
 -----------------------------------------------------------------------------
 #ifndef GHCJS_BOTH
 #ifdef WASM
-import qualified Language.Javascript.JSaddle.Wasm.TH as JSaddle.Wasm.TH
 -----------------------------------------------------------------------------
 foreign export javascript "hs_start" main :: IO ()
 #else
-import           Data.FileEmbed (embedStringFile)
 #endif
 #endif
 -----------------------------------------------------------------------------
-withJS :: JSM a -> JSM ()
+withJS :: IO a -> IO ()
 withJS action = void $ do
-#ifndef GHCJS_BOTH
 #ifdef WASM
-  $(JSaddle.Wasm.TH.evalFile "js/util.js")
-#else
-  _ <- eval ($(embedStringFile "js/util.js") :: MisoString)
-#endif
+  $(evalFile "js/util.js")
 #endif
   action
 -----------------------------------------------------------------------------
 main :: IO ()
-main = run $ withJS $ startApp app
+main = run $ withJS $ startApp app { logLevel = DebugAll }
 #ifdef VANILLA
   { styles =
       [ Href "/assets/styles.css"

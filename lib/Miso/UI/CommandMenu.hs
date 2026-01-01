@@ -18,7 +18,6 @@ import           Miso.Svg.Property hiding (path_)
 import           Miso.Lens
 -----------------------------------------------------------------------------
 import           Control.Monad
-import           Language.Javascript.JSaddle ((#), jsg)
 -----------------------------------------------------------------------------
 data Action
   = ShowDialog MisoString DOMRef
@@ -38,7 +37,7 @@ commandMenuComponent = component "" update_ $ \_ -> view_
     update_ CloseDialog = do
       sel <- use this
       io_ $ do
-        dialog <- jsg @MisoString "document"
+        dialog <- jsg "document"
           # ("getElementById" :: MisoString)
           $ [sel :: MisoString]
         void $ dialog # ("close" :: MisoString) $ ()

@@ -13,7 +13,6 @@
 module Client where
 -----------------------------------------------------------------------------
 import           Control.Monad
-import           Language.Javascript.JSaddle
 import           Prelude hiding ((.))
 -----------------------------------------------------------------------------
 import           Miso.Html hiding (data_)
@@ -69,7 +68,7 @@ app = component emptyModel update_ homeView
              ! ("classList" :: MisoString)
              # ("add" :: MisoString) $ ["theme-" <> theme]
 -----------------------------------------------------------------------------
-toggleDarkMode :: JSM ()
+toggleDarkMode :: IO ()
 toggleDarkMode =
   dispatchEvent =<<
     newCustomEvent ("basecoat:theme" :: MisoString)
