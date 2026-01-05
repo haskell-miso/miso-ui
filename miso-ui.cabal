@@ -70,7 +70,7 @@ executable prerender
     wasm, options, cpp
   main-is:
     Main.hs
-  build-depends: base < 5, bytestring, bytestring, bytestring, miso, miso-ui
+  build-depends: base < 5, bytestring, miso, miso-ui
   js-sources:
     js/util.js
   hs-source-dirs:
