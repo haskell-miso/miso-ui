@@ -35,7 +35,7 @@ withJS action = void $ do
   action
 -----------------------------------------------------------------------------
 main :: IO ()
-main = run $ withJS $ startApp app { logLevel = DebugAll }
+main = withJS $ startApp app { logLevel = DebugAll }
 #ifdef VANILLA
   { styles =
       [ Href "/assets/styles.css"

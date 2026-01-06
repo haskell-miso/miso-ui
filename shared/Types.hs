@@ -18,6 +18,7 @@ data Action
   | InitSlider DOMRef
   | DestroySlider DOMRef
   | CopyButton DOMRef
+  | ScrollIntoView
   | Toaster { category, title, description, label :: MisoString }
 -----------------------------------------------------------------------------
 data Model

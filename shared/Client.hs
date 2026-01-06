@@ -33,9 +33,15 @@ currentPage :: Lens Model Page
 currentPage = lens _currentPage $ \r x -> r { _currentPage = x }
 -----------------------------------------------------------------------------
 app :: Component parent Model Action
-app = component emptyModel update_ homeView
+app = (component emptyModel update_ homeView) { initialAction = Just ScrollIntoView }
   where
     update_ = \case
+      ScrollIntoView -> io_ $ do
+        getURI >>= inline
+          """
+          const element = document.getElementById (uriFragment.slice(1));
+          if (element) element.scrollIntoView();
+          """ :: IO ()
       CopyButton domRef ->
          io_ $ global # ("copyButton" :: MisoString) $ [domRef]
       Toaster {..} -> do
