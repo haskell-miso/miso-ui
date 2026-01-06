@@ -12,7 +12,7 @@ import           Miso.Svg.Element
 import           Miso.Svg.Property hiding (path_)
 -----------------------------------------------------------------------------
 import           Miso.UI.Alert (alertSample, alertCodeSample)
-import           Miso.UI.AlertDialog (alertDialogComponent)
+import           Miso.UI.AlertDialog (alertDialogComponent, alertDialogCodeSample)
 import           Miso.UI.Accordion (accordionSample, accordionCodeSample)
 import           Miso.UI.Dialog (dialogComponent)
 import           Miso.UI.Tabs (tabs_, tabList_, tabButton_, tab_)
@@ -77,46 +77,9 @@ kitchenSinkPage = div_
                     , id_ "alert-dialog"
                     ]
                     ["Alert Dialog"]
-                , section_
-                    [ class_ "w-full rounded-lg border scroll-mt-14"
+                , uiSection "Alert Dialog" "#alert-dialog"
+                    [ previewCode "alert-dialog" ("alert-dialog" +> alertDialogComponent) alertDialogCodeSample
                     ]
-                    [ header_
-                        [ class_
-                            "border-b px-4 py-3 flex items-center justify-between"
-                        ]
-                        [ h2_
-                            [class_ "text-sm font-medium"]
-                            ["Alert Dialog"]
-                        , a_
-                            [ data_ "side" "left"
-                            , data_ "tooltip" "See documentation"
-                            , class_
-                                "text-muted-foreground hover:text-foreground"
-                            , href_ "#alert-dialog"
-                            ]
-                            [ svg_
-                                [ class_ "size-4"
-                                , strokeLinejoin_ "round"
-                                , strokeLinecap_ "round"
-                                , strokeWidth_ "2"
-                                , stroke_ "currentColor"
-                                , fill_ "none"
-                                , viewBox_ "0 0 24 24"
-                                , height_ "24"
-                                , width_ "24"
-                                , xmlns_ "http://www.w3.org/2000/svg"
-                                ]
-                                [ path_ [d_ "M12 7v14"]
-                                , path_
-                                    [ d_
-                                        "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
-                                    ]
-                                ]
-                            ]
-                        ]
-                    , div_
-                        [class_ "p-4"] [ mount alertDialogComponent ]
-                        ]
                 , br_ []
                 , hr_ [class_ "mt-20"]
                 , h1_
