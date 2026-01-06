@@ -95,13 +95,11 @@ alertDialogCodeSample =
   import qualified Miso.Html as H
   import qualified Miso.Html.Property as P
   -----------------------------------------------------------------------------
-  import qualified Miso.UI.AlertDialog as AlertDialog
-  -----------------------------------------------------------------------------
   data Action
     = ShowModal DOMRef
     | CloseDialog
   -----------------------------------------------------------------------------
-  alertDialogComponent :: Component parent AlertDialog Action
+  alertDialogComponent :: Component parent () Action
   alertDialogComponent = vcomp
     where
       update_ (ShowModal domRef) = io_ $ do
