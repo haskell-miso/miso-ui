@@ -33,7 +33,7 @@ currentPage :: Lens Model Page
 currentPage = lens _currentPage $ \r x -> r { _currentPage = x }
 -----------------------------------------------------------------------------
 app :: Component parent Model Action
-app = (component emptyModel update_ homeView) { initialAction = Just ScrollIntoView }
+app = (component emptyModel update_ homeView) { mount = Just ScrollIntoView }
   where
     update_ = \case
       ScrollIntoView -> io_ $ do
