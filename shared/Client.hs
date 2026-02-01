@@ -39,43 +39,33 @@ app = (component emptyModel update_ homeView) { mount = Just ScrollIntoView }
   where
     update_ = \case
       ScrollIntoView -> io_ $ do
-          URI { uriFragment } <- getURI
-          () <- [js|
-            const element = document.getElementById (${uriFragment}.slice(1));
-            if (element) element.scrollIntoView();
-            return; |]
-          pure ()
-      CopyButton domRef -> io_ $ do
-          () <- [js| return copyButton(${domRef}); |]
-          pure ()
-      Toaster {..} -> io_ $ do
-          () <- [js| const msg = toastMsg (${category}, ${title}, ${description}, ${label});
-                     document.dispatchEvent (new CustomEvent('basecoat:toast', msg));
-                     return; |]
-          pure ()
-      InitSlider domRef -> io_ $ do
-         () <- [js| return initSlider(${domRef}); |]
-         pure ()
-      DestroySlider domRef -> io_ $ do
-         () <- [js| return deinitSlider(${domRef}); |]
-         pure ()
-      ToggleSidebar -> io_ $ do
-         () <- [js| document.dispatchEvent (new CustomEvent('basecoat:sidebar')); |]
-         pure ()
-      ToggleDarkMode -> io_ $ do
-         () <- [js| return document.dispatchEvent (new CustomEvent('basecoat:theme')); |]
-         pure ()
-      Highlight domRef -> io_ $ do
-         () <- [js| return hljs.highlightElement(${domRef}); |]
-         pure ()
-      ChangeTheme theme -> io_ $ do
-         () <- [js| document.documentElement.classList.forEach(c => {
-                      if (c.startsWith('theme-')) {
-                        document.documentElement.classList.remove(c);
-                      }
-                    });
-                    return document.documentElement.classList.add('theme-' + ${theme}); |]
-         pure ()
+        URI { uriFragment } <- getURI
+        [js|
+          const element = document.getElementById (${uriFragment}.slice(1));
+          if (element) element.scrollIntoView();
+          return; |]
+      CopyButton domRef ->
+        io_ [js| return copyButton(${domRef}); |]
+      Toaster {..} ->
+        io_ [js| const msg = toastMsg (${category}, ${title}, ${description}, ${label});
+                 return document.dispatchEvent (new CustomEvent('basecoat:toast', msg)); |]
+      InitSlider domRef ->
+        io_ [js| return initSlider(${domRef}); |]
+      DestroySlider domRef ->
+        io_ [js| return deinitSlider(${domRef}); |]
+      ToggleSidebar ->
+        io_ [js| document.dispatchEvent (new CustomEvent('basecoat:sidebar')); |]
+      ToggleDarkMode ->
+        io_ [js| return document.dispatchEvent (new CustomEvent('basecoat:theme')); |]
+      Highlight domRef ->
+        io_ [js| return hljs.highlightElement(${domRef}); |]
+      ChangeTheme theme ->
+        io_ [js| document.documentElement.classList.forEach(c => {
+                   if (c.startsWith('theme-')) {
+                     document.documentElement.classList.remove(c);
+                   }
+                 });
+                 return document.documentElement.classList.add('theme-' + ${theme}); |]
 -----------------------------------------------------------------------------
 withMainAs
   :: View Model Action
