@@ -156,7 +156,7 @@ indexHtml =
           max-width: 100%;
         }
       """
-     , body_ [] [ mount app ]
+     , body_ [] [ mount_ app ]
      , div_ [ class_ "toaster", id_ "toaster" ] []
    ]
  ]

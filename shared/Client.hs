@@ -1,7 +1,9 @@
 -----------------------------------------------------------------------------
 {-# LANGUAGE CPP                #-}
 {-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE QuasiQuotes        #-}
 {-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE NamedFieldPuns     #-}
 {-# LANGUAGE DeriveAnyClass     #-}
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TemplateHaskell    #-}
@@ -12,9 +14,9 @@
 -----------------------------------------------------------------------------
 module Client where
 -----------------------------------------------------------------------------
-import           Control.Monad
 import           Prelude hiding ((.))
 -----------------------------------------------------------------------------
+import           Miso.FFI.QQ (js)
 import           Miso.Html hiding (data_)
 import qualified Miso.Html as H
 import qualified Miso.Html.Property as P
@@ -37,47 +39,43 @@ app = (component emptyModel update_ homeView) { mount = Just ScrollIntoView }
   where
     update_ = \case
       ScrollIntoView -> io_ $ do
-        getURI >>= inline
-          """
-          const element = document.getElementById (uriFragment.slice(1));
-          if (element) element.scrollIntoView();
-          """ :: IO ()
-      CopyButton domRef ->
-         io_ $ global # ("copyButton" :: MisoString) $ [domRef]
-      Toaster {..} -> do
-        io_ $ do
-          msg <- global # ("toastMsg" :: MisoString) $ [category, title, description, label]
-          dispatchEvent =<< newCustomEvent ("basecoat:toast" :: MisoString, msg)
-      InitSlider domRef ->
-        io_ $ global # ("initSlider" :: MisoString) $ [domRef]
-      DestroySlider domRef ->
-        io_ $ global # ("deinitSlider" :: MisoString) $ [domRef]
-      ToggleSidebar ->
-        io_ $ do
-          dispatchEvent =<< newCustomEvent ("basecoat:sidebar" :: MisoString)
-      ToggleDarkMode ->
-        io_ toggleDarkMode
-      Highlight domRef -> io_ $ void $ do
-        hljs <- global ! ("hljs" :: MisoString)
-        hljs # ("highlightElement" :: MisoString) $ [domRef]
-      ChangeTheme theme -> do
-        io_ $ do
-          void $ eval ("""
-            document.documentElement.classList.forEach(c => {
-              if (c.startsWith('theme-')) {
-                 document.documentElement.classList.remove(c);
-              }
-            });
-          """ :: MisoString)
-          void $ jsg ("document" :: MisoString)
-             ! ("documentElement" :: MisoString)
-             ! ("classList" :: MisoString)
-             # ("add" :: MisoString) $ ["theme-" <> theme]
------------------------------------------------------------------------------
-toggleDarkMode :: IO ()
-toggleDarkMode =
-  dispatchEvent =<<
-    newCustomEvent ("basecoat:theme" :: MisoString)
+          URI { uriFragment } <- getURI
+          () <- [js|
+            const element = document.getElementById (${uriFragment}.slice(1));
+            if (element) element.scrollIntoView();
+            return; |]
+          pure ()
+      CopyButton domRef -> io_ $ do
+          () <- [js| return copyButton(${domRef}); |]
+          pure ()
+      Toaster {..} -> io_ $ do
+          () <- [js| const msg = toastMsg (${category}, ${title}, ${description}, ${label});
+                     document.dispatchEvent (new CustomEvent('basecoat:toast', msg));
+                     return; |]
+          pure ()
+      InitSlider domRef -> io_ $ do
+         () <- [js| return initSlider(${domRef}); |]
+         pure ()
+      DestroySlider domRef -> io_ $ do
+         () <- [js| return deinitSlider(${domRef}); |]
+         pure ()
+      ToggleSidebar -> io_ $ do
+         () <- [js| document.dispatchEvent (new CustomEvent('basecoat:sidebar')); |]
+         pure ()
+      ToggleDarkMode -> io_ $ do
+         () <- [js| return document.dispatchEvent (new CustomEvent('basecoat:theme')); |]
+         pure ()
+      Highlight domRef -> io_ $ do
+         () <- [js| return hljs.highlightElement(${domRef}); |]
+         pure ()
+      ChangeTheme theme -> io_ $ do
+         () <- [js| document.documentElement.classList.forEach(c => {
+                      if (c.startsWith('theme-')) {
+                        document.documentElement.classList.remove(c);
+                      }
+                    });
+                    return document.documentElement.classList.add('theme-' + ${theme}); |]
+         pure ()
 -----------------------------------------------------------------------------
 withMainAs
   :: View Model Action
