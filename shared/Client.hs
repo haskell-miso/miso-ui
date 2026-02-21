@@ -41,9 +41,13 @@ app = (component emptyModel update_ homeView) { mount = Just ScrollIntoView }
       ScrollIntoView -> io_ $ do
         URI { uriFragment } <- getURI
         [js|
-          const element = document.getElementById (${uriFragment}.slice(1));
-          if (element) element.scrollIntoView();
-          return; |]
+          const frag = ${uriFragment}.slice(1);
+          if (frag) {
+            const element = document.getElementById (frag);
+            if (element) element.scrollIntoView();
+          }
+          return;
+        |]
       CopyButton domRef ->
         io_ [js| return copyButton(${domRef}); |]
       Toaster {..} ->
