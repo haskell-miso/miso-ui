@@ -86,10 +86,10 @@ tab_ attrs kids =
     True
     [ -- P.aria_ "selected" "true"
       -- SP.tabindex_ "-1"
-      P.aria_ "labelledby" "demo-tabs-with-panels-tab-1"
-    , P.id_ "demo-tabs-with-panels-panel-1"
+--      P.aria_ "labelledby" "demo-tabs-with-panels-tab-1"
+--    , P.id_ "demo-tabs-with-panels-panel-1"
       -- dmj: these must match tabButton_ "controls"
-    , P.role_ "tabpanel"
+     P.role_ "tabpanel"
     ]
     kids
 -----------------------------------------------------------------------------
