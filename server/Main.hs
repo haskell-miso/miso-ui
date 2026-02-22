@@ -145,11 +145,6 @@ indexHtml =
            });
       })();
       """
-    , script_ [ type_ "module" ] """
-        import hljs from '@highlightjs/cdn-assets/es/core.js';
-        import javascript from '@highlightjs/cdn-assets/es/languages/haskell.min.js';
-        hljs.registerLanguage('haskell', haskell);
-      """
     , style_ [] """
         body {
           overflow-x: hidden;

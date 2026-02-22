@@ -1,6 +1,6 @@
 .PHONY= update build optim
 
-all: update build optim
+all: update build optim prerender
 
 js: update-js build-js
 
