@@ -27,15 +27,15 @@ foreign export javascript "hs_start" main :: IO ()
 #endif
 #endif
 -----------------------------------------------------------------------------
-withJS :: IO a -> IO ()
-withJS action = void $ do
+withLocalJS :: IO a -> IO ()
+withLocalJS action = void $ do
 #ifdef WASM
   $(evalFile "js/util.js")
 #endif
   action
 -----------------------------------------------------------------------------
 main :: IO ()
-main = withJS $ prerender defaultEvents app { logLevel = DebugAll }
+main = withLocalJS $ prerender defaultEvents app { logLevel = DebugAll }
 #ifdef VANILLA
   { styles =
       [ Href "/assets/styles.css"
