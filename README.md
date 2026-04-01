@@ -7,6 +7,10 @@
 <img width="841" height="567" alt="image" src="https://github.com/user-attachments/assets/9bea5783-848f-48fa-b2e0-7489c70ab821" />
 </a>
 
+### Installation
+
+To install and use [Basecoat](https://basecoatui.com/) see the [Installation](https://basecoatui.com/installation/) docs.
+
 ### Development
 
 Call `nix develop` to enter a shell with [GHC 9.12.2](https://haskell.org/ghc)
