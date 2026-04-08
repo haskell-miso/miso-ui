@@ -38,8 +38,8 @@ main :: IO ()
 main = withLocalJS $ prerender defaultEvents app { logLevel = DebugAll }
 #ifdef VANILLA
   { styles =
-      [ Href "/assets/styles.css"
-      , Href "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css"
+      [ Href "/assets/styles.css" False
+      , Href "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" False
       , Style """
           html, body {
             overflow-x: clip;
@@ -47,9 +47,9 @@ main = withLocalJS $ prerender defaultEvents app { logLevel = DebugAll }
         """
       ]
   , scripts =
-      [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.6/dist/js/basecoat.min.js"
-      , Src "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"
-      , Src "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/haskell.min.js"
+      [ Src "https://cdn.jsdelivr.net/npm/basecoat-css@0.3.6/dist/js/basecoat.min.js" False
+      , Src "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js" False
+      , Src "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/haskell.min.js" False
       , Script
         """
          (() => {

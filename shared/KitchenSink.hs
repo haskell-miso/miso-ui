@@ -3031,7 +3031,7 @@ kitchenSinkPage = div_
                                     , placeholder_ "I like to..."
                                     , id_ "demo-form-textarea"
                                     ]
-                                    []
+                                    mempty
                                 , p_
                                     [class_ "text-muted-foreground text-sm"]
                                     [ "You can @mention other users and organizations."
@@ -3389,7 +3389,7 @@ kitchenSinkPage = div_
                               [ placeholder_ "console.log('Hello, world!')."
                               , class_ "textarea pt-15 pb-17 min-h-77"
                               ]
-                              []
+                              mempty
                           , header_
                               [ class_
                                   "absolute top-0 flex items-center w-full gap-2 p-3 border-b"
@@ -3663,7 +3663,7 @@ kitchenSinkPage = div_
                                         , class_ "textarea"
                                         , id_ "label-demo-textarea"
                                         ]
-                                        []
+                                        mempty
                                     ]
                                 ]
                             ]
@@ -5645,13 +5645,13 @@ kitchenSinkPage = div_
                                 [ placeholder_ "Type your message here"
                                 , class_ "textarea"
                                 ]
-                                []
+                                mempty
                             , textarea_
                                 [ aria_ "invalid" "true"
                                 , placeholder_ "Type your message here"
                                 , class_ "textarea"
                                 ]
-                                []
+                                mempty
                             , div_
                                 [class_ "grid gap-3"]
                                 [ label_
@@ -5662,7 +5662,7 @@ kitchenSinkPage = div_
                                     , class_ "textarea"
                                     , id_ "textarea-demo-label"
                                     ]
-                                    []
+                                    mempty
                                 ]
                             , div_
                                 [class_ "grid gap-3"]
@@ -5676,7 +5676,7 @@ kitchenSinkPage = div_
                                     , class_ "textarea"
                                     , id_ "textarea-demo-label-and-description"
                                     ]
-                                    []
+                                    mempty
                                 , p_
                                     [class_ "text-muted-foreground text-sm"]
                                     ["Type your message and press enter to send."]
@@ -5692,7 +5692,7 @@ kitchenSinkPage = div_
                                     , class_ "textarea"
                                     , id_ "textarea-demo-disabled"
                                     ]
-                                    []
+                                    mempty
                                 ]
                             ]
                         ]

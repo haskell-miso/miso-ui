@@ -24,4 +24,4 @@ view_ =
   [ P.class_ "textarea"
   , P.placeholder_ "Type your message here"
   ]
-  []
+  mempty
