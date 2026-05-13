@@ -26,8 +26,7 @@ focusable_ :: MisoString -> Attribute action
 focusable_ = textProp "focusable"
 -----------------------------------------------------------------------------
 kitchenSinkPage :: View model Action
-kitchenSinkPage = div_
-    []
+kitchenSinkPage = vfrag
     [ div_
         [class_ "flex flex-col gap-4"]
         [ div_
