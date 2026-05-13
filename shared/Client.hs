@@ -74,7 +74,7 @@ app = (component emptyModel update_ homeView) { mount = Just ScrollIntoView }
 withMainAs
   :: View Model Action
   -> View Model Action
-withMainAs content = div_ []
+withMainAs content = vfrag
   [ asideView
   , main_
     [ id_ "content" ]
